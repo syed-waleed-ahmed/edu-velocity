@@ -1,0 +1,8 @@
+[
+  {
+    "capability_name": "Multi-language parent update translator",
+    "issue_type": "auth",
+    "severity": "medium",
+    "notes": "Detected during hello-world run for Multi-language parent update translator."
+  }
+]

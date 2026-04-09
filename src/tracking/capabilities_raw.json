@@ -1,0 +1,650 @@
+[
+    {
+        "capability_name":  "Weekly study plan generation",
+        "category":  "Knowledge",
+        "type":  "Skill",
+        "persona":  "student",
+        "input":  "syllabus and available hours",
+        "output":  {
+                       "summary":  "string",
+                       "study_plan":  [
+                                          {
+                                              "title":  "string",
+                                              "duration":  "string",
+                                              "objective":  "string"
+                                          }
+                                      ]
+                   },
+        "effort":  "S",
+        "risks":  [
+                      "generic pacing"
+                  ],
+        "dependencies":  [
+                             "lessonToStudyPlan"
+                         ],
+        "source":  "Claude Skill example/template",
+        "source_link":  "https://docs.anthropic.com/en/docs/claude-code/skills",
+        "replicate_as_playbook":  "Use lesson chunks to produce 4-session fixed template plan.",
+        "impact":  5,
+        "frequency":  5,
+        "feasibility":  5
+    },
+    {
+        "capability_name":  "Homework hint generator",
+        "category":  "Knowledge",
+        "type":  "Skill",
+        "persona":  "student",
+        "input":  "problem statement and attempted steps",
+        "output":  {
+                       "hint_levels":  [
+                                           "string"
+                                       ],
+                       "common_mistakes":  [
+                                               "string"
+                                           ]
+                   },
+        "effort":  "S",
+        "risks":  [
+                      "too much answer leakage"
+                  ],
+        "dependencies":  [
+                             "hint prompts"
+                         ],
+        "source":  "Claude Skill example/template",
+        "source_link":  "https://docs.anthropic.com/en/docs/claude-code/skills",
+        "replicate_as_playbook":  "Generate three hint depths before revealing full explanation.",
+        "impact":  5,
+        "frequency":  5,
+        "feasibility":  5
+    },
+    {
+        "capability_name":  "Lesson to flashcards",
+        "category":  "Creation",
+        "type":  "Skill",
+        "persona":  "student",
+        "input":  "lesson text",
+        "output":  {
+                       "flashcards":  [
+                                          {
+                                              "question":  "string",
+                                              "answer":  "string"
+                                          }
+                                      ]
+                   },
+        "effort":  "S",
+        "risks":  [
+                      "oversimplified cards"
+                  ],
+        "dependencies":  [
+                             "lessonToFlashcards"
+                         ],
+        "source":  "internally-derived playbook idea",
+        "source_link":  "https://www.atlassian.com/team-playbook",
+        "replicate_as_playbook":  "Map sentence keywords to Q/A pairs deterministically.",
+        "impact":  5,
+        "frequency":  4,
+        "feasibility":  5
+    },
+    {
+        "capability_name":  "Lesson to quiz",
+        "category":  "Creation",
+        "type":  "Skill",
+        "persona":  "student",
+        "input":  "lesson text",
+        "output":  {
+                       "quiz":  [
+                                    {
+                                        "question":  "string",
+                                        "options":  [
+                                                        "string"
+                                                    ],
+                                        "correct":  "string"
+                                    }
+                                ]
+                   },
+        "effort":  "S",
+        "risks":  [
+                      "weak distractors"
+                  ],
+        "dependencies":  [
+                             "lessonToQuiz"
+                         ],
+        "source":  "internally-derived playbook idea",
+        "source_link":  "https://www.atlassian.com/team-playbook",
+        "replicate_as_playbook":  "Extract keywords and use fixed multiple-choice templates.",
+        "impact":  5,
+        "frequency":  4,
+        "feasibility":  5
+    },
+    {
+        "capability_name":  "Lab report summarizer",
+        "category":  "Creation",
+        "type":  "Skill",
+        "persona":  "student",
+        "input":  "lab notes",
+        "output":  {
+                       "summary":  "string",
+                       "findings":  [
+                                        "string"
+                                    ],
+                       "limitations":  [
+                                           "string"
+                                       ]
+                   },
+        "effort":  "S",
+        "risks":  [
+                      "loss of detail"
+                  ],
+        "dependencies":  [
+                             "summary prompt"
+                         ],
+        "source":  "Claude Skill example/template",
+        "source_link":  "https://docs.anthropic.com/en/docs/claude-code/skills",
+        "replicate_as_playbook":  "Segment notes into findings, evidence, and limitations blocks.",
+        "impact":  4,
+        "frequency":  4,
+        "feasibility":  5
+    },
+    {
+        "capability_name":  "Assignment rubric feedback drafting",
+        "category":  "Creation",
+        "type":  "Skill",
+        "persona":  "teacher",
+        "input":  "submission and rubric",
+        "output":  {
+                       "criterion_feedback":  [
+                                                  {
+                                                      "criterion":  "string",
+                                                      "comment":  "string"
+                                                  }
+                                              ],
+                       "summary":  "string"
+                   },
+        "effort":  "M",
+        "risks":  [
+                      "tone mismatch"
+                  ],
+        "dependencies":  [
+                             "rubric prompt templates"
+                         ],
+        "source":  "internally-derived playbook idea",
+        "source_link":  "https://www.atlassian.com/team-playbook",
+        "replicate_as_playbook":  "Generate one feedback object per rubric criterion.",
+        "impact":  5,
+        "frequency":  5,
+        "feasibility":  4
+    },
+    {
+        "capability_name":  "Classroom discussion prompt builder",
+        "category":  "Engagement",
+        "type":  "Skill",
+        "persona":  "teacher",
+        "input":  "lesson objective and reading",
+        "output":  {
+                       "prompts":  [
+                                       "string"
+                                   ],
+                       "follow_ups":  [
+                                          "string"
+                                      ]
+                   },
+        "effort":  "S",
+        "risks":  [
+                      "repetitive prompts"
+                  ],
+        "dependencies":  [
+                             "discussion prompt bank"
+                         ],
+        "source":  "Claude Skill example/template",
+        "source_link":  "https://docs.anthropic.com/en/docs/claude-code/skills",
+        "replicate_as_playbook":  "Use objective taxonomy to emit starter and follow-up prompts.",
+        "impact":  4,
+        "frequency":  4,
+        "feasibility":  5
+    },
+    {
+        "capability_name":  "Parent communication draft",
+        "category":  "Connection",
+        "type":  "Skill",
+        "persona":  "teacher",
+        "input":  "progress notes",
+        "output":  {
+                       "drafts":  [
+                                      {
+                                          "subject":  "string",
+                                          "body":  "string"
+                                      }
+                                  ]
+                   },
+        "effort":  "S",
+        "risks":  [
+                      "missing sensitivity context"
+                  ],
+        "dependencies":  [
+                             "message templates"
+                         ],
+        "source":  "Claude Skill example/template",
+        "source_link":  "https://docs.anthropic.com/en/docs/claude-code/skills",
+        "replicate_as_playbook":  "Create supportive, neutral, and action-focused variants.",
+        "impact":  5,
+        "frequency":  4,
+        "feasibility":  5
+    },
+    {
+        "capability_name":  "Learning objective to activity mapper",
+        "category":  "Creation",
+        "type":  "Skill",
+        "persona":  "teacher",
+        "input":  "learning objectives",
+        "output":  {
+                       "activities":  [
+                                          {
+                                              "objective":  "string",
+                                              "activity":  "string",
+                                              "duration_minutes":  0
+                                          }
+                                      ]
+                   },
+        "effort":  "S",
+        "risks":  [
+                      "objective mismatch"
+                  ],
+        "dependencies":  [
+                             "pedagogy prompts"
+                         ],
+        "source":  "Claude Skill example/template",
+        "source_link":  "https://docs.anthropic.com/en/docs/claude-code/skills",
+        "replicate_as_playbook":  "Map each objective to one activity and one evidence check.",
+        "impact":  4,
+        "frequency":  4,
+        "feasibility":  5
+    },
+    {
+        "capability_name":  "Announcement clarity checker",
+        "category":  "Connection",
+        "type":  "Skill",
+        "persona":  "admin",
+        "input":  "announcement draft",
+        "output":  {
+                       "clarity_score":  0,
+                       "rewrite_suggestions":  [
+                                                   "string"
+                                               ]
+                   },
+        "effort":  "S",
+        "risks":  [
+                      "style over-correction"
+                  ],
+        "dependencies":  [
+                             "clarity rubric"
+                         ],
+        "source":  "internally-derived playbook idea",
+        "source_link":  "https://www.atlassian.com/team-playbook",
+        "replicate_as_playbook":  "Check reading level, action clarity, and deadline visibility.",
+        "impact":  3,
+        "frequency":  4,
+        "feasibility":  5
+    },
+    {
+        "capability_name":  "Drive material import",
+        "category":  "Connection",
+        "type":  "MCP",
+        "persona":  "student",
+        "input":  "drive source id",
+        "output":  {
+                       "id":  "string",
+                       "title":  "string",
+                       "content":  "string"
+                   },
+        "effort":  "M",
+        "risks":  [
+                      "auth scope mismatch"
+                  ],
+        "dependencies":  [
+                             "mockDriveClient"
+                         ],
+        "source":  "MCP server/library entry",
+        "source_link":  "https://modelcontextprotocol.io/introduction",
+        "setup_complexity":  "Medium",
+        "auth_model":  "OAuth",
+        "limits":  "Document fetch quotas",
+        "impact":  4,
+        "frequency":  4,
+        "feasibility":  4
+    },
+    {
+        "capability_name":  "LMS lesson import",
+        "category":  "Connection",
+        "type":  "MCP",
+        "persona":  "teacher",
+        "input":  "lms lesson id",
+        "output":  {
+                       "id":  "string",
+                       "course":  "string",
+                       "lessonText":  "string"
+                   },
+        "effort":  "M",
+        "risks":  [
+                      "rate limit spikes"
+                  ],
+        "dependencies":  [
+                             "mockLmsClient"
+                         ],
+        "source":  "MCP server/library entry",
+        "source_link":  "https://modelcontextprotocol.io/introduction",
+        "setup_complexity":  "Medium",
+        "auth_model":  "OAuth",
+        "limits":  "API request limits per minute",
+        "impact":  4,
+        "frequency":  4,
+        "feasibility":  4
+    },
+    {
+        "capability_name":  "Policy Q and A responder",
+        "category":  "Control",
+        "type":  "MCP",
+        "persona":  "admin",
+        "input":  "policy question",
+        "output":  {
+                       "answer":  "string",
+                       "citations":  [
+                                         "string"
+                                     ],
+                       "confidence":  0.0
+                   },
+        "effort":  "M",
+        "risks":  [
+                      "citation mismatch"
+                  ],
+        "dependencies":  [
+                             "policy index connector"
+                         ],
+        "source":  "MCP server/library entry",
+        "source_link":  "https://modelcontextprotocol.io/introduction",
+        "setup_complexity":  "Medium",
+        "auth_model":  "API key",
+        "limits":  "Index freshness constraints",
+        "impact":  5,
+        "frequency":  4,
+        "feasibility":  4
+    },
+    {
+        "capability_name":  "Attendance anomaly monitor",
+        "category":  "Control",
+        "type":  "MCP",
+        "persona":  "teacher",
+        "input":  "attendance feed",
+        "output":  {
+                       "anomalies":  [
+                                         {
+                                             "student_id":  "string",
+                                             "pattern":  "string",
+                                             "severity":  "string"
+                                         }
+                                     ]
+                   },
+        "effort":  "M",
+        "risks":  [
+                      "missing windows"
+                  ],
+        "dependencies":  [
+                             "attendance connector"
+                         ],
+        "source":  "MCP server/library entry",
+        "source_link":  "https://modelcontextprotocol.io/introduction",
+        "setup_complexity":  "Low",
+        "auth_model":  "OAuth",
+        "limits":  "Hourly sync delay",
+        "impact":  5,
+        "frequency":  4,
+        "feasibility":  4
+    },
+    {
+        "capability_name":  "Scholarship eligibility matcher",
+        "category":  "Conversion",
+        "type":  "MCP",
+        "persona":  "student",
+        "input":  "student profile",
+        "output":  {
+                       "eligible_programs":  [
+                                                 {
+                                                     "name":  "string",
+                                                     "deadline":  "string",
+                                                     "fit_reason":  "string"
+                                                 }
+                                             ]
+                   },
+        "effort":  "M",
+        "risks":  [
+                      "stale rules"
+                  ],
+        "dependencies":  [
+                             "scholarship connector"
+                         ],
+        "source":  "MCP server/library entry",
+        "source_link":  "https://modelcontextprotocol.io/introduction",
+        "setup_complexity":  "Medium",
+        "auth_model":  "API key",
+        "limits":  "Daily fetch quota",
+        "impact":  4,
+        "frequency":  3,
+        "feasibility":  4
+    },
+    {
+        "capability_name":  "Transcript key-point extractor",
+        "category":  "Knowledge",
+        "type":  "MCP",
+        "persona":  "student",
+        "input":  "lecture transcript",
+        "output":  {
+                       "key_points":  [
+                                          "string"
+                                      ],
+                       "glossary":  [
+                                        "string"
+                                    ]
+                   },
+        "effort":  "M",
+        "risks":  [
+                      "transcript noise"
+                  ],
+        "dependencies":  [
+                             "speech connector"
+                         ],
+        "source":  "MCP server/library entry",
+        "source_link":  "https://modelcontextprotocol.io/introduction",
+        "setup_complexity":  "High",
+        "auth_model":  "API key",
+        "limits":  "Audio duration caps",
+        "impact":  4,
+        "frequency":  4,
+        "feasibility":  3
+    },
+    {
+        "capability_name":  "Campus event personalization",
+        "category":  "Engagement",
+        "type":  "MCP",
+        "persona":  "student",
+        "input":  "student interests",
+        "output":  {
+                       "recommended_events":  [
+                                                  {
+                                                      "event_id":  "string",
+                                                      "reason":  "string"
+                                                  }
+                                              ]
+                   },
+        "effort":  "M",
+        "risks":  [
+                      "cold-start relevance"
+                  ],
+        "dependencies":  [
+                             "events connector"
+                         ],
+        "source":  "MCP server/library entry",
+        "source_link":  "https://modelcontextprotocol.io/introduction",
+        "setup_complexity":  "Low",
+        "auth_model":  "none",
+        "limits":  "Event feed freshness",
+        "impact":  3,
+        "frequency":  3,
+        "feasibility":  4
+    },
+    {
+        "capability_name":  "Multi-language parent update translator",
+        "category":  "Connection",
+        "type":  "MCP",
+        "persona":  "teacher",
+        "input":  "message and target language",
+        "output":  {
+                       "translated_message":  "string",
+                       "quality_notes":  [
+                                             "string"
+                                         ]
+                   },
+        "effort":  "S",
+        "risks":  [
+                      "nuance loss"
+                  ],
+        "dependencies":  [
+                             "translation connector"
+                         ],
+        "source":  "MCP server/library entry",
+        "source_link":  "https://modelcontextprotocol.io/introduction",
+        "setup_complexity":  "Low",
+        "auth_model":  "API key",
+        "limits":  "Character limits",
+        "impact":  5,
+        "frequency":  4,
+        "feasibility":  5
+    },
+    {
+        "capability_name":  "Course prerequisite advisor",
+        "category":  "Knowledge",
+        "type":  "MCP",
+        "persona":  "student",
+        "input":  "transcript and target course",
+        "output":  {
+                       "eligibility":  [
+                                           {
+                                               "course":  "string",
+                                               "status":  "string",
+                                               "missing":  [
+                                                               "string"
+                                                           ]
+                                           }
+                                       ]
+                   },
+        "effort":  "M",
+        "risks":  [
+                      "catalog mismatch"
+                  ],
+        "dependencies":  [
+                             "catalog connector",
+                             "transcript connector"
+                         ],
+        "source":  "MCP server/library entry",
+        "source_link":  "https://modelcontextprotocol.io/introduction",
+        "setup_complexity":  "High",
+        "auth_model":  "OAuth",
+        "limits":  "Catalog sync lag",
+        "impact":  5,
+        "frequency":  4,
+        "feasibility":  3
+    },
+    {
+        "capability_name":  "Resource utilization feed",
+        "category":  "Control",
+        "type":  "MCP",
+        "persona":  "admin",
+        "input":  "room and device usage logs",
+        "output":  {
+                       "utilization":  [
+                                           {
+                                               "resource":  "string",
+                                               "usage_rate":  0.0
+                                           }
+                                       ]
+                   },
+        "effort":  "M",
+        "risks":  [
+                      "telemetry gaps"
+                  ],
+        "dependencies":  [
+                             "facilities connector"
+                         ],
+        "source":  "MCP server/library entry",
+        "source_link":  "https://modelcontextprotocol.io/introduction",
+        "setup_complexity":  "High",
+        "auth_model":  "API key",
+        "limits":  "Daily export delays",
+        "impact":  4,
+        "frequency":  3,
+        "feasibility":  3
+    },
+    {
+        "capability_name":  "Adaptive practice composer",
+        "category":  "Creation",
+        "type":  "Hybrid",
+        "persona":  "student",
+        "input":  "topic and mastery level",
+        "output":  {
+                       "practice_set":  [
+                                            {
+                                                "item":  "string",
+                                                "difficulty":  "string"
+                                            }
+                                        ],
+                       "coverage":  [
+                                        "string"
+                                    ]
+                   },
+        "effort":  "M",
+        "risks":  [
+                      "difficulty drift"
+                  ],
+        "dependencies":  [
+                             "mastery connector",
+                             "playbook templates"
+                         ],
+        "source":  "internally-derived playbook idea",
+        "source_link":  "https://www.atlassian.com/team-playbook",
+        "replicate_as_playbook":  "Blend external mastery scores with local deterministic templates.",
+        "impact":  5,
+        "frequency":  5,
+        "feasibility":  4
+    },
+    {
+        "capability_name":  "At-risk learner digest",
+        "category":  "Control",
+        "type":  "Hybrid",
+        "persona":  "admin",
+        "input":  "attendance and grade trends",
+        "output":  {
+                       "risk_flags":  [
+                                          {
+                                              "student_id":  "string",
+                                              "risk_level":  "string",
+                                              "reason":  "string"
+                                          }
+                                      ],
+                       "recommended_actions":  [
+                                                   "string"
+                                               ]
+                   },
+        "effort":  "L",
+        "risks":  [
+                      "false positives"
+                  ],
+        "dependencies":  [
+                             "attendance connector",
+                             "intervention playbook"
+                         ],
+        "source":  "internally-derived playbook idea",
+        "source_link":  "https://www.atlassian.com/team-playbook",
+        "replicate_as_playbook":  "Apply fixed risk thresholds and recommendation rules.",
+        "impact":  5,
+        "frequency":  4,
+        "feasibility":  3
+    }
+]

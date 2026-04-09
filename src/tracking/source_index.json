@@ -1,0 +1,32 @@
+[
+    {
+        "source_type":  "Claude Skill example/template",
+        "source_link":  "https://docs.anthropic.com/en/docs/claude-code/skills",
+        "capabilities":  [
+                             "Weekly study plan generation",
+                             "Parent communication draft",
+                             "Classroom discussion prompt builder",
+                             "Homework hint generator"
+                         ]
+    },
+    {
+        "source_type":  "MCP server/library entry",
+        "source_link":  "https://modelcontextprotocol.io/introduction",
+        "capabilities":  [
+                             "Drive material to study package",
+                             "LMS lesson to study package",
+                             "Policy Q and A responder",
+                             "Attendance anomaly monitor"
+                         ]
+    },
+    {
+        "source_type":  "internally-derived playbook idea",
+        "source_link":  "https://www.atlassian.com/team-playbook",
+        "capabilities":  [
+                             "Lesson to flashcards",
+                             "Lesson to quiz",
+                             "Adaptive practice composer",
+                             "At-risk learner digest"
+                         ]
+    }
+]

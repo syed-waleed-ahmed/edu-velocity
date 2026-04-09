@@ -1,0 +1,196 @@
+[
+    {
+        "capability_name":  "Weekly study plan generation",
+        "category":  "Knowledge",
+        "type":  "Skill",
+        "persona":  "student",
+        "input":  "syllabus, exam date, available hours",
+        "output_json_shape":  "{ summary: string, study_plan: StudyPlanItem[] }",
+        "ui_component":  "StudyPlanRenderer",
+        "effort":  "S",
+        "risks":  [
+                      "accuracy risk if syllabus sections are incomplete"
+                  ],
+        "dependencies":  [
+                             "lessonToStudyPlan",
+                             "syllabus topic extraction input"
+                         ],
+        "source":  "https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf",
+        "source_link":  "https://code.claude.com/docs/en/skills"
+    },
+    {
+        "capability_name":  "Assignment rubric feedback drafting",
+        "category":  "Creation",
+        "type":  "Skill",
+        "persona":  "teacher",
+        "input":  "submission text, rubric",
+        "output_json_shape":  "{ criterion_feedback: { criterion: string, comment: string }[], summary: string }",
+        "ui_component":  "JsonInspector",
+        "effort":  "M",
+        "risks":  [
+                      "feedback accuracy variance across rubric criteria"
+                  ],
+        "dependencies":  [
+                             "rubric prompt template",
+                             "rubric criteria input"
+                         ],
+        "source":  "Internal – EDU Suite Playbook: Formative Assessment & Rubric Feedback Patterns\nhttps://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering",
+        "source_link":  "https://www.cmu.edu/teaching/assessment/basics/formative-summative.html"
+    },
+    {
+        "capability_name":  "Drive material to study package",
+        "category":  "Connection",
+        "type":  "MCP",
+        "persona":  "student",
+        "input":  "drive source id",
+        "output_json_shape":  "{ summary: string, flashcards: Flashcard[], quiz: QuizQuestion[], study_plan: StudyPlanItem[] }",
+        "ui_component":  "PrototypeRunner",
+        "effort":  "M",
+        "risks":  [
+                      "auth scope mismatch for source document retrieval"
+                  ],
+        "dependencies":  [
+                             "mockDriveClient",
+                             "mcpStudyPackageAgent",
+                             "source_identifier"
+                         ],
+        "source":  "https://developers.google.com/drive/api/guides/manage-downloads",
+        "source_link":  "https://developers.google.com/workspace/drive/api/guides/about-sdk"
+    },
+    {
+        "capability_name":  "LMS lesson to study package",
+        "category":  "Connection",
+        "type":  "MCP",
+        "persona":  "teacher",
+        "input":  "lms lesson id",
+        "output_json_shape":  "{ summary: string, flashcards: Flashcard[], quiz: QuizQuestion[], study_plan: StudyPlanItem[] }",
+        "ui_component":  "PrototypeRunner",
+        "effort":  "M",
+        "risks":  [
+                      "rate limits can delay content retrieval during class peaks"
+                  ],
+        "dependencies":  [
+                             "mockLmsClient",
+                             "mcpStudyPackageAgent",
+                             "lesson_id input"
+                         ],
+        "source":  "https://canvas.instructure.com/doc/api/index.html",
+        "source_link":  "https://canvas.instructure.com/doc/api/"
+    },
+    {
+        "capability_name":  "Lesson to flashcards",
+        "category":  "Creation",
+        "type":  "Skill",
+        "persona":  "student",
+        "input":  "lesson text",
+        "output_json_shape":  "{ flashcards: Flashcard[] }",
+        "ui_component":  "FlashcardRenderer",
+        "effort":  "S",
+        "risks":  [
+                      "content simplification may omit critical details"
+                  ],
+        "dependencies":  [
+                             "lessonToFlashcards",
+                             "lesson text content"
+                         ],
+        "source":  "Internal – EDU Suite Playbook: Retrieval Practice & Flashcard Generation\nhttps://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering",
+        "source_link":  "https://www.learningscientists.org/retrieval-practice"
+    },
+    {
+        "capability_name":  "Lesson to quiz",
+        "category":  "Creation",
+        "type":  "Skill",
+        "persona":  "student",
+        "input":  "lesson text",
+        "output_json_shape":  "{ quiz: QuizQuestion[] }",
+        "ui_component":  "QuizRenderer",
+        "effort":  "S",
+        "risks":  [
+                      "incorrect distractor quality can reduce assessment validity"
+                  ],
+        "dependencies":  [
+                             "lessonToQuiz",
+                             "lesson text content"
+                         ],
+        "source":  "Internal – EDU Suite Playbook: Quiz Generation & Assessment Patterns\nhttps://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering",
+        "source_link":  "https://www.learningscientists.org/retrieval-practice"
+    },
+    {
+        "capability_name":  "At-risk learner digest",
+        "category":  "Control",
+        "type":  "Hybrid",
+        "persona":  "admin",
+        "input":  "attendance and grades snapshot",
+        "output_json_shape":  "{ risk_flags: { student_id: string, risk_level: string, reason: string }[], recommended_actions: string[] }",
+        "ui_component":  "JsonInspector",
+        "effort":  "L",
+        "risks":  [
+                      "false positives can trigger unnecessary interventions"
+                  ],
+        "dependencies":  [
+                             "attendance feed",
+                             "grade trends input",
+                             "playbook rules"
+                         ],
+        "source":  "Internal – EDU Suite Playbook: Learning Analytics & Risk Detection",
+        "source_link":  "https://en.wikipedia.org/wiki/Learning_analytics"
+    },
+    {
+        "capability_name":  "Policy Q and A responder",
+        "category":  "Control",
+        "type":  "MCP",
+        "persona":  "admin",
+        "input":  "policy question",
+        "output_json_shape":  "{ answer: string, citations: string[], confidence: number }",
+        "ui_component":  "JsonInspector",
+        "effort":  "M",
+        "risks":  [
+                      "citation mismatch can cause policy misinterpretation"
+                  ],
+        "dependencies":  [
+                             "document index connector",
+                             "policy corpus index"
+                         ],
+        "source":  "https://docs.anthropic.com/en/docs/build-with-claude/tool-use",
+        "source_link":  "https://modelcontextprotocol.io/introduction"
+    },
+    {
+        "capability_name":  "Parent communication draft",
+        "category":  "Connection",
+        "type":  "Skill",
+        "persona":  "teacher",
+        "input":  "progress notes",
+        "output_json_shape":  "{ drafts: { subject: string, body: string }[] }",
+        "ui_component":  "JsonInspector",
+        "effort":  "S",
+        "risks":  [
+                      "privacy risk if sensitive student details are over-shared"
+                  ],
+        "dependencies":  [
+                             "prompt templates",
+                             "student progress notes"
+                         ],
+        "source":  "https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf",
+        "source_link":  "https://code.claude.com/docs/en/skills"
+    },
+    {
+        "capability_name":  "Adaptive practice composer",
+        "category":  "Creation",
+        "type":  "Hybrid",
+        "persona":  "student",
+        "input":  "mastery snapshot and topic",
+        "output_json_shape":  "{ practice_set: { item: string, difficulty: string }[], coverage: string[] }",
+        "ui_component":  "JsonInspector",
+        "effort":  "M",
+        "risks":  [
+                      "difficulty drift may mismatch learner proficiency"
+                  ],
+        "dependencies":  [
+                             "mastery data source",
+                             "playbook logic",
+                             "topic input"
+                         ],
+        "source":  "Internal – EDU Suite Playbook: Adaptive Learning & Mastery-Based Progression\nhttps://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering",
+        "source_link":  "https://en.wikipedia.org/wiki/Mastery_learning"
+    }
+]

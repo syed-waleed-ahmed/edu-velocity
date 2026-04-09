@@ -1,0 +1,275 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap");
+
+:root {
+  --bg-base: #f4f7f1;
+  --bg-tint: #eef3ff;
+  --panel-bg: #ffffff;
+  --panel-border: #d8dfd4;
+  --text-main: #182027;
+  --text-soft: #4a5a66;
+  --accent: #176b52;
+  --accent-soft: #def2ea;
+  --code-bg: #111b2a;
+  --code-text: #d5e7ff;
+  --shadow-soft: 0 10px 30px rgba(15, 40, 55, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at 8% 12%, rgba(23, 107, 82, 0.14), transparent 38%),
+    radial-gradient(circle at 90% 0%, rgba(89, 120, 255, 0.15), transparent 42%),
+    linear-gradient(180deg, var(--bg-tint), var(--bg-base));
+  font-family: "Plus Jakarta Sans", "Avenir Next", "Segoe UI", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif;
+  letter-spacing: 0.01em;
+}
+
+.app-shell {
+  min-height: 100vh;
+  padding: 24px 14px 40px;
+}
+
+.app-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  gap: 16px;
+}
+
+.panel {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: var(--shadow-soft);
+}
+
+.hero-panel {
+  background:
+    linear-gradient(135deg, rgba(23, 107, 82, 0.1), rgba(89, 120, 255, 0.12)),
+    var(--panel-bg);
+}
+
+.hero-subtitle {
+  margin: 0;
+  color: var(--text-soft);
+}
+
+.hero-architecture {
+  margin: 8px 0 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #f3faf7;
+  border: 1px solid #d4ece1;
+  color: #204339;
+  font-size: 0.95rem;
+}
+
+.section-title {
+  margin: 0 0 10px;
+}
+
+.section-kicker {
+  margin: 0 0 8px;
+  color: var(--text-soft);
+  font-size: 0.95rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid #e4e9df;
+  border-radius: 10px;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.93rem;
+}
+
+.data-table th {
+  text-align: left;
+  background: #f3f6f1;
+  color: #2a3843;
+  font-weight: 600;
+  padding: 10px;
+  border-bottom: 1px solid #dce4d8;
+  white-space: nowrap;
+}
+
+.data-table td {
+  padding: 10px;
+  border-bottom: 1px solid #edf1ea;
+  vertical-align: top;
+}
+
+.data-table tbody tr:nth-child(even) {
+  background: #fbfdf9;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.input,
+.select,
+.button {
+  font: inherit;
+  border-radius: 9px;
+  border: 1px solid #cad6ce;
+  padding: 8px 10px;
+}
+
+.input,
+.select {
+  background: #fff;
+  color: var(--text-main);
+}
+
+.button {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #115942;
+}
+
+.prototype-input {
+  flex: 1 1 22rem;
+  min-width: 0;
+}
+
+.prototype-output-grid {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.output-label {
+  margin: 2px 0 0;
+  font-weight: 600;
+  color: #29443a;
+}
+
+.metric-line {
+  margin: 0 0 10px;
+  color: var(--text-soft);
+}
+
+.flashcard-grid {
+  display: grid;
+  gap: 8px;
+}
+
+.flashcard {
+  border: 1px solid #d9e3dc;
+  border-radius: 10px;
+  padding: 10px;
+  background: #f8fcf9;
+}
+
+.flashcard-answer {
+  margin: 8px 0 0;
+}
+
+.quiz-list {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.quiz-item {
+  margin-bottom: 10px;
+}
+
+.quiz-question {
+  font-weight: 600;
+}
+
+.quiz-options {
+  margin: 6px 0;
+  padding-left: 18px;
+}
+
+.inspector {
+  border: 1px solid #d2ddd5;
+  border-radius: 10px;
+  padding: 12px;
+  background: #fff;
+}
+
+.inspector pre {
+  margin: 0;
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--code-bg);
+  color: var(--code-text);
+  overflow-x: auto;
+  font-size: 12px;
+}
+
+.source-stack {
+  display: grid;
+  gap: 4px;
+}
+
+.source-line {
+  color: var(--text-main);
+  line-height: 1.35;
+}
+
+.source-link {
+  color: #1b5e93;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  overflow-wrap: anywhere;
+}
+
+.source-link:hover {
+  color: #124669;
+}
+
+@media (max-width: 800px) {
+  .app-shell {
+    padding: 14px 10px 24px;
+  }
+
+  .panel {
+    padding: 12px;
+  }
+
+  .data-table {
+    font-size: 0.88rem;
+  }
+
+  .form-row {
+    align-items: stretch;
+  }
+
+  .form-row label,
+  .input,
+  .select,
+  .button,
+  .prototype-input {
+    min-width: 100%;
+    width: 100%;
+  }
+}

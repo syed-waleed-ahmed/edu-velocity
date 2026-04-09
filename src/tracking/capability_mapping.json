@@ -1,0 +1,62 @@
+[
+  {
+    "capability_name": "Homework hint generator",
+    "module": "runPlaybookLearningAgent",
+    "schema": "LearningPackage",
+    "ui_component": "JsonInspector"
+  },
+  {
+    "capability_name": "Weekly study plan generation",
+    "module": "lessonToStudyPlan",
+    "schema": "StudyPlanItem[]",
+    "ui_component": "StudyPlanRenderer"
+  },
+  {
+    "capability_name": "Lesson to flashcards",
+    "module": "lessonToFlashcards",
+    "schema": "Flashcard[]",
+    "ui_component": "FlashcardRenderer"
+  },
+  {
+    "capability_name": "Lesson to quiz",
+    "module": "lessonToQuiz",
+    "schema": "QuizQuestion[]",
+    "ui_component": "QuizRenderer"
+  },
+  {
+    "capability_name": "Multi-language parent update translator",
+    "module": "runMcpStudyPackageAgent",
+    "schema": "LearningPackage",
+    "ui_component": "PrototypeRunner"
+  },
+  {
+    "capability_name": "Parent communication draft",
+    "module": "runPlaybookLearningAgent",
+    "schema": "LearningPackage",
+    "ui_component": "JsonInspector"
+  },
+  {
+    "capability_name": "Adaptive practice composer",
+    "module": "runPlaybookLearningAgent",
+    "schema": "LearningPackage",
+    "ui_component": "JsonInspector"
+  },
+  {
+    "capability_name": "Assignment rubric feedback drafting",
+    "module": "runPlaybookLearningAgent",
+    "schema": "LearningPackage",
+    "ui_component": "JsonInspector"
+  },
+  {
+    "capability_name": "Classroom discussion prompt builder",
+    "module": "runPlaybookLearningAgent",
+    "schema": "LearningPackage",
+    "ui_component": "JsonInspector"
+  },
+  {
+    "capability_name": "Lab report summarizer",
+    "module": "runPlaybookLearningAgent",
+    "schema": "LearningPackage",
+    "ui_component": "JsonInspector"
+  }
+]

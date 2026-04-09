@@ -1,0 +1,86 @@
+[
+  {
+    "use_case": "A student wants a realistic weekly study schedule before exams.",
+    "target": "student",
+    "trigger": "Student provides syllabus and available hours.",
+    "steps": [
+      "Parse syllabus topics, exam date, and time constraints.",
+      "Transform topics into weekly study blocks with durations.",
+      "Generate study_plan JSON and checkpoint summary fields.",
+      "Review load balance and adjust overbooked weeks.",
+      "Save approved plan payload for prototype rendering."
+    ],
+    "result": "Structured plan JSON is produced with summary and study_plan arrays mapped to weekly sessions.",
+    "success_criteria": "100% of required plan fields are present and student accepts plan with no more than one manual adjustment."
+  },
+  {
+    "use_case": "A teacher wants rubric-aligned feedback ready in less time.",
+    "target": "teacher",
+    "trigger": "Teacher opens assignment submissions.",
+    "steps": [
+      "Parse rubric criteria and submission evidence snippets.",
+      "Transform rubric rows into criterion_feedback objects.",
+      "Generate summary and per-criterion JSON comments.",
+      "Teacher reviews and edits only flagged criteria.",
+      "Publish approved feedback payload."
+    ],
+    "result": "Structured feedback JSON is produced with criterion_feedback array and summary fields for each submission.",
+    "success_criteria": "Feedback generation time is reduced by at least 30% while 100% rubric criteria are covered."
+  },
+  {
+    "use_case": "An admin wants early warnings for disengagement risk.",
+    "target": "admin",
+    "trigger": "Weekly retention review begins.",
+    "steps": [
+      "Parse attendance and grade trend inputs by learner.",
+      "Transform risk indicators into tiered severity buckets.",
+      "Generate risk_flags and recommended_actions JSON.",
+      "Assign intervention owners from the generated list.",
+      "Log intervention outcomes for next review cycle."
+    ],
+    "result": "Structured risk digest JSON is produced with risk_flags and recommended_actions arrays for admin review.",
+    "success_criteria": "At least 95% of high-risk learners are assigned interventions within the defined SLA window."
+  },
+  {
+    "use_case": "A student wants lesson material transformed into practice assets quickly.",
+    "target": "student",
+    "trigger": "Student uploads lesson or picks source doc.",
+    "steps": [
+      "Parse lesson text from uploaded or selected source.",
+      "Transform content into topic chunks for reuse.",
+      "Generate flashcards, quiz, and study_plan JSON blocks.",
+      "Inspect rendered outputs for structure completeness.",
+      "Save selected learning package output."
+    ],
+    "result": "Structured learning package JSON is produced with summary, flashcards, quiz, and study_plan sections.",
+    "success_criteria": "All four required sections are present and each section contains at least one valid item."
+  },
+  {
+    "use_case": "A teacher wants multilingual parent updates for class progress.",
+    "target": "teacher",
+    "trigger": "Teacher starts communication workflow.",
+    "steps": [
+      "Parse progress notes into key points and action items.",
+      "Transform message into selected target language.",
+      "Generate translated_message and quality_notes JSON.",
+      "Validate tone and readability against checklist.",
+      "Send finalized parent update."
+    ],
+    "result": "Structured translation JSON is produced with translated_message text and quality_notes annotations.",
+    "success_criteria": "Teacher sends message with no more than one manual correction in 90% of runs."
+  },
+  {
+    "use_case": "An admin wants policy answers with auditable citations.",
+    "target": "admin",
+    "trigger": "A policy interpretation question is raised.",
+    "steps": [
+      "Parse natural language query into policy retrieval intent.",
+      "Transform retrieved passages into citation candidates.",
+      "Generate answer, citations, and confidence JSON fields.",
+      "Review confidence threshold and cited evidence.",
+      "Record approved interpretation with trace references."
+    ],
+    "result": "Structured policy response JSON is produced with answer text, citation list, and confidence score.",
+    "success_criteria": "Median response time stays under 2 minutes and citation validity is at least 95% in spot checks."
+  }
+]
