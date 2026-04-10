@@ -736,10 +736,10 @@
     }
   },
   {
-    "capability_name": "Lab report summarizer",
+    "capability_name": "Exam revision checklist builder",
     "sample_input": {
       "lesson_content": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
-      "capability_name": "Lab report summarizer"
+      "capability_name": "Exam revision checklist builder"
     },
     "sample_output": {
       "summary": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
@@ -811,7 +811,7 @@
     "response_time_ms": 293,
     "issues_found": [],
     "evaluation_result": {
-      "capability_name": "Lab report summarizer",
+      "capability_name": "Exam revision checklist builder",
       "criteria_passed": true,
       "notes": "All defined success criteria passed with no issues."
     }

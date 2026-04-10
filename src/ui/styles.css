@@ -26,6 +26,7 @@ body {
     radial-gradient(circle at 90% 0%, rgba(89, 120, 255, 0.15), transparent 42%),
     linear-gradient(180deg, var(--bg-tint), var(--bg-base));
   font-family: "Plus Jakarta Sans", "Avenir Next", "Segoe UI", sans-serif;
+  overflow-x: hidden;
 }
 
 h1,
@@ -43,6 +44,7 @@ h4 {
 
 .app-container {
   max-width: 1180px;
+  width: min(1180px, 100%);
   margin: 0 auto;
   display: grid;
   gap: 16px;
@@ -54,6 +56,7 @@ h4 {
   border-radius: 14px;
   padding: 16px;
   box-shadow: var(--shadow-soft);
+  min-width: 0;
 }
 
 .hero-panel {
@@ -91,12 +94,35 @@ h4 {
   overflow-x: auto;
   border: 1px solid #e4e9df;
   border-radius: 10px;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  max-width: 100%;
 }
 
 .data-table {
   width: 100%;
+  min-width: 760px;
   border-collapse: collapse;
   font-size: 0.93rem;
+}
+
+.registry-table {
+  min-width: 1480px;
+}
+
+.registry-table th:first-child,
+.registry-table td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+}
+
+.registry-table th:first-child {
+  background: #f3f6f1;
+}
+
+.registry-table td:first-child {
+  background: #ffffff;
 }
 
 .data-table th {
@@ -113,9 +139,14 @@ h4 {
   padding: 10px;
   border-bottom: 1px solid #edf1ea;
   vertical-align: top;
+  overflow-wrap: anywhere;
 }
 
 .data-table tbody tr:nth-child(even) {
+  background: #fbfdf9;
+}
+
+.registry-table tbody tr:nth-child(even) td:first-child {
   background: #fbfdf9;
 }
 
@@ -278,6 +309,23 @@ h4 {
     font-size: 0.88rem;
   }
 
+  .data-table th,
+  .data-table td {
+    padding: 8px;
+  }
+
+  .registry-table {
+    min-width: 1080px;
+  }
+
+  .data-table {
+    min-width: 680px;
+  }
+
+  .metric-line {
+    font-size: 0.9rem;
+  }
+
   .form-row {
     align-items: stretch;
   }
@@ -289,5 +337,38 @@ h4 {
   .prototype-input {
     min-width: 100%;
     width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-shell {
+    padding: 10px 8px 18px;
+  }
+
+  .app-container {
+    gap: 10px;
+  }
+
+  .panel {
+    border-radius: 12px;
+    padding: 10px;
+  }
+
+  .section-title {
+    font-size: 1rem;
+  }
+
+  .hero-architecture {
+    font-size: 0.85rem;
+    padding: 8px 10px;
+  }
+
+  .data-table {
+    font-size: 0.82rem;
+    min-width: 620px;
+  }
+
+  .registry-table {
+    min-width: 980px;
   }
 }

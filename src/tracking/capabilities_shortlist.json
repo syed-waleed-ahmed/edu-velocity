@@ -8,7 +8,7 @@
     "frequency": 5,
     "feasibility": 5,
     "score": 15,
-    "rationale": "Students ask for hints repeatedly during homework sessions, and this can be delivered with low implementation cost using existing playbook logic.",
+    "rationale": "High-value capability with strong adoption potential and feasible implementation path.",
     "requires_ui": false
   },
   {
@@ -20,7 +20,7 @@
     "frequency": 5,
     "feasibility": 5,
     "score": 15,
-    "rationale": "Used frequently by students near assessments, and feasibility is high because the module reuses the current deterministic study-plan transformer.",
+    "rationale": "High-value capability with strong adoption potential and feasible implementation path.",
     "requires_ui": false
   },
   {
@@ -32,7 +32,7 @@
     "frequency": 4,
     "feasibility": 5,
     "score": 14,
-    "rationale": "Provides immediate student value by turning lessons into review cards, with low integration overhead and direct renderer support.",
+    "rationale": "High-value capability with strong adoption potential and feasible implementation path.",
     "requires_ui": true
   },
   {
@@ -44,7 +44,7 @@
     "frequency": 4,
     "feasibility": 5,
     "score": 14,
-    "rationale": "Quiz generation is a common teacher and student need, and the implementation is lightweight because it builds on existing structured templates.",
+    "rationale": "High-value capability with strong adoption potential and feasible implementation path.",
     "requires_ui": true
   },
   {
@@ -56,7 +56,7 @@
     "frequency": 4,
     "feasibility": 5,
     "score": 14,
-    "rationale": "Teachers frequently need multilingual updates for families, and connector setup is simple enough to keep integration cost low.",
+    "rationale": "High-value capability with strong adoption potential and feasible implementation path.",
     "requires_ui": true
   },
   {
@@ -68,7 +68,7 @@
     "frequency": 4,
     "feasibility": 5,
     "score": 14,
-    "rationale": "Parent updates are high-frequency teacher workflows, and this capability ships quickly by reusing existing message template logic.",
+    "rationale": "High-value capability with strong adoption potential and feasible implementation path.",
     "requires_ui": true
   },
   {
@@ -80,7 +80,7 @@
     "frequency": 5,
     "feasibility": 4,
     "score": 14,
-    "rationale": "High student impact comes from personalized practice, while feasibility remains strong through reusable hybrid playbook scaffolding.",
+    "rationale": "High-value capability with strong adoption potential and feasible implementation path.",
     "requires_ui": true
   },
   {
@@ -92,7 +92,7 @@
     "frequency": 5,
     "feasibility": 4,
     "score": 14,
-    "rationale": "Teachers use rubric feedback every grading cycle, and this module is feasible since criterion-level JSON output is already standardized.",
+    "rationale": "High-value capability with strong adoption potential and feasible implementation path.",
     "requires_ui": true
   },
   {
@@ -104,19 +104,19 @@
     "frequency": 4,
     "feasibility": 5,
     "score": 13,
-    "rationale": "Discussion prompts directly improve classroom engagement and are inexpensive to run because they rely on deterministic prompt rules.",
+    "rationale": "Balanced capability for near-term experimentation and reusable module design.",
     "requires_ui": true
   },
   {
-    "capability_name": "Lab report summarizer",
+    "capability_name": "Exam revision checklist builder",
     "type": "Skill",
-    "category": "Creation",
+    "category": "Knowledge",
     "persona": "student",
     "impact": 4,
     "frequency": 4,
     "feasibility": 5,
     "score": 13,
-    "rationale": "Students regularly summarize lab work, and feasibility is high because output structure is simple and already supported in the UI inspectors.",
-    "requires_ui": true
+    "rationale": "Balanced capability for near-term experimentation and reusable module design.",
+    "requires_ui": false
   }
 ]

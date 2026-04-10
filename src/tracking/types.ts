@@ -46,6 +46,7 @@ export type RawCapability = {
   category: Category;
   type: CapabilityType;
   persona: Persona;
+  use_cases: string[];
   input: string;
   output: Record<string, unknown>;
   effort: Effort;
