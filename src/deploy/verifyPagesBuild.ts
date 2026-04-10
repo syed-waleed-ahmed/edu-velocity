@@ -18,8 +18,12 @@ if (html.includes("/src/")) {
   fail("dist/index.html still references /src/* paths instead of compiled assets.");
 }
 
-if (!html.includes("/edu-velocity/assets/")) {
-  fail("dist/index.html does not contain /edu-velocity/assets/ references.");
+if (!/assets\/index-[^\"]+\.js/.test(html)) {
+  fail("dist/index.html does not reference compiled JS asset under assets/.");
+}
+
+if (!/assets\/index-[^\"]+\.css/.test(html)) {
+  fail("dist/index.html does not reference compiled CSS asset under assets/.");
 }
 
 if (!html.includes("<script type=\"module\"")) {

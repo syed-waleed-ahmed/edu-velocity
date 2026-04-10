@@ -42,10 +42,17 @@ capability -> reusable module -> structured JSON output -> focused renderer
 - `npm run score` -> regenerate Top 10 shortlist from raw capabilities
 - `npm run evaluate` -> regenerate hello-world results, issues, and run history
 - `npm run validate:registry` -> strict validation of capability registry completeness and quality
+- `npm run verify:pages` -> verify `dist/index.html` references compiled Pages assets (not `/src/*`)
 
 ## GitHub Pages Deployment
 
 This repository deploys with GitHub Actions via `.github/workflows/deploy-pages.yml`.
+
+Deployment hardening in workflow:
+
+- Runs `npm run verify:pages` after build
+- Publishes `dist/404.html` as SPA fallback (`dist/index.html` copy)
+- Publishes `dist/.nojekyll` to avoid Jekyll processing
 
 Required repository setting:
 
@@ -57,6 +64,14 @@ Expected project URL:
 
 If you open `https://syed-waleed-ahmed.github.io/` directly, you may load a different site and see missing `/src/...` module errors.
 
+Quick troubleshooting checklist:
+
+1. Confirm Pages Source is `GitHub Actions`.
+2. Re-run workflow `Deploy Vite site to Pages`.
+3. Open `https://syed-waleed-ahmed.github.io/edu-velocity/` (not the root URL).
+4. Hard refresh (`Ctrl+F5`) to clear cached HTML.
+5. In browser DevTools, confirm JS loads from `/edu-velocity/assets/...` and not `/src/...`.
+
 ## Recommended Run Order
 
 1. `npm install`
@@ -65,7 +80,8 @@ If you open `https://syed-waleed-ahmed.github.io/` directly, you may load a diff
 4. `npm run evaluate`
 5. `npm run test`
 6. `npm run build`
-7. `npm run dev`
+7. `npm run verify:pages`
+8. `npm run dev`
 
 ## UI Coverage
 The single-page UI in `src/ui/App.tsx` includes:
