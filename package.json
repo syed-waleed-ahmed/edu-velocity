@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "verify:pages": "tsx src/deploy/verifyPagesBuild.ts",
     "test": "vitest run",
     "score": "tsx src/tracking/shortlist.ts",
     "evaluate": "tsx src/lib/evaluation/helloWorldTests.ts",
