@@ -57,6 +57,7 @@ Deployment hardening in workflow:
 Required repository setting:
 
 - In GitHub -> Settings -> Pages -> Build and deployment -> Source, select `GitHub Actions`.
+- Ensure branch-based deployment is disabled; otherwise GitHub can run `pages-build-deployment` and overwrite the Actions artifact with source files.
 
 Expected project URL:
 
@@ -67,10 +68,11 @@ If you open `https://syed-waleed-ahmed.github.io/` directly, you may load a diff
 Quick troubleshooting checklist:
 
 1. Confirm Pages Source is `GitHub Actions`.
-2. Re-run workflow `Deploy Vite site to Pages`.
-3. Open `https://syed-waleed-ahmed.github.io/edu-velocity/` (not the root URL).
-4. Hard refresh (`Ctrl+F5`) to clear cached HTML.
-5. In browser DevTools, confirm JS loads from `/edu-velocity/assets/...` and not `/src/...`.
+2. In Deployments, confirm latest active entry says `via Deploy Vite site to Pages` (not `via pages-build-deployment`).
+3. Re-run workflow `Deploy Vite site to Pages`.
+4. Open `https://syed-waleed-ahmed.github.io/edu-velocity/` (not the root URL).
+5. Hard refresh (`Ctrl+F5`) to clear cached HTML.
+6. In browser DevTools, confirm JS loads from `assets/...` and not `/src/...`.
 
 ## Recommended Run Order
 

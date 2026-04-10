@@ -42,6 +42,13 @@ jobs:
       - name: Verify Pages Build
         run: npm run verify:pages
 
+      - name: Debug built index references
+        run: |
+          echo "Preview dist/index.html (first 30 lines):"
+          sed -n '1,30p' dist/index.html
+          echo "\nAny accidental /src references (should be empty):"
+          grep -n "/src/" dist/index.html || true
+
       - name: Prepare static fallback files
         run: |
           cp dist/index.html dist/404.html
