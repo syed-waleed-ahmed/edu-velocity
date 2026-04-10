@@ -1,12 +1,9 @@
 import useCases from "../tracking/useCases.json";
-import capabilityMapping from "../tracking/capability_mapping.json";
-import velocityMetrics from "../tracking/metrics.json";
 import { TrackingTable } from "./components/TrackingTable";
 import { CapabilityTable } from "./components/CapabilityTable";
 import { ShortlistTable } from "./components/ShortlistTable";
 import { HelloWorldPanel } from "./components/HelloWorldPanel";
 import { PrototypeRunner } from "./components/PrototypeRunner";
-import { JsonInspector } from "./components/JsonInspector";
 
 export default function App() {
   return (
@@ -62,14 +59,6 @@ export default function App() {
 
         <section className="panel">
           <HelloWorldPanel />
-        </section>
-
-        <section className="panel">
-          <JsonInspector title="Capability Mapping" data={capabilityMapping} />
-        </section>
-
-        <section className="panel">
-          <JsonInspector title="Capability Velocity Metrics" data={velocityMetrics} />
         </section>
 
         <section className="panel">

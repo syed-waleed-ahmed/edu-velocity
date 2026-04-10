@@ -6,11 +6,6 @@
       "capability_name": "Homework hint generator"
     },
     "sample_output": {
-      "source": "playbook",
-      "metadata": {
-        "input_preview": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student co",
-        "generated_at": "2026-04-09T16:57:00.701Z"
-      },
       "summary": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
       "flashcards": [
         {
@@ -92,11 +87,6 @@
       "capability_name": "Weekly study plan generation"
     },
     "sample_output": {
-      "source": "playbook",
-      "metadata": {
-        "input_preview": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student co",
-        "generated_at": "2026-04-09T16:57:00.702Z"
-      },
       "summary": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
       "flashcards": [
         {
@@ -178,11 +168,6 @@
       "capability_name": "Lesson to flashcards"
     },
     "sample_output": {
-      "source": "playbook",
-      "metadata": {
-        "input_preview": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student co",
-        "generated_at": "2026-04-09T16:57:00.702Z"
-      },
       "summary": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
       "flashcards": [
         {
@@ -264,11 +249,6 @@
       "capability_name": "Lesson to quiz"
     },
     "sample_output": {
-      "source": "playbook",
-      "metadata": {
-        "input_preview": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student co",
-        "generated_at": "2026-04-09T16:57:00.702Z"
-      },
       "summary": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
       "flashcards": [
         {
@@ -351,11 +331,6 @@
       "capability_name": "Multi-language parent update translator"
     },
     "sample_output": {
-      "source": "mcp",
-      "metadata": {
-        "input_preview": "drive:drive-math-101",
-        "generated_at": "2026-04-09T16:57:00.702Z"
-      },
       "summary": "Imported from DRIVE: Variables represent unknown quantities. Equations balance two expressions. Functions map one input to one output. Practice with substitution...",
       "flashcards": [
         {
@@ -443,11 +418,6 @@
       "capability_name": "Parent communication draft"
     },
     "sample_output": {
-      "source": "playbook",
-      "metadata": {
-        "input_preview": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student co",
-        "generated_at": "2026-04-09T16:57:00.702Z"
-      },
       "summary": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
       "flashcards": [
         {
@@ -529,11 +499,6 @@
       "capability_name": "Adaptive practice composer"
     },
     "sample_output": {
-      "source": "playbook",
-      "metadata": {
-        "input_preview": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student co",
-        "generated_at": "2026-04-09T16:57:00.702Z"
-      },
       "summary": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
       "flashcards": [
         {
@@ -615,11 +580,6 @@
       "capability_name": "Assignment rubric feedback drafting"
     },
     "sample_output": {
-      "source": "playbook",
-      "metadata": {
-        "input_preview": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student co",
-        "generated_at": "2026-04-09T16:57:00.702Z"
-      },
       "summary": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
       "flashcards": [
         {
@@ -701,11 +661,6 @@
       "capability_name": "Classroom discussion prompt builder"
     },
     "sample_output": {
-      "source": "playbook",
-      "metadata": {
-        "input_preview": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student co",
-        "generated_at": "2026-04-09T16:57:00.702Z"
-      },
       "summary": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
       "flashcards": [
         {
@@ -787,11 +742,6 @@
       "capability_name": "Lab report summarizer"
     },
     "sample_output": {
-      "source": "playbook",
-      "metadata": {
-        "input_preview": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student co",
-        "generated_at": "2026-04-09T16:57:00.702Z"
-      },
       "summary": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
       "flashcards": [
         {

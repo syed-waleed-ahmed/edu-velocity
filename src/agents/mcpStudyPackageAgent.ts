@@ -13,11 +13,6 @@ export function runMcpStudyPackageAgent(sourceIdentifier: string, provider: Sour
   const summary = `Imported from ${provider.toUpperCase()}: ${content.slice(0, 140)}${content.length > 140 ? "..." : ""}`;
 
   return {
-    source: "mcp",
-    metadata: {
-      input_preview: `${provider}:${sourceIdentifier}`,
-      generated_at: new Date().toISOString()
-    },
     summary,
     flashcards: lessonToFlashcards(content),
     quiz: lessonToQuiz(content),

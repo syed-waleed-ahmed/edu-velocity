@@ -164,6 +164,12 @@ h4 {
   margin-top: 12px;
 }
 
+.summary-block {
+  margin: 0;
+  color: var(--text-main);
+  line-height: 1.45;
+}
+
 .output-label {
   margin: 2px 0 0;
   font-weight: 600;
@@ -245,6 +251,18 @@ h4 {
 
 .source-link:hover {
   color: #124669;
+}
+
+.success-panel {
+  border: 1px solid #d2ddd5;
+  border-radius: 10px;
+  padding: 12px;
+  background: #fff;
+}
+
+.success-notes {
+  min-height: 92px;
+  resize: vertical;
 }
 
 @media (max-width: 800px) {
