@@ -3,11 +3,12 @@ import { resolve } from "node:path";
 import { runMcpStudyPackageAgent } from "../../agents/mcpStudyPackageAgent";
 import { runPlaybookLearningAgent } from "../../agents/playbookLearningAgent";
 import { evaluateCriteria, toLinkedEvaluationResult } from "./successCriteria";
-import type { HelloWorldResult, IssueRecord, ShortlistCapability } from "../../tracking/types";
+import type { HelloWorldResult, IssueRecord, RunHistoryEntry, ShortlistCapability } from "../../tracking/types";
 
 const shortlistPath = resolve(process.cwd(), "src", "tracking", "capabilities_shortlist.json");
 const resultsPath = resolve(process.cwd(), "src", "tracking", "hello_world_results.json");
 const issuesPath = resolve(process.cwd(), "src", "tracking", "issues_log.json");
+const runHistoryPath = resolve(process.cwd(), "src", "tracking", "runHistory.json");
 
 function buildSampleInput(type: ShortlistCapability["type"], capabilityName: string): Record<string, unknown> {
   if (type === "MCP") {
@@ -52,9 +53,10 @@ function deriveIssues(capability: ShortlistCapability, responseTime: number, sam
   return issues;
 }
 
-export function runHelloWorldTests(shortlist: ShortlistCapability[]): { results: HelloWorldResult[]; issues: IssueRecord[] } {
+export function runHelloWorldTests(shortlist: ShortlistCapability[]): { results: HelloWorldResult[]; issues: IssueRecord[]; runHistory: RunHistoryEntry[] } {
   const results: HelloWorldResult[] = [];
   const issues: IssueRecord[] = [];
+  const runHistory: RunHistoryEntry[] = [];
 
   shortlist.forEach((capability, index) => {
     const sampleInput = buildSampleInput(capability.type, capability.capability_name);
@@ -86,6 +88,15 @@ export function runHelloWorldTests(shortlist: ShortlistCapability[]): { results:
       evaluation_result: evaluationResult
     });
 
+    runHistory.push({
+      capability_name: capability.capability_name,
+      mode_used: capability.type === "MCP" ? "MCP Study Package" : "Skill Learning",
+      output_generated: sampleOutput,
+      response_time_ms: simulatedResponseTime,
+      status: status === "pass" ? "success" : "failure",
+      executed_at: new Date().toISOString()
+    });
+
     issuesFound.forEach((issue) => {
       issues.push({
         capability_name: capability.capability_name,
@@ -96,17 +107,18 @@ export function runHelloWorldTests(shortlist: ShortlistCapability[]): { results:
     });
   });
 
-  return { results, issues };
+  return { results, issues, runHistory };
 }
 
 function main(): void {
   const shortlist = JSON.parse(readFileSync(shortlistPath, "utf-8")) as ShortlistCapability[];
-  const { results, issues } = runHelloWorldTests(shortlist);
+  const { results, issues, runHistory } = runHelloWorldTests(shortlist);
 
   writeFileSync(resultsPath, JSON.stringify(results, null, 2) + "\n", "utf-8");
   writeFileSync(issuesPath, JSON.stringify(issues, null, 2) + "\n", "utf-8");
+  writeFileSync(runHistoryPath, JSON.stringify(runHistory, null, 2) + "\n", "utf-8");
 
-  console.log(`Saved hello-world results for ${results.length} capabilities with ${issues.length} captured issues.`);
+  console.log(`Saved hello-world results for ${results.length} capabilities with ${issues.length} captured issues and ${runHistory.length} run history entries.`);
 }
 
 if (process.env.VITEST !== "true") {

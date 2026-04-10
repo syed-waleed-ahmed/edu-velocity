@@ -1,196 +1,658 @@
 [
     {
         "capability_name":  "Weekly study plan generation",
-        "category":  "Knowledge",
         "type":  "Skill",
         "persona":  "student",
-        "input":  "syllabus, exam date, available hours",
-        "output_json_shape":  "{ summary: string, study_plan: StudyPlanItem[] }",
-        "ui_component":  "StudyPlanRenderer",
+        "category":  "Knowledge",
+        "input":  {
+                      "description":  "syllabus, exam date, available hours",
+                      "example":  "Example input: syllabus, exam date, available hours"
+                  },
+        "output_json_shape":  {
+                                  "summary":  "string",
+                                  "flashcards":  [
+                                                     {
+                                                         "question":  "string",
+                                                         "answer":  "string"
+                                                     }
+                                                 ],
+                                  "quiz":  [
+                                               {
+                                                   "question":  "string",
+                                                   "options":  [
+                                                                   "string"
+                                                               ],
+                                                   "correct":  "string"
+                                               }
+                                           ],
+                                  "study_plan":  [
+                                                     {
+                                                         "title":  "string",
+                                                         "duration":  "string",
+                                                         "objective":  "string"
+                                                     }
+                                                 ]
+                              },
+        "ui_component":  "study_plan",
         "effort":  "S",
+        "velocity_factors":  {
+                                 "build_time_estimate":  "4-8 hours",
+                                 "integration_complexity":  "low",
+                                 "reusability_score":  "5"
+                             },
         "risks":  [
-                      "accuracy risk if syllabus sections are incomplete"
+                      "accuracy risk if syllabus sections are incomplete",
+                      "data quality issues",
+                      "auth dependency",
+                      "latency concerns"
                   ],
         "dependencies":  [
                              "lessonToStudyPlan",
-                             "syllabus topic extraction input"
+                             "syllabus topic extraction input",
+                             "LLM structured output"
                          ],
-        "source":  "https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf",
-        "source_link":  "https://code.claude.com/docs/en/skills"
+        "source":  {
+                       "type":  "official-doc",
+                       "name":  "Weekly study plan generation reference",
+                       "link":  "https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf",
+                       "notes":  "Source selected for implementation confidence and capability validation evidence."
+                   },
+        "implementation_notes":  "Skill because behavior is primarily instruction-driven and reusable as an internal playbook module.",
+        "success_criteria":  "100% of required plan fields are present and student accepts plan with no more than one manual adjustment.",
+        "validation_mapping":  {
+                                   "prototype_mode":  "Skill Learning",
+                                   "success_criteria_link":  "A student wants a realistic weekly study schedule before exams."
+                               }
     },
     {
         "capability_name":  "Assignment rubric feedback drafting",
-        "category":  "Creation",
         "type":  "Skill",
         "persona":  "teacher",
-        "input":  "submission text, rubric",
-        "output_json_shape":  "{ criterion_feedback: { criterion: string, comment: string }[], summary: string }",
-        "ui_component":  "JsonInspector",
+        "category":  "Creation",
+        "input":  {
+                      "description":  "submission text, rubric",
+                      "example":  "Example input: submission text, rubric"
+                  },
+        "output_json_shape":  {
+                                  "summary":  "string",
+                                  "flashcards":  [
+                                                     {
+                                                         "question":  "string",
+                                                         "answer":  "string"
+                                                     }
+                                                 ],
+                                  "quiz":  [
+                                               {
+                                                   "question":  "string",
+                                                   "options":  [
+                                                                   "string"
+                                                               ],
+                                                   "correct":  "string"
+                                               }
+                                           ],
+                                  "study_plan":  [
+                                                     {
+                                                         "title":  "string",
+                                                         "duration":  "string",
+                                                         "objective":  "string"
+                                                     }
+                                                 ]
+                              },
+        "ui_component":  "text",
         "effort":  "M",
+        "velocity_factors":  {
+                                 "build_time_estimate":  "1-2 days",
+                                 "integration_complexity":  "low",
+                                 "reusability_score":  "5"
+                             },
         "risks":  [
-                      "feedback accuracy variance across rubric criteria"
+                      "feedback accuracy variance across rubric criteria",
+                      "data quality issues",
+                      "auth dependency",
+                      "latency concerns"
                   ],
         "dependencies":  [
                              "rubric prompt template",
-                             "rubric criteria input"
+                             "rubric criteria input",
+                             "LLM structured output"
                          ],
-        "source":  "Internal – EDU Suite Playbook: Formative Assessment & Rubric Feedback Patterns\nhttps://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering",
-        "source_link":  "https://www.cmu.edu/teaching/assessment/basics/formative-summative.html"
+        "source":  {
+                       "type":  "internal-playbook",
+                       "name":  "Internal – EDU Suite Playbook: Formative Assessment \u0026 Rubric Feedback Patterns",
+                       "link":  "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering",
+                       "notes":  "Source selected for implementation confidence and capability validation evidence."
+                   },
+        "implementation_notes":  "Skill because behavior is primarily instruction-driven and reusable as an internal playbook module.",
+        "success_criteria":  "Feedback generation time is reduced by at least 30% while 100% rubric criteria are covered.",
+        "validation_mapping":  {
+                                   "prototype_mode":  "Skill Learning",
+                                   "success_criteria_link":  "A teacher wants rubric-aligned feedback ready in less time."
+                               }
     },
     {
         "capability_name":  "Drive material to study package",
-        "category":  "Connection",
         "type":  "MCP",
         "persona":  "student",
-        "input":  "drive source id",
-        "output_json_shape":  "{ summary: string, flashcards: Flashcard[], quiz: QuizQuestion[], study_plan: StudyPlanItem[] }",
-        "ui_component":  "PrototypeRunner",
+        "category":  "Connection",
+        "input":  {
+                      "description":  "drive source id",
+                      "example":  "Example input: drive source id"
+                  },
+        "output_json_shape":  {
+                                  "summary":  "string",
+                                  "flashcards":  [
+                                                     {
+                                                         "question":  "string",
+                                                         "answer":  "string"
+                                                     }
+                                                 ],
+                                  "quiz":  [
+                                               {
+                                                   "question":  "string",
+                                                   "options":  [
+                                                                   "string"
+                                                               ],
+                                                   "correct":  "string"
+                                               }
+                                           ],
+                                  "study_plan":  [
+                                                     {
+                                                         "title":  "string",
+                                                         "duration":  "string",
+                                                         "objective":  "string"
+                                                     }
+                                                 ]
+                              },
+        "ui_component":  "table",
         "effort":  "M",
+        "velocity_factors":  {
+                                 "build_time_estimate":  "1-2 days",
+                                 "integration_complexity":  "medium",
+                                 "reusability_score":  "4"
+                             },
         "risks":  [
-                      "auth scope mismatch for source document retrieval"
+                      "auth scope mismatch for source document retrieval",
+                      "data quality issues",
+                      "auth dependency",
+                      "latency concerns"
                   ],
         "dependencies":  [
                              "mockDriveClient",
                              "mcpStudyPackageAgent",
-                             "source_identifier"
+                             "source_identifier",
+                             "LLM structured output",
+                             "Google Drive API"
                          ],
-        "source":  "https://developers.google.com/drive/api/guides/manage-downloads",
-        "source_link":  "https://developers.google.com/workspace/drive/api/guides/about-sdk"
+        "source":  {
+                       "type":  "official-doc",
+                       "name":  "Drive material to study package reference",
+                       "link":  "https://developers.google.com/drive/api/guides/manage-downloads",
+                       "notes":  "Source selected for implementation confidence and capability validation evidence."
+                   },
+        "implementation_notes":  "MCP because capability depends on external connector data/actions and authentication-managed calls.",
+        "success_criteria":  "All four required sections are present and each section contains at least one valid item.",
+        "validation_mapping":  {
+                                   "prototype_mode":  "MCP Study Package",
+                                   "success_criteria_link":  "A student wants lesson material transformed into practice assets quickly."
+                               }
     },
     {
         "capability_name":  "LMS lesson to study package",
-        "category":  "Connection",
         "type":  "MCP",
         "persona":  "teacher",
-        "input":  "lms lesson id",
-        "output_json_shape":  "{ summary: string, flashcards: Flashcard[], quiz: QuizQuestion[], study_plan: StudyPlanItem[] }",
-        "ui_component":  "PrototypeRunner",
+        "category":  "Connection",
+        "input":  {
+                      "description":  "lms lesson id",
+                      "example":  "Example input: lms lesson id"
+                  },
+        "output_json_shape":  {
+                                  "summary":  "string",
+                                  "flashcards":  [
+                                                     {
+                                                         "question":  "string",
+                                                         "answer":  "string"
+                                                     }
+                                                 ],
+                                  "quiz":  [
+                                               {
+                                                   "question":  "string",
+                                                   "options":  [
+                                                                   "string"
+                                                               ],
+                                                   "correct":  "string"
+                                               }
+                                           ],
+                                  "study_plan":  [
+                                                     {
+                                                         "title":  "string",
+                                                         "duration":  "string",
+                                                         "objective":  "string"
+                                                     }
+                                                 ]
+                              },
+        "ui_component":  "table",
         "effort":  "M",
+        "velocity_factors":  {
+                                 "build_time_estimate":  "1-2 days",
+                                 "integration_complexity":  "medium",
+                                 "reusability_score":  "4"
+                             },
         "risks":  [
-                      "rate limits can delay content retrieval during class peaks"
+                      "rate limits can delay content retrieval during class peaks",
+                      "data quality issues",
+                      "auth dependency",
+                      "latency concerns"
                   ],
         "dependencies":  [
                              "mockLmsClient",
                              "mcpStudyPackageAgent",
-                             "lesson_id input"
+                             "lesson_id input",
+                             "LLM structured output",
+                             "Canvas API"
                          ],
-        "source":  "https://canvas.instructure.com/doc/api/index.html",
-        "source_link":  "https://canvas.instructure.com/doc/api/"
+        "source":  {
+                       "type":  "official-doc",
+                       "name":  "LMS lesson to study package reference",
+                       "link":  "https://canvas.instructure.com/doc/api/index.html",
+                       "notes":  "Source selected for implementation confidence and capability validation evidence."
+                   },
+        "implementation_notes":  "MCP because capability depends on external connector data/actions and authentication-managed calls.",
+        "success_criteria":  "All four required sections are present and each section contains at least one valid item.",
+        "validation_mapping":  {
+                                   "prototype_mode":  "MCP Study Package",
+                                   "success_criteria_link":  "A student wants lesson material transformed into practice assets quickly."
+                               }
     },
     {
         "capability_name":  "Lesson to flashcards",
-        "category":  "Creation",
         "type":  "Skill",
         "persona":  "student",
-        "input":  "lesson text",
-        "output_json_shape":  "{ flashcards: Flashcard[] }",
-        "ui_component":  "FlashcardRenderer",
+        "category":  "Creation",
+        "input":  {
+                      "description":  "lesson text",
+                      "example":  "Example input: lesson text"
+                  },
+        "output_json_shape":  {
+                                  "summary":  "string",
+                                  "flashcards":  [
+                                                     {
+                                                         "question":  "string",
+                                                         "answer":  "string"
+                                                     }
+                                                 ],
+                                  "quiz":  [
+                                               {
+                                                   "question":  "string",
+                                                   "options":  [
+                                                                   "string"
+                                                               ],
+                                                   "correct":  "string"
+                                               }
+                                           ],
+                                  "study_plan":  [
+                                                     {
+                                                         "title":  "string",
+                                                         "duration":  "string",
+                                                         "objective":  "string"
+                                                     }
+                                                 ]
+                              },
+        "ui_component":  "flashcards",
         "effort":  "S",
+        "velocity_factors":  {
+                                 "build_time_estimate":  "4-8 hours",
+                                 "integration_complexity":  "low",
+                                 "reusability_score":  "5"
+                             },
         "risks":  [
-                      "content simplification may omit critical details"
+                      "content simplification may omit critical details",
+                      "data quality issues",
+                      "auth dependency",
+                      "latency concerns"
                   ],
         "dependencies":  [
                              "lessonToFlashcards",
-                             "lesson text content"
+                             "lesson text content",
+                             "LLM structured output"
                          ],
-        "source":  "Internal – EDU Suite Playbook: Retrieval Practice & Flashcard Generation\nhttps://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering",
-        "source_link":  "https://www.learningscientists.org/retrieval-practice"
+        "source":  {
+                       "type":  "internal-playbook",
+                       "name":  "Internal – EDU Suite Playbook: Retrieval Practice \u0026 Flashcard Generation",
+                       "link":  "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering",
+                       "notes":  "Source selected for implementation confidence and capability validation evidence."
+                   },
+        "implementation_notes":  "Skill because behavior is primarily instruction-driven and reusable as an internal playbook module.",
+        "success_criteria":  "All four required sections are present and each section contains at least one valid item.",
+        "validation_mapping":  {
+                                   "prototype_mode":  "Skill Learning",
+                                   "success_criteria_link":  "A student wants lesson material transformed into practice assets quickly."
+                               }
     },
     {
         "capability_name":  "Lesson to quiz",
-        "category":  "Creation",
         "type":  "Skill",
         "persona":  "student",
-        "input":  "lesson text",
-        "output_json_shape":  "{ quiz: QuizQuestion[] }",
-        "ui_component":  "QuizRenderer",
+        "category":  "Creation",
+        "input":  {
+                      "description":  "lesson text",
+                      "example":  "Example input: lesson text"
+                  },
+        "output_json_shape":  {
+                                  "summary":  "string",
+                                  "flashcards":  [
+                                                     {
+                                                         "question":  "string",
+                                                         "answer":  "string"
+                                                     }
+                                                 ],
+                                  "quiz":  [
+                                               {
+                                                   "question":  "string",
+                                                   "options":  [
+                                                                   "string"
+                                                               ],
+                                                   "correct":  "string"
+                                               }
+                                           ],
+                                  "study_plan":  [
+                                                     {
+                                                         "title":  "string",
+                                                         "duration":  "string",
+                                                         "objective":  "string"
+                                                     }
+                                                 ]
+                              },
+        "ui_component":  "quiz",
         "effort":  "S",
+        "velocity_factors":  {
+                                 "build_time_estimate":  "4-8 hours",
+                                 "integration_complexity":  "low",
+                                 "reusability_score":  "5"
+                             },
         "risks":  [
-                      "incorrect distractor quality can reduce assessment validity"
+                      "incorrect distractor quality can reduce assessment validity",
+                      "data quality issues",
+                      "auth dependency",
+                      "latency concerns"
                   ],
         "dependencies":  [
                              "lessonToQuiz",
-                             "lesson text content"
+                             "lesson text content",
+                             "LLM structured output"
                          ],
-        "source":  "Internal – EDU Suite Playbook: Quiz Generation & Assessment Patterns\nhttps://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering",
-        "source_link":  "https://www.learningscientists.org/retrieval-practice"
+        "source":  {
+                       "type":  "internal-playbook",
+                       "name":  "Internal – EDU Suite Playbook: Quiz Generation \u0026 Assessment Patterns",
+                       "link":  "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering",
+                       "notes":  "Source selected for implementation confidence and capability validation evidence."
+                   },
+        "implementation_notes":  "Skill because behavior is primarily instruction-driven and reusable as an internal playbook module.",
+        "success_criteria":  "All four required sections are present and each section contains at least one valid item.",
+        "validation_mapping":  {
+                                   "prototype_mode":  "Skill Learning",
+                                   "success_criteria_link":  "A student wants lesson material transformed into practice assets quickly."
+                               }
     },
     {
         "capability_name":  "At-risk learner digest",
-        "category":  "Control",
         "type":  "Hybrid",
         "persona":  "admin",
-        "input":  "attendance and grades snapshot",
-        "output_json_shape":  "{ risk_flags: { student_id: string, risk_level: string, reason: string }[], recommended_actions: string[] }",
-        "ui_component":  "JsonInspector",
+        "category":  "Control",
+        "input":  {
+                      "description":  "attendance and grades snapshot",
+                      "example":  "Example input: attendance and grades snapshot"
+                  },
+        "output_json_shape":  {
+                                  "summary":  "string",
+                                  "flashcards":  [
+                                                     {
+                                                         "question":  "string",
+                                                         "answer":  "string"
+                                                     }
+                                                 ],
+                                  "quiz":  [
+                                               {
+                                                   "question":  "string",
+                                                   "options":  [
+                                                                   "string"
+                                                               ],
+                                                   "correct":  "string"
+                                               }
+                                           ],
+                                  "study_plan":  [
+                                                     {
+                                                         "title":  "string",
+                                                         "duration":  "string",
+                                                         "objective":  "string"
+                                                     }
+                                                 ]
+                              },
+        "ui_component":  "text",
         "effort":  "L",
+        "velocity_factors":  {
+                                 "build_time_estimate":  "3-5 days",
+                                 "integration_complexity":  "high",
+                                 "reusability_score":  "4"
+                             },
         "risks":  [
-                      "false positives can trigger unnecessary interventions"
+                      "false positives can trigger unnecessary interventions",
+                      "data quality issues",
+                      "auth dependency",
+                      "latency concerns"
                   ],
         "dependencies":  [
                              "attendance feed",
                              "grade trends input",
-                             "playbook rules"
+                             "playbook rules",
+                             "LLM structured output"
                          ],
-        "source":  "Internal – EDU Suite Playbook: Learning Analytics & Risk Detection",
-        "source_link":  "https://en.wikipedia.org/wiki/Learning_analytics"
+        "source":  {
+                       "type":  "internal-playbook",
+                       "name":  "Internal – EDU Suite Playbook: Learning Analytics \u0026 Risk Detection",
+                       "link":  "https://en.wikipedia.org/wiki/Learning_analytics",
+                       "notes":  "Source selected for implementation confidence and capability validation evidence."
+                   },
+        "implementation_notes":  "Hybrid because it combines internal playbook logic with external data/dependency inputs.",
+        "success_criteria":  "At least 95% of high-risk learners are assigned interventions within the defined SLA window.",
+        "validation_mapping":  {
+                                   "prototype_mode":  "Skill Learning",
+                                   "success_criteria_link":  "An admin wants early warnings for disengagement risk."
+                               }
     },
     {
         "capability_name":  "Policy Q and A responder",
-        "category":  "Control",
         "type":  "MCP",
         "persona":  "admin",
-        "input":  "policy question",
-        "output_json_shape":  "{ answer: string, citations: string[], confidence: number }",
-        "ui_component":  "JsonInspector",
+        "category":  "Control",
+        "input":  {
+                      "description":  "policy question",
+                      "example":  "Example input: policy question"
+                  },
+        "output_json_shape":  {
+                                  "summary":  "string",
+                                  "flashcards":  [
+                                                     {
+                                                         "question":  "string",
+                                                         "answer":  "string"
+                                                     }
+                                                 ],
+                                  "quiz":  [
+                                               {
+                                                   "question":  "string",
+                                                   "options":  [
+                                                                   "string"
+                                                               ],
+                                                   "correct":  "string"
+                                               }
+                                           ],
+                                  "study_plan":  [
+                                                     {
+                                                         "title":  "string",
+                                                         "duration":  "string",
+                                                         "objective":  "string"
+                                                     }
+                                                 ]
+                              },
+        "ui_component":  "text",
         "effort":  "M",
+        "velocity_factors":  {
+                                 "build_time_estimate":  "1-2 days",
+                                 "integration_complexity":  "medium",
+                                 "reusability_score":  "4"
+                             },
         "risks":  [
-                      "citation mismatch can cause policy misinterpretation"
+                      "citation mismatch can cause policy misinterpretation",
+                      "data quality issues",
+                      "auth dependency",
+                      "latency concerns"
                   ],
         "dependencies":  [
                              "document index connector",
-                             "policy corpus index"
+                             "policy corpus index",
+                             "LLM structured output"
                          ],
-        "source":  "https://docs.anthropic.com/en/docs/build-with-claude/tool-use",
-        "source_link":  "https://modelcontextprotocol.io/introduction"
+        "source":  {
+                       "type":  "official-doc",
+                       "name":  "Policy Q and A responder reference",
+                       "link":  "https://docs.anthropic.com/en/docs/build-with-claude/tool-use",
+                       "notes":  "Source selected for implementation confidence and capability validation evidence."
+                   },
+        "implementation_notes":  "MCP because capability depends on external connector data/actions and authentication-managed calls.",
+        "success_criteria":  "Median response time stays under 2 minutes and citation validity is at least 95% in spot checks.",
+        "validation_mapping":  {
+                                   "prototype_mode":  "MCP Study Package",
+                                   "success_criteria_link":  "An admin wants policy answers with auditable citations."
+                               }
     },
     {
         "capability_name":  "Parent communication draft",
-        "category":  "Connection",
         "type":  "Skill",
         "persona":  "teacher",
-        "input":  "progress notes",
-        "output_json_shape":  "{ drafts: { subject: string, body: string }[] }",
-        "ui_component":  "JsonInspector",
+        "category":  "Connection",
+        "input":  {
+                      "description":  "progress notes",
+                      "example":  "Example input: progress notes"
+                  },
+        "output_json_shape":  {
+                                  "summary":  "string",
+                                  "flashcards":  [
+                                                     {
+                                                         "question":  "string",
+                                                         "answer":  "string"
+                                                     }
+                                                 ],
+                                  "quiz":  [
+                                               {
+                                                   "question":  "string",
+                                                   "options":  [
+                                                                   "string"
+                                                               ],
+                                                   "correct":  "string"
+                                               }
+                                           ],
+                                  "study_plan":  [
+                                                     {
+                                                         "title":  "string",
+                                                         "duration":  "string",
+                                                         "objective":  "string"
+                                                     }
+                                                 ]
+                              },
+        "ui_component":  "text",
         "effort":  "S",
+        "velocity_factors":  {
+                                 "build_time_estimate":  "4-8 hours",
+                                 "integration_complexity":  "low",
+                                 "reusability_score":  "5"
+                             },
         "risks":  [
-                      "privacy risk if sensitive student details are over-shared"
+                      "privacy risk if sensitive student details are over-shared",
+                      "data quality issues",
+                      "auth dependency",
+                      "latency concerns"
                   ],
         "dependencies":  [
                              "prompt templates",
-                             "student progress notes"
+                             "student progress notes",
+                             "LLM structured output"
                          ],
-        "source":  "https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf",
-        "source_link":  "https://code.claude.com/docs/en/skills"
+        "source":  {
+                       "type":  "official-doc",
+                       "name":  "Parent communication draft reference",
+                       "link":  "https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf",
+                       "notes":  "Source selected for implementation confidence and capability validation evidence."
+                   },
+        "implementation_notes":  "Skill because behavior is primarily instruction-driven and reusable as an internal playbook module.",
+        "success_criteria":  "Teacher sends message with no more than one manual correction in 90% of runs.",
+        "validation_mapping":  {
+                                   "prototype_mode":  "Skill Learning",
+                                   "success_criteria_link":  "A teacher wants multilingual parent updates for class progress."
+                               }
     },
     {
         "capability_name":  "Adaptive practice composer",
-        "category":  "Creation",
         "type":  "Hybrid",
         "persona":  "student",
-        "input":  "mastery snapshot and topic",
-        "output_json_shape":  "{ practice_set: { item: string, difficulty: string }[], coverage: string[] }",
-        "ui_component":  "JsonInspector",
+        "category":  "Creation",
+        "input":  {
+                      "description":  "mastery snapshot and topic",
+                      "example":  "Example input: mastery snapshot and topic"
+                  },
+        "output_json_shape":  {
+                                  "summary":  "string",
+                                  "flashcards":  [
+                                                     {
+                                                         "question":  "string",
+                                                         "answer":  "string"
+                                                     }
+                                                 ],
+                                  "quiz":  [
+                                               {
+                                                   "question":  "string",
+                                                   "options":  [
+                                                                   "string"
+                                                               ],
+                                                   "correct":  "string"
+                                               }
+                                           ],
+                                  "study_plan":  [
+                                                     {
+                                                         "title":  "string",
+                                                         "duration":  "string",
+                                                         "objective":  "string"
+                                                     }
+                                                 ]
+                              },
+        "ui_component":  "text",
         "effort":  "M",
+        "velocity_factors":  {
+                                 "build_time_estimate":  "1-2 days",
+                                 "integration_complexity":  "high",
+                                 "reusability_score":  "4"
+                             },
         "risks":  [
-                      "difficulty drift may mismatch learner proficiency"
+                      "difficulty drift may mismatch learner proficiency",
+                      "data quality issues",
+                      "auth dependency",
+                      "latency concerns"
                   ],
         "dependencies":  [
                              "mastery data source",
                              "playbook logic",
-                             "topic input"
+                             "topic input",
+                             "LLM structured output"
                          ],
-        "source":  "Internal – EDU Suite Playbook: Adaptive Learning & Mastery-Based Progression\nhttps://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering",
-        "source_link":  "https://en.wikipedia.org/wiki/Mastery_learning"
+        "source":  {
+                       "type":  "internal-playbook",
+                       "name":  "Internal – EDU Suite Playbook: Adaptive Learning \u0026 Mastery-Based Progression",
+                       "link":  "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering",
+                       "notes":  "Source selected for implementation confidence and capability validation evidence."
+                   },
+        "implementation_notes":  "Hybrid because it combines internal playbook logic with external data/dependency inputs.",
+        "success_criteria":  "All four required sections are present and each section contains at least one valid item.",
+        "validation_mapping":  {
+                                   "prototype_mode":  "Skill Learning",
+                                   "success_criteria_link":  "A student wants lesson material transformed into practice assets quickly."
+                               }
     }
 ]

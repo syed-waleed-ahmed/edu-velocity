@@ -1,0 +1,736 @@
+[
+  {
+    "capability_name": "Homework hint generator",
+    "mode_used": "Skill Learning",
+    "output_generated": {
+      "summary": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
+      "flashcards": [
+        {
+          "question": "What is the key idea behind variables?",
+          "answer": "Variables represent unknown values"
+        },
+        {
+          "question": "What is the key idea behind equations?",
+          "answer": "Equations balance two expressions"
+        },
+        {
+          "question": "What is the key idea behind guided?",
+          "answer": "Guided practice with examples improves student confidence"
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Which statement best matches the lesson treatment of variables?",
+          "options": [
+            "The lesson links variables to measurable learning outcomes.",
+            "The lesson states variables should be ignored after instruction starts.",
+            "The lesson describes variables as unrelated to student progress.",
+            "The lesson claims variables only matters at final exams."
+          ],
+          "correct": "The lesson links variables to measurable learning outcomes."
+        },
+        {
+          "question": "Which statement best matches the lesson treatment of represent?",
+          "options": [
+            "The lesson links represent to measurable learning outcomes.",
+            "The lesson states represent should be ignored after instruction starts.",
+            "The lesson describes represent as unrelated to student progress.",
+            "The lesson claims represent only matters at final exams."
+          ],
+          "correct": "The lesson links represent to measurable learning outcomes."
+        },
+        {
+          "question": "Which statement best matches the lesson treatment of unknown?",
+          "options": [
+            "The lesson links unknown to measurable learning outcomes.",
+            "The lesson states unknown should be ignored after instruction starts.",
+            "The lesson describes unknown as unrelated to student progress.",
+            "The lesson claims unknown only matters at final exams."
+          ],
+          "correct": "The lesson links unknown to measurable learning outcomes."
+        },
+        {
+          "question": "Which statement best matches the lesson treatment of values?",
+          "options": [
+            "The lesson links values to measurable learning outcomes.",
+            "The lesson states values should be ignored after instruction starts.",
+            "The lesson describes values as unrelated to student progress.",
+            "The lesson claims values only matters at final exams."
+          ],
+          "correct": "The lesson links values to measurable learning outcomes."
+        }
+      ],
+      "study_plan": [
+        {
+          "title": "Session 1",
+          "duration": "30 minutes",
+          "objective": "Variables represent unknown values. Equations balance two expressions. Guided practice ..."
+        }
+      ]
+    },
+    "response_time_ms": 140,
+    "status": "success",
+    "executed_at": "2026-04-10T00:36:45.375Z"
+  },
+  {
+    "capability_name": "Weekly study plan generation",
+    "mode_used": "Skill Learning",
+    "output_generated": {
+      "summary": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
+      "flashcards": [
+        {
+          "question": "What is the key idea behind variables?",
+          "answer": "Variables represent unknown values"
+        },
+        {
+          "question": "What is the key idea behind equations?",
+          "answer": "Equations balance two expressions"
+        },
+        {
+          "question": "What is the key idea behind guided?",
+          "answer": "Guided practice with examples improves student confidence"
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Which statement best matches the lesson treatment of variables?",
+          "options": [
+            "The lesson links variables to measurable learning outcomes.",
+            "The lesson states variables should be ignored after instruction starts.",
+            "The lesson describes variables as unrelated to student progress.",
+            "The lesson claims variables only matters at final exams."
+          ],
+          "correct": "The lesson links variables to measurable learning outcomes."
+        },
+        {
+          "question": "Which statement best matches the lesson treatment of represent?",
+          "options": [
+            "The lesson links represent to measurable learning outcomes.",
+            "The lesson states represent should be ignored after instruction starts.",
+            "The lesson describes represent as unrelated to student progress.",
+            "The lesson claims represent only matters at final exams."
+          ],
+          "correct": "The lesson links represent to measurable learning outcomes."
+        },
+        {
+          "question": "Which statement best matches the lesson treatment of unknown?",
+          "options": [
+            "The lesson links unknown to measurable learning outcomes.",
+            "The lesson states unknown should be ignored after instruction starts.",
+            "The lesson describes unknown as unrelated to student progress.",
+            "The lesson claims unknown only matters at final exams."
+          ],
+          "correct": "The lesson links unknown to measurable learning outcomes."
+        },
+        {
+          "question": "Which statement best matches the lesson treatment of values?",
+          "options": [
+            "The lesson links values to measurable learning outcomes.",
+            "The lesson states values should be ignored after instruction starts.",
+            "The lesson describes values as unrelated to student progress.",
+            "The lesson claims values only matters at final exams."
+          ],
+          "correct": "The lesson links values to measurable learning outcomes."
+        }
+      ],
+      "study_plan": [
+        {
+          "title": "Session 1",
+          "duration": "30 minutes",
+          "objective": "Variables represent unknown values. Equations balance two expressions. Guided practice ..."
+        }
+      ]
+    },
+    "response_time_ms": 157,
+    "status": "success",
+    "executed_at": "2026-04-10T00:36:45.376Z"
+  },
+  {
+    "capability_name": "Lesson to flashcards",
+    "mode_used": "Skill Learning",
+    "output_generated": {
+      "summary": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
+      "flashcards": [
+        {
+          "question": "What is the key idea behind variables?",
+          "answer": "Variables represent unknown values"
+        },
+        {
+          "question": "What is the key idea behind equations?",
+          "answer": "Equations balance two expressions"
+        },
+        {
+          "question": "What is the key idea behind guided?",
+          "answer": "Guided practice with examples improves student confidence"
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Which statement best matches the lesson treatment of variables?",
+          "options": [
+            "The lesson links variables to measurable learning outcomes.",
+            "The lesson states variables should be ignored after instruction starts.",
+            "The lesson describes variables as unrelated to student progress.",
+            "The lesson claims variables only matters at final exams."
+          ],
+          "correct": "The lesson links variables to measurable learning outcomes."
+        },
+        {
+          "question": "Which statement best matches the lesson treatment of represent?",
+          "options": [
+            "The lesson links represent to measurable learning outcomes.",
+            "The lesson states represent should be ignored after instruction starts.",
+            "The lesson describes represent as unrelated to student progress.",
+            "The lesson claims represent only matters at final exams."
+          ],
+          "correct": "The lesson links represent to measurable learning outcomes."
+        },
+        {
+          "question": "Which statement best matches the lesson treatment of unknown?",
+          "options": [
+            "The lesson links unknown to measurable learning outcomes.",
+            "The lesson states unknown should be ignored after instruction starts.",
+            "The lesson describes unknown as unrelated to student progress.",
+            "The lesson claims unknown only matters at final exams."
+          ],
+          "correct": "The lesson links unknown to measurable learning outcomes."
+        },
+        {
+          "question": "Which statement best matches the lesson treatment of values?",
+          "options": [
+            "The lesson links values to measurable learning outcomes.",
+            "The lesson states values should be ignored after instruction starts.",
+            "The lesson describes values as unrelated to student progress.",
+            "The lesson claims values only matters at final exams."
+          ],
+          "correct": "The lesson links values to measurable learning outcomes."
+        }
+      ],
+      "study_plan": [
+        {
+          "title": "Session 1",
+          "duration": "30 minutes",
+          "objective": "Variables represent unknown values. Equations balance two expressions. Guided practice ..."
+        }
+      ]
+    },
+    "response_time_ms": 174,
+    "status": "success",
+    "executed_at": "2026-04-10T00:36:45.376Z"
+  },
+  {
+    "capability_name": "Lesson to quiz",
+    "mode_used": "Skill Learning",
+    "output_generated": {
+      "summary": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
+      "flashcards": [
+        {
+          "question": "What is the key idea behind variables?",
+          "answer": "Variables represent unknown values"
+        },
+        {
+          "question": "What is the key idea behind equations?",
+          "answer": "Equations balance two expressions"
+        },
+        {
+          "question": "What is the key idea behind guided?",
+          "answer": "Guided practice with examples improves student confidence"
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Which statement best matches the lesson treatment of variables?",
+          "options": [
+            "The lesson links variables to measurable learning outcomes.",
+            "The lesson states variables should be ignored after instruction starts.",
+            "The lesson describes variables as unrelated to student progress.",
+            "The lesson claims variables only matters at final exams."
+          ],
+          "correct": "The lesson links variables to measurable learning outcomes."
+        },
+        {
+          "question": "Which statement best matches the lesson treatment of represent?",
+          "options": [
+            "The lesson links represent to measurable learning outcomes.",
+            "The lesson states represent should be ignored after instruction starts.",
+            "The lesson describes represent as unrelated to student progress.",
+            "The lesson claims represent only matters at final exams."
+          ],
+          "correct": "The lesson links represent to measurable learning outcomes."
+        },
+        {
+          "question": "Which statement best matches the lesson treatment of unknown?",
+          "options": [
+            "The lesson links unknown to measurable learning outcomes.",
+            "The lesson states unknown should be ignored after instruction starts.",
+            "The lesson describes unknown as unrelated to student progress.",
+            "The lesson claims unknown only matters at final exams."
+          ],
+          "correct": "The lesson links unknown to measurable learning outcomes."
+        },
+        {
+          "question": "Which statement best matches the lesson treatment of values?",
+          "options": [
+            "The lesson links values to measurable learning outcomes.",
+            "The lesson states values should be ignored after instruction starts.",
+            "The lesson describes values as unrelated to student progress.",
+            "The lesson claims values only matters at final exams."
+          ],
+          "correct": "The lesson links values to measurable learning outcomes."
+        }
+      ],
+      "study_plan": [
+        {
+          "title": "Session 1",
+          "duration": "30 minutes",
+          "objective": "Variables represent unknown values. Equations balance two expressions. Guided practice ..."
+        }
+      ]
+    },
+    "response_time_ms": 191,
+    "status": "success",
+    "executed_at": "2026-04-10T00:36:45.376Z"
+  },
+  {
+    "capability_name": "Multi-language parent update translator",
+    "mode_used": "MCP Study Package",
+    "output_generated": {
+      "summary": "Imported from DRIVE: Variables represent unknown quantities. Equations balance two expressions. Functions map one input to one output. Practice with substitution...",
+      "flashcards": [
+        {
+          "question": "What is the key idea behind variables?",
+          "answer": "Variables represent unknown quantities"
+        },
+        {
+          "question": "What is the key idea behind equations?",
+          "answer": "Equations balance two expressions"
+        },
+        {
+          "question": "What is the key idea behind functions?",
+          "answer": "Functions map one input to one output"
+        },
+        {
+          "question": "What is the key idea behind practice?",
+          "answer": "Practice with substitution and graph interpretation improves retention"
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Which statement best matches the lesson treatment of variables?",
+          "options": [
+            "The lesson links variables to measurable learning outcomes.",
+            "The lesson states variables should be ignored after instruction starts.",
+            "The lesson describes variables as unrelated to student progress.",
+            "The lesson claims variables only matters at final exams."
+          ],
+          "correct": "The lesson links variables to measurable learning outcomes."
+        },
+        {
+          "question": "Which statement best matches the lesson treatment of represent?",
+          "options": [
+            "The lesson links represent to measurable learning outcomes.",
+            "The lesson states represent should be ignored after instruction starts.",
+            "The lesson describes represent as unrelated to student progress.",
+            "The lesson claims represent only matters at final exams."
+          ],
+          "correct": "The lesson links represent to measurable learning outcomes."
+        },
+        {
+          "question": "Which statement best matches the lesson treatment of unknown?",
+          "options": [
+            "The lesson links unknown to measurable learning outcomes.",
+            "The lesson states unknown should be ignored after instruction starts.",
+            "The lesson describes unknown as unrelated to student progress.",
+            "The lesson claims unknown only matters at final exams."
+          ],
+          "correct": "The lesson links unknown to measurable learning outcomes."
+        },
+        {
+          "question": "Which statement best matches the lesson treatment of quantities?",
+          "options": [
+            "The lesson links quantities to measurable learning outcomes.",
+            "The lesson states quantities should be ignored after instruction starts.",
+            "The lesson describes quantities as unrelated to student progress.",
+            "The lesson claims quantities only matters at final exams."
+          ],
+          "correct": "The lesson links quantities to measurable learning outcomes."
+        }
+      ],
+      "study_plan": [
+        {
+          "title": "Session 1",
+          "duration": "30 minutes",
+          "objective": "Variables represent unknown quantities. Equations balance two expressions. Functions ma..."
+        }
+      ]
+    },
+    "response_time_ms": 248,
+    "status": "success",
+    "executed_at": "2026-04-10T00:36:45.376Z"
+  },
+  {
+    "capability_name": "Parent communication draft",
+    "mode_used": "Skill Learning",
+    "output_generated": {
+      "summary": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
+      "flashcards": [
+        {
+          "question": "What is the key idea behind variables?",
+          "answer": "Variables represent unknown values"
+        },
+        {
+          "question": "What is the key idea behind equations?",
+          "answer": "Equations balance two expressions"
+        },
+        {
+          "question": "What is the key idea behind guided?",
+          "answer": "Guided practice with examples improves student confidence"
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Which statement best matches the lesson treatment of variables?",
+          "options": [
+            "The lesson links variables to measurable learning outcomes.",
+            "The lesson states variables should be ignored after instruction starts.",
+            "The lesson describes variables as unrelated to student progress.",
+            "The lesson claims variables only matters at final exams."
+          ],
+          "correct": "The lesson links variables to measurable learning outcomes."
+        },
+        {
+          "question": "Which statement best matches the lesson treatment of represent?",
+          "options": [
+            "The lesson links represent to measurable learning outcomes.",
+            "The lesson states represent should be ignored after instruction starts.",
+            "The lesson describes represent as unrelated to student progress.",
+            "The lesson claims represent only matters at final exams."
+          ],
+          "correct": "The lesson links represent to measurable learning outcomes."
+        },
+        {
+          "question": "Which statement best matches the lesson treatment of unknown?",
+          "options": [
+            "The lesson links unknown to measurable learning outcomes.",
+            "The lesson states unknown should be ignored after instruction starts.",
+            "The lesson describes unknown as unrelated to student progress.",
+            "The lesson claims unknown only matters at final exams."
+          ],
+          "correct": "The lesson links unknown to measurable learning outcomes."
+        },
+        {
+          "question": "Which statement best matches the lesson treatment of values?",
+          "options": [
+            "The lesson links values to measurable learning outcomes.",
+            "The lesson states values should be ignored after instruction starts.",
+            "The lesson describes values as unrelated to student progress.",
+            "The lesson claims values only matters at final exams."
+          ],
+          "correct": "The lesson links values to measurable learning outcomes."
+        }
+      ],
+      "study_plan": [
+        {
+          "title": "Session 1",
+          "duration": "30 minutes",
+          "objective": "Variables represent unknown values. Equations balance two expressions. Guided practice ..."
+        }
+      ]
+    },
+    "response_time_ms": 225,
+    "status": "success",
+    "executed_at": "2026-04-10T00:36:45.376Z"
+  },
+  {
+    "capability_name": "Adaptive practice composer",
+    "mode_used": "Skill Learning",
+    "output_generated": {
+      "summary": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
+      "flashcards": [
+        {
+          "question": "What is the key idea behind variables?",
+          "answer": "Variables represent unknown values"
+        },
+        {
+          "question": "What is the key idea behind equations?",
+          "answer": "Equations balance two expressions"
+        },
+        {
+          "question": "What is the key idea behind guided?",
+          "answer": "Guided practice with examples improves student confidence"
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Which statement best matches the lesson treatment of variables?",
+          "options": [
+            "The lesson links variables to measurable learning outcomes.",
+            "The lesson states variables should be ignored after instruction starts.",
+            "The lesson describes variables as unrelated to student progress.",
+            "The lesson claims variables only matters at final exams."
+          ],
+          "correct": "The lesson links variables to measurable learning outcomes."
+        },
+        {
+          "question": "Which statement best matches the lesson treatment of represent?",
+          "options": [
+            "The lesson links represent to measurable learning outcomes.",
+            "The lesson states represent should be ignored after instruction starts.",
+            "The lesson describes represent as unrelated to student progress.",
+            "The lesson claims represent only matters at final exams."
+          ],
+          "correct": "The lesson links represent to measurable learning outcomes."
+        },
+        {
+          "question": "Which statement best matches the lesson treatment of unknown?",
+          "options": [
+            "The lesson links unknown to measurable learning outcomes.",
+            "The lesson states unknown should be ignored after instruction starts.",
+            "The lesson describes unknown as unrelated to student progress.",
+            "The lesson claims unknown only matters at final exams."
+          ],
+          "correct": "The lesson links unknown to measurable learning outcomes."
+        },
+        {
+          "question": "Which statement best matches the lesson treatment of values?",
+          "options": [
+            "The lesson links values to measurable learning outcomes.",
+            "The lesson states values should be ignored after instruction starts.",
+            "The lesson describes values as unrelated to student progress.",
+            "The lesson claims values only matters at final exams."
+          ],
+          "correct": "The lesson links values to measurable learning outcomes."
+        }
+      ],
+      "study_plan": [
+        {
+          "title": "Session 1",
+          "duration": "30 minutes",
+          "objective": "Variables represent unknown values. Equations balance two expressions. Guided practice ..."
+        }
+      ]
+    },
+    "response_time_ms": 242,
+    "status": "success",
+    "executed_at": "2026-04-10T00:36:45.376Z"
+  },
+  {
+    "capability_name": "Assignment rubric feedback drafting",
+    "mode_used": "Skill Learning",
+    "output_generated": {
+      "summary": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
+      "flashcards": [
+        {
+          "question": "What is the key idea behind variables?",
+          "answer": "Variables represent unknown values"
+        },
+        {
+          "question": "What is the key idea behind equations?",
+          "answer": "Equations balance two expressions"
+        },
+        {
+          "question": "What is the key idea behind guided?",
+          "answer": "Guided practice with examples improves student confidence"
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Which statement best matches the lesson treatment of variables?",
+          "options": [
+            "The lesson links variables to measurable learning outcomes.",
+            "The lesson states variables should be ignored after instruction starts.",
+            "The lesson describes variables as unrelated to student progress.",
+            "The lesson claims variables only matters at final exams."
+          ],
+          "correct": "The lesson links variables to measurable learning outcomes."
+        },
+        {
+          "question": "Which statement best matches the lesson treatment of represent?",
+          "options": [
+            "The lesson links represent to measurable learning outcomes.",
+            "The lesson states represent should be ignored after instruction starts.",
+            "The lesson describes represent as unrelated to student progress.",
+            "The lesson claims represent only matters at final exams."
+          ],
+          "correct": "The lesson links represent to measurable learning outcomes."
+        },
+        {
+          "question": "Which statement best matches the lesson treatment of unknown?",
+          "options": [
+            "The lesson links unknown to measurable learning outcomes.",
+            "The lesson states unknown should be ignored after instruction starts.",
+            "The lesson describes unknown as unrelated to student progress.",
+            "The lesson claims unknown only matters at final exams."
+          ],
+          "correct": "The lesson links unknown to measurable learning outcomes."
+        },
+        {
+          "question": "Which statement best matches the lesson treatment of values?",
+          "options": [
+            "The lesson links values to measurable learning outcomes.",
+            "The lesson states values should be ignored after instruction starts.",
+            "The lesson describes values as unrelated to student progress.",
+            "The lesson claims values only matters at final exams."
+          ],
+          "correct": "The lesson links values to measurable learning outcomes."
+        }
+      ],
+      "study_plan": [
+        {
+          "title": "Session 1",
+          "duration": "30 minutes",
+          "objective": "Variables represent unknown values. Equations balance two expressions. Guided practice ..."
+        }
+      ]
+    },
+    "response_time_ms": 259,
+    "status": "success",
+    "executed_at": "2026-04-10T00:36:45.376Z"
+  },
+  {
+    "capability_name": "Classroom discussion prompt builder",
+    "mode_used": "Skill Learning",
+    "output_generated": {
+      "summary": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
+      "flashcards": [
+        {
+          "question": "What is the key idea behind variables?",
+          "answer": "Variables represent unknown values"
+        },
+        {
+          "question": "What is the key idea behind equations?",
+          "answer": "Equations balance two expressions"
+        },
+        {
+          "question": "What is the key idea behind guided?",
+          "answer": "Guided practice with examples improves student confidence"
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Which statement best matches the lesson treatment of variables?",
+          "options": [
+            "The lesson links variables to measurable learning outcomes.",
+            "The lesson states variables should be ignored after instruction starts.",
+            "The lesson describes variables as unrelated to student progress.",
+            "The lesson claims variables only matters at final exams."
+          ],
+          "correct": "The lesson links variables to measurable learning outcomes."
+        },
+        {
+          "question": "Which statement best matches the lesson treatment of represent?",
+          "options": [
+            "The lesson links represent to measurable learning outcomes.",
+            "The lesson states represent should be ignored after instruction starts.",
+            "The lesson describes represent as unrelated to student progress.",
+            "The lesson claims represent only matters at final exams."
+          ],
+          "correct": "The lesson links represent to measurable learning outcomes."
+        },
+        {
+          "question": "Which statement best matches the lesson treatment of unknown?",
+          "options": [
+            "The lesson links unknown to measurable learning outcomes.",
+            "The lesson states unknown should be ignored after instruction starts.",
+            "The lesson describes unknown as unrelated to student progress.",
+            "The lesson claims unknown only matters at final exams."
+          ],
+          "correct": "The lesson links unknown to measurable learning outcomes."
+        },
+        {
+          "question": "Which statement best matches the lesson treatment of values?",
+          "options": [
+            "The lesson links values to measurable learning outcomes.",
+            "The lesson states values should be ignored after instruction starts.",
+            "The lesson describes values as unrelated to student progress.",
+            "The lesson claims values only matters at final exams."
+          ],
+          "correct": "The lesson links values to measurable learning outcomes."
+        }
+      ],
+      "study_plan": [
+        {
+          "title": "Session 1",
+          "duration": "30 minutes",
+          "objective": "Variables represent unknown values. Equations balance two expressions. Guided practice ..."
+        }
+      ]
+    },
+    "response_time_ms": 276,
+    "status": "success",
+    "executed_at": "2026-04-10T00:36:45.376Z"
+  },
+  {
+    "capability_name": "Lab report summarizer",
+    "mode_used": "Skill Learning",
+    "output_generated": {
+      "summary": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
+      "flashcards": [
+        {
+          "question": "What is the key idea behind variables?",
+          "answer": "Variables represent unknown values"
+        },
+        {
+          "question": "What is the key idea behind equations?",
+          "answer": "Equations balance two expressions"
+        },
+        {
+          "question": "What is the key idea behind guided?",
+          "answer": "Guided practice with examples improves student confidence"
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Which statement best matches the lesson treatment of variables?",
+          "options": [
+            "The lesson links variables to measurable learning outcomes.",
+            "The lesson states variables should be ignored after instruction starts.",
+            "The lesson describes variables as unrelated to student progress.",
+            "The lesson claims variables only matters at final exams."
+          ],
+          "correct": "The lesson links variables to measurable learning outcomes."
+        },
+        {
+          "question": "Which statement best matches the lesson treatment of represent?",
+          "options": [
+            "The lesson links represent to measurable learning outcomes.",
+            "The lesson states represent should be ignored after instruction starts.",
+            "The lesson describes represent as unrelated to student progress.",
+            "The lesson claims represent only matters at final exams."
+          ],
+          "correct": "The lesson links represent to measurable learning outcomes."
+        },
+        {
+          "question": "Which statement best matches the lesson treatment of unknown?",
+          "options": [
+            "The lesson links unknown to measurable learning outcomes.",
+            "The lesson states unknown should be ignored after instruction starts.",
+            "The lesson describes unknown as unrelated to student progress.",
+            "The lesson claims unknown only matters at final exams."
+          ],
+          "correct": "The lesson links unknown to measurable learning outcomes."
+        },
+        {
+          "question": "Which statement best matches the lesson treatment of values?",
+          "options": [
+            "The lesson links values to measurable learning outcomes.",
+            "The lesson states values should be ignored after instruction starts.",
+            "The lesson describes values as unrelated to student progress.",
+            "The lesson claims values only matters at final exams."
+          ],
+          "correct": "The lesson links values to measurable learning outcomes."
+        }
+      ],
+      "study_plan": [
+        {
+          "title": "Session 1",
+          "duration": "30 minutes",
+          "objective": "Variables represent unknown values. Equations balance two expressions. Guided practice ..."
+        }
+      ]
+    },
+    "response_time_ms": 293,
+    "status": "success",
+    "executed_at": "2026-04-10T00:36:45.376Z"
+  }
+]

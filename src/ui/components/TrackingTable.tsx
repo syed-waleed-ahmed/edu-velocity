@@ -3,17 +3,6 @@ import type { TrackingItem } from "../../tracking/types";
 
 const rows = trackingSheet as TrackingItem[];
 
-function isUrl(value: string): boolean {
-  return /^https?:\/\//i.test(value);
-}
-
-function splitSourceLines(source: string): string[] {
-  return source
-    .split("\n")
-    .map((line) => line.trim())
-    .filter(Boolean);
-}
-
 export function TrackingTable() {
   return (
     <section>
@@ -27,7 +16,9 @@ export function TrackingTable() {
               <th>Persona</th>
               <th>Category</th>
               <th>Effort</th>
+              <th>Input -&gt; UI</th>
               <th>Source</th>
+              <th>Evaluation Details</th>
             </tr>
           </thead>
           <tbody>
@@ -40,21 +31,30 @@ export function TrackingTable() {
                 <td>{row.effort}</td>
                 <td>
                   <div className="source-stack">
-                    {splitSourceLines(row.source).map((sourceLine) =>
-                      isUrl(sourceLine) ? (
-                        <a key={sourceLine} className="source-link" href={sourceLine} target="_blank" rel="noreferrer">
-                          {sourceLine}
-                        </a>
-                      ) : (
-                        <span key={sourceLine} className="source-line">{sourceLine}</span>
-                      )
-                    )}
-                    {!splitSourceLines(row.source).some(isUrl) ? (
-                      <a className="source-link" href={row.source_link} target="_blank" rel="noreferrer">
-                        {row.source_link}
-                      </a>
-                    ) : null}
+                    <span className="source-line">{row.input.description}</span>
+                    <span className="source-line">UI: {row.ui_component}</span>
                   </div>
+                </td>
+                <td>
+                  <div className="source-stack">
+                    <span className="source-line">{row.source.type}</span>
+                    <span className="source-line">{row.source.name}</span>
+                    <a className="source-link" href={row.source.link} target="_blank" rel="noreferrer">
+                      {row.source.link}
+                    </a>
+                  </div>
+                </td>
+                <td>
+                  <details className="tracking-expand">
+                    <summary>View</summary>
+                    <div className="tracking-expand-body">
+                      <p className="source-line">Build: {row.velocity_factors.build_time_estimate}</p>
+                      <p className="source-line">Complexity: {row.velocity_factors.integration_complexity}</p>
+                      <p className="source-line">Reusability: {row.velocity_factors.reusability_score}</p>
+                      <p className="source-line">Risks: {row.risks.join(", ")}</p>
+                      <p className="source-line">Dependencies: {row.dependencies.join(", ")}</p>
+                    </div>
+                  </details>
                 </td>
               </tr>
             ))}

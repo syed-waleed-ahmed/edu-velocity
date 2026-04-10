@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { runMcpStudyPackageAgent } from "../../agents/mcpStudyPackageAgent";
 import { runPlaybookLearningAgent } from "../../agents/playbookLearningAgent";
 import type { LearningPackage } from "../../schemas/learningPackage.schema";
+import type { RunHistoryEntry } from "../../tracking/types";
 import { QuizRenderer } from "./QuizRenderer";
 import { FlashcardRenderer } from "./FlashcardRenderer";
 import { StudyPlanRenderer } from "./StudyPlanRenderer";
@@ -14,6 +15,7 @@ export function PrototypeRunner() {
   const [mode, setMode] = useState<"mcp" | "playbook">("mcp");
   const [input, setInput] = useState("drive-math-101");
   const [output, setOutput] = useState<LearningPackage | null>(null);
+  const [runHistory, setRunHistory] = useState<RunHistoryEntry[]>([]);
   const [evaluation, setEvaluation] = useState({
     triggerSuccessRate: "",
     toolCalls: "",
@@ -24,7 +26,17 @@ export function PrototypeRunner() {
 
   const placeholder = useMemo(() => (mode === "mcp" ? "drive-math-101" : "Paste lesson text"), [mode]);
 
+  function appendRunHistory(entry: RunHistoryEntry) {
+    setRunHistory((prev) => {
+      const next = [entry, ...prev].slice(0, 20);
+      localStorage.setItem("edu-prototype-run-history", JSON.stringify(next));
+      return next;
+    });
+  }
+
   function runPrototype() {
+    const startedAt = performance.now();
+
     setEvaluation({
       triggerSuccessRate: "",
       toolCalls: "",
@@ -34,11 +46,29 @@ export function PrototypeRunner() {
     });
 
     if (mode === "mcp") {
-      setOutput(runMcpStudyPackageAgent(input || "drive-math-101", "drive"));
+      const packageOutput = runMcpStudyPackageAgent(input || "drive-math-101", "drive");
+      setOutput(packageOutput);
+      appendRunHistory({
+        capability_name: "MCP Study Package Prototype",
+        mode_used: "MCP Study Package",
+        output_generated: packageOutput,
+        response_time_ms: Math.round(performance.now() - startedAt),
+        status: packageOutput.summary ? "success" : "failure",
+        executed_at: new Date().toISOString()
+      });
       return;
     }
 
-    setOutput(runPlaybookLearningAgent(input || playbookSeed));
+    const packageOutput = runPlaybookLearningAgent(input || playbookSeed);
+    setOutput(packageOutput);
+    appendRunHistory({
+      capability_name: "Skill Learning Prototype",
+      mode_used: "Skill Learning",
+      output_generated: packageOutput,
+      response_time_ms: Math.round(performance.now() - startedAt),
+      status: packageOutput.summary ? "success" : "failure",
+      executed_at: new Date().toISOString()
+    });
   }
 
   return (
