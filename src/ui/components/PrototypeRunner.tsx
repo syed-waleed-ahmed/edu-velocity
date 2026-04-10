@@ -6,7 +6,6 @@ import type { RunHistoryEntry } from "../../tracking/types";
 import { QuizRenderer } from "./QuizRenderer";
 import { FlashcardRenderer } from "./FlashcardRenderer";
 import { StudyPlanRenderer } from "./StudyPlanRenderer";
-import { SuccessCriteriaEvaluationPanel } from "./SuccessCriteriaEvaluationPanel";
 
 const playbookSeed =
   "Explicit objectives improve focus. Guided practice improves confidence. Retrieval checks verify understanding and reveal gaps quickly.";
@@ -16,13 +15,6 @@ export function PrototypeRunner() {
   const [input, setInput] = useState("drive-math-101");
   const [output, setOutput] = useState<LearningPackage | null>(null);
   const [runHistory, setRunHistory] = useState<RunHistoryEntry[]>([]);
-  const [evaluation, setEvaluation] = useState({
-    triggerSuccessRate: "",
-    toolCalls: "",
-    apiErrors: "",
-    consistencyAcrossRuns: "",
-    notes: ""
-  });
 
   const placeholder = useMemo(() => (mode === "mcp" ? "drive-math-101" : "Paste lesson text"), [mode]);
 
@@ -36,14 +28,6 @@ export function PrototypeRunner() {
 
   function runPrototype() {
     const startedAt = performance.now();
-
-    setEvaluation({
-      triggerSuccessRate: "",
-      toolCalls: "",
-      apiErrors: "",
-      consistencyAcrossRuns: "",
-      notes: ""
-    });
 
     if (mode === "mcp") {
       const packageOutput = runMcpStudyPackageAgent(input || "drive-math-101", "drive");
@@ -108,7 +92,6 @@ export function PrototypeRunner() {
           <FlashcardRenderer flashcards={output.flashcards} />
           <QuizRenderer quiz={output.quiz} />
           <StudyPlanRenderer plan={output.study_plan} />
-          <SuccessCriteriaEvaluationPanel values={evaluation} onChange={setEvaluation} />
         </div>
       ) : null}
     </section>

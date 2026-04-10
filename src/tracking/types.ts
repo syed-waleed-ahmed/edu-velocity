@@ -5,51 +5,31 @@ export type Effort = "S" | "M" | "L";
 export type UiComponentType = "flashcards" | "quiz" | "study_plan" | "table" | "text";
 
 export type TrackingInput = {
+  fields: string[];
   description: string;
-  example: string;
 };
 
-export type TrackingOutputShape = {
-  summary: "string";
-  flashcards: Array<{ question: "string"; answer: "string" }>;
-  quiz: Array<{ question: "string"; options: ["string"] | string[]; correct: "string" }>;
-  study_plan: Array<{ title: "string"; duration: "string"; objective: "string" }>;
-};
-
-export type VelocityFactors = {
-  build_time_estimate: string;
-  integration_complexity: "low" | "medium" | "high";
-  reusability_score: string;
+export type TrackingOutputUi = {
+  component: UiComponentType;
+  description: string;
 };
 
 export type TrackingSource = {
-  type: "official-doc" | "internal-playbook";
+  type: "tool" | "official-doc" | "research" | "platform";
   name: string;
   link: string;
   notes: string;
 };
 
-export type ValidationMapping = {
-  prototype_mode: "MCP Study Package" | "Skill Learning";
-  success_criteria_link: string;
-};
-
 export type TrackingItem = {
-  capability_name: string;
+  capability: string;
   type: CapabilityType;
   persona: Persona;
   category: Category;
-  input: TrackingInput;
-  output_json_shape: TrackingOutputShape;
-  ui_component: UiComponentType;
   effort: Effort;
-  velocity_factors: VelocityFactors;
-  risks: string[];
-  dependencies: string[];
-  source: TrackingSource;
-  implementation_notes: string;
-  success_criteria: string;
-  validation_mapping: ValidationMapping;
+  input: TrackingInput;
+  output_ui: TrackingOutputUi;
+  sources: TrackingSource[];
 };
 
 export type UseCaseItem = {
