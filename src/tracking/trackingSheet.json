@@ -39,7 +39,8 @@
       "description": "Defines the structured JSON fields expected before renderer mapping."
     },
     "risks": [
-      "generic pacing"
+      "generic pacing",
+      "privacy/minors data handling risk"
     ],
     "dependencies": [
       "lessonToStudyPlan"
@@ -91,7 +92,8 @@
       "description": "Defines the structured JSON fields expected before renderer mapping."
     },
     "risks": [
-      "tone mismatch"
+      "tone mismatch",
+      "privacy/minors data handling risk"
     ],
     "dependencies": [
       "rubric prompt templates"
@@ -138,7 +140,8 @@
       "description": "Defines the structured JSON fields expected before renderer mapping."
     },
     "risks": [
-      "auth scope mismatch"
+      "auth scope mismatch",
+      "privacy/minors data handling risk"
     ],
     "dependencies": [
       "mockDriveClient"
@@ -185,7 +188,8 @@
       "description": "Defines the structured JSON fields expected before renderer mapping."
     },
     "risks": [
-      "rate limit spikes"
+      "rate limit spikes",
+      "privacy/minors data handling risk"
     ],
     "dependencies": [
       "mockLmsClient"
@@ -236,7 +240,8 @@
       "description": "Defines the structured JSON fields expected before renderer mapping."
     },
     "risks": [
-      "oversimplified cards"
+      "oversimplified cards",
+      "privacy/minors data handling risk"
     ],
     "dependencies": [
       "lessonToFlashcards"
@@ -287,7 +292,8 @@
       "description": "Defines the structured JSON fields expected before renderer mapping."
     },
     "risks": [
-      "weak distractors"
+      "weak distractors",
+      "privacy/minors data handling risk"
     ],
     "dependencies": [
       "lessonToQuiz"
@@ -339,7 +345,8 @@
       "description": "Defines the structured JSON fields expected before renderer mapping."
     },
     "risks": [
-      "false positives"
+      "false positives",
+      "privacy/minors data handling risk"
     ],
     "dependencies": [
       "attendance connector",
@@ -381,7 +388,8 @@
       "description": "Defines the structured JSON fields expected before renderer mapping."
     },
     "risks": [
-      "citation mismatch"
+      "citation mismatch",
+      "privacy/minors data handling risk"
     ],
     "dependencies": [
       "policy index connector"
@@ -432,7 +440,8 @@
       "description": "Defines the structured JSON fields expected before renderer mapping."
     },
     "risks": [
-      "missing sensitivity context"
+      "missing sensitivity context",
+      "privacy/minors data handling risk"
     ],
     "dependencies": [
       "message templates"
@@ -484,7 +493,8 @@
       "description": "Defines the structured JSON fields expected before renderer mapping."
     },
     "risks": [
-      "difficulty drift"
+      "difficulty drift",
+      "privacy/minors data handling risk"
     ],
     "dependencies": [
       "mastery connector",

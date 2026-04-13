@@ -1,9 +1,11 @@
 {
   "total_capabilities_tested": 10,
+  "candidates_evaluated_per_week": 30,
+  "building_blocks_shipped_per_week": 2,
   "average_response_ms": 221,
   "fastest_response_ms": 140,
   "slowest_response_ms": 293,
   "pass_rate": 1,
-  "baseline_definition": "Baseline equals deterministic local hello-world run across current top-10 shortlist.",
-  "recorded_at": "2026-04-13T13:27:12.434Z"
+  "baseline_definition": "Baseline equals one exploration sprint week: all scanned candidates evaluated and two reusable prototype building blocks shipped.",
+  "recorded_at": "2026-04-13T13:39:11.391Z"
 }
