@@ -1,0 +1,57 @@
+{
+  "total_checked": 5,
+  "consistent_count": 5,
+  "samples": [
+    {
+      "capability_name": "Homework hint generator",
+      "consistent": true,
+      "keys": [
+        "summary",
+        "flashcards",
+        "quiz",
+        "study_plan"
+      ]
+    },
+    {
+      "capability_name": "Weekly study plan generation",
+      "consistent": true,
+      "keys": [
+        "summary",
+        "flashcards",
+        "quiz",
+        "study_plan"
+      ]
+    },
+    {
+      "capability_name": "Lesson to flashcards",
+      "consistent": true,
+      "keys": [
+        "summary",
+        "flashcards",
+        "quiz",
+        "study_plan"
+      ]
+    },
+    {
+      "capability_name": "Lesson to quiz",
+      "consistent": true,
+      "keys": [
+        "summary",
+        "flashcards",
+        "quiz",
+        "study_plan"
+      ]
+    },
+    {
+      "capability_name": "Multi-language parent update translator",
+      "consistent": true,
+      "keys": [
+        "summary",
+        "flashcards",
+        "quiz",
+        "study_plan"
+      ]
+    }
+  ],
+  "recorded_at": "2026-04-13T13:27:12.434Z"
+}

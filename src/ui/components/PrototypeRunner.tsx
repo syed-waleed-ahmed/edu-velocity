@@ -6,6 +6,7 @@ import type { RunHistoryEntry } from "../../tracking/types";
 import { QuizRenderer } from "./QuizRenderer";
 import { FlashcardRenderer } from "./FlashcardRenderer";
 import { StudyPlanRenderer } from "./StudyPlanRenderer";
+import { VercelChatStyleRenderer } from "./VercelChatStyleRenderer";
 
 const playbookSeed =
   "Explicit objectives improve focus. Guided practice improves confidence. Retrieval checks verify understanding and reveal gaps quickly.";
@@ -92,6 +93,7 @@ export function PrototypeRunner() {
           <FlashcardRenderer flashcards={output.flashcards} />
           <QuizRenderer quiz={output.quiz} />
           <StudyPlanRenderer plan={output.study_plan} />
+          <VercelChatStyleRenderer output={output} />
         </div>
       ) : null}
     </section>

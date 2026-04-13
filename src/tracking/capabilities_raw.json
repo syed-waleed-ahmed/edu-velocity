@@ -84,8 +84,8 @@
     "dependencies": [
       "lessonToFlashcards"
     ],
-    "source": "internally-derived playbook idea",
-    "source_link": "https://www.atlassian.com/team-playbook",
+    "source": "Claude Skill example/template",
+    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
     "replicate_as_playbook": "Map sentence keywords to Q/A pairs deterministically.",
     "impact": 5,
     "frequency": 4,
@@ -118,8 +118,8 @@
     "dependencies": [
       "lessonToQuiz"
     ],
-    "source": "internally-derived playbook idea",
-    "source_link": "https://www.atlassian.com/team-playbook",
+    "source": "Claude Skill example/template",
+    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
     "replicate_as_playbook": "Extract keywords and use fixed multiple-choice templates.",
     "impact": 5,
     "frequency": 4,
@@ -182,8 +182,8 @@
     "dependencies": [
       "rubric prompt templates"
     ],
-    "source": "internally-derived playbook idea",
-    "source_link": "https://www.atlassian.com/team-playbook",
+    "source": "Claude Skill example/template",
+    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
     "replicate_as_playbook": "Generate one feedback object per rubric criterion.",
     "impact": 5,
     "frequency": 5,
@@ -305,8 +305,8 @@
     "dependencies": [
       "clarity rubric"
     ],
-    "source": "internally-derived playbook idea",
-    "source_link": "https://www.atlassian.com/team-playbook",
+    "source": "Claude Skill example/template",
+    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
     "replicate_as_playbook": "Check reading level, action clarity, and deadline visibility.",
     "impact": 3,
     "frequency": 4,
@@ -805,8 +805,8 @@
     "dependencies": [
       "standards mapping prompt"
     ],
-    "source": "internally-derived playbook idea",
-    "source_link": "https://www.atlassian.com/team-playbook",
+    "source": "Claude Skill example/template",
+    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
     "replicate_as_playbook": "Compare lesson objective verbs against standard expectations with explicit gap notes.",
     "impact": 4,
     "frequency": 4,

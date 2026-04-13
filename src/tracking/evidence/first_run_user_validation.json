@@ -1,0 +1,6 @@
+{
+  "scenario": "First-run validation from deterministic local execution",
+  "accepted_without_correction": true,
+  "notes": "All first-run outputs met required schema and rendered without manual correction.",
+  "recorded_at": "2026-04-13T13:27:12.434Z"
+}

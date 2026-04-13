@@ -354,6 +354,58 @@ select:focus-visible {
   font-size: 12px;
 }
 
+.chat-thread {
+  display: grid;
+  gap: 10px;
+}
+
+.chat-message {
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid #d7e2e8;
+}
+
+.chat-message-user {
+  background: #eef5ff;
+  border-color: #cfdcf0;
+}
+
+.chat-message-assistant {
+  background: #f7fbf8;
+  border-color: #d4e5dc;
+}
+
+.chat-role {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #2b4b62;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+.chat-part {
+  padding: 8px;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid #e2ebe5;
+}
+
+.chat-part + .chat-part {
+  margin-top: 6px;
+}
+
+.chat-part h5 {
+  margin: 0 0 4px;
+  font-size: 0.86rem;
+}
+
+.chat-text {
+  margin: 0;
+  line-height: 1.4;
+}
+
 .source-stack {
   display: grid;
   gap: 4px;

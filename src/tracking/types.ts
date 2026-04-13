@@ -14,6 +14,11 @@ export type TrackingOutputUi = {
   description: string;
 };
 
+export type TrackingOutputJson = {
+  keys: string[];
+  description: string;
+};
+
 export type TrackingSource = {
   type: "tool" | "official-doc" | "research" | "platform";
   name: string;
@@ -28,7 +33,10 @@ export type TrackingItem = {
   category: Category;
   effort: Effort;
   input: TrackingInput;
+  output_json: TrackingOutputJson;
   output_ui: TrackingOutputUi;
+  risks: string[];
+  dependencies: string[];
   sources: TrackingSource[];
 };
 

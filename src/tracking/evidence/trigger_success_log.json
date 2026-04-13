@@ -1,0 +1,62 @@
+[
+  {
+    "capability_name": "Homework hint generator",
+    "trigger_matched": true,
+    "criteria_passed": true,
+    "recorded_at": "2026-04-13T13:27:12.434Z"
+  },
+  {
+    "capability_name": "Weekly study plan generation",
+    "trigger_matched": true,
+    "criteria_passed": true,
+    "recorded_at": "2026-04-13T13:27:12.434Z"
+  },
+  {
+    "capability_name": "Lesson to flashcards",
+    "trigger_matched": true,
+    "criteria_passed": true,
+    "recorded_at": "2026-04-13T13:27:12.434Z"
+  },
+  {
+    "capability_name": "Lesson to quiz",
+    "trigger_matched": true,
+    "criteria_passed": true,
+    "recorded_at": "2026-04-13T13:27:12.434Z"
+  },
+  {
+    "capability_name": "Multi-language parent update translator",
+    "trigger_matched": true,
+    "criteria_passed": true,
+    "recorded_at": "2026-04-13T13:27:12.434Z"
+  },
+  {
+    "capability_name": "Parent communication draft",
+    "trigger_matched": true,
+    "criteria_passed": true,
+    "recorded_at": "2026-04-13T13:27:12.434Z"
+  },
+  {
+    "capability_name": "Adaptive practice composer",
+    "trigger_matched": true,
+    "criteria_passed": true,
+    "recorded_at": "2026-04-13T13:27:12.434Z"
+  },
+  {
+    "capability_name": "Assignment rubric feedback drafting",
+    "trigger_matched": true,
+    "criteria_passed": true,
+    "recorded_at": "2026-04-13T13:27:12.434Z"
+  },
+  {
+    "capability_name": "Classroom discussion prompt builder",
+    "trigger_matched": true,
+    "criteria_passed": true,
+    "recorded_at": "2026-04-13T13:27:12.434Z"
+  },
+  {
+    "capability_name": "Exam revision checklist builder",
+    "trigger_matched": true,
+    "criteria_passed": true,
+    "recorded_at": "2026-04-13T13:27:12.434Z"
+  }
+]

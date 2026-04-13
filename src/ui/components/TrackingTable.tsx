@@ -18,7 +18,10 @@ export function TrackingTable() {
               <th scope="col">Category</th>
               <th scope="col">Effort</th>
               <th scope="col">Input</th>
+              <th scope="col">Output JSON</th>
               <th scope="col">Output UI</th>
+              <th scope="col">Risks</th>
+              <th scope="col">Dependencies</th>
               <th scope="col">Source</th>
             </tr>
           </thead>
@@ -38,10 +41,18 @@ export function TrackingTable() {
                 </td>
                 <td>
                   <div className="source-stack">
+                    <span className="source-line">{row.output_json.description}</span>
+                    <span className="source-line">Keys: {row.output_json.keys.join(", ")}</span>
+                  </div>
+                </td>
+                <td>
+                  <div className="source-stack">
                     <span className="source-line">{row.output_ui.component}</span>
                     <span className="source-line">{row.output_ui.description}</span>
                   </div>
                 </td>
+                <td>{row.risks.join(", ")}</td>
+                <td>{row.dependencies.join(", ")}</td>
                 <td>
                   {row.sources.map((source) => (
                     <div className="source-stack" key={`${source.name}-${source.link}`}>

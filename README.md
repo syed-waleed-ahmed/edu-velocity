@@ -14,6 +14,7 @@ capability -> reusable module -> structured JSON output -> focused renderer
 - `src/tracking/useCases.json`
 - `src/tracking/types.ts`
 - `src/tracking/scoring.ts`
+- Tracking rows include explicit `output_json`, `output_ui`, `risks`, and `dependencies`
 
 ### Phase 1 (Scan)
 - `src/tracking/capabilities_raw.json`
@@ -30,6 +31,15 @@ capability -> reusable module -> structured JSON output -> focused renderer
 - `src/tracking/hello_world_results.json`
 - `src/tracking/issues_log.json`
 - `src/tracking/runHistory.json`
+- Evidence artifacts under `src/tracking/evidence/`:
+  - `trigger_success_log.json`
+  - `tool_call_comparison.json`
+  - `api_reliability_log.json`
+  - `repeat_run_consistency.json`
+  - `first_run_user_validation.json`
+  - `reprompt_observation_notes.json`
+  - `velocity_baseline.json`
+  - `vercel_ai_chat_renderer_evidence.json`
 - Prototypes:
   - MCP reusable block: `src/agents/mcpStudyPackageAgent.ts`
   - Skill/Playbook reusable block: `src/agents/playbookLearningAgent.ts`
@@ -95,6 +105,7 @@ The single-page UI in `src/ui/App.tsx` includes:
 - Hello-world test results
 - Prototype playground for both mandatory modules
 - Structured renderers for flashcards, quiz, and study plan
+- Vercel AI Chat-style message-part renderer evidence in prototype output
 
 The layout is optimized for desktop, tablet, and mobile with scroll-contained wide tables and responsive panel sizing.
 

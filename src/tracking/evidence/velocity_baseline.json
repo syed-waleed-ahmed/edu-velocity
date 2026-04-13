@@ -1,0 +1,9 @@
+{
+  "total_capabilities_tested": 10,
+  "average_response_ms": 221,
+  "fastest_response_ms": 140,
+  "slowest_response_ms": 293,
+  "pass_rate": 1,
+  "baseline_definition": "Baseline equals deterministic local hello-world run across current top-10 shortlist.",
+  "recorded_at": "2026-04-13T13:27:12.434Z"
+}

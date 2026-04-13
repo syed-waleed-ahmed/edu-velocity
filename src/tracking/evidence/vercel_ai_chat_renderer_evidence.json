@@ -1,0 +1,13 @@
+{
+  "component": "VercelChatStyleRenderer",
+  "file": "src/ui/components/VercelChatStyleRenderer.tsx",
+  "integrated_in": "src/ui/components/PrototypeRunner.tsx",
+  "rendering_model": "message parts (user + assistant sections)",
+  "structured_sections": [
+    "summary",
+    "flashcards",
+    "quiz",
+    "study_plan"
+  ],
+  "recorded_at": "2026-04-13T13:27:12.434Z"
+}

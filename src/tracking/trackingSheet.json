@@ -1,362 +1,494 @@
 [
-    {
-        "capability": "Weekly study plan generation",
-        "type": "Skill",
-        "persona": "student",
-        "category": "Knowledge",
-        "effort": "S",
-        "input": {
-            "fields": [
-                "syllabus_topics",
-                "exam_date",
-                "available_hours_per_week"
-            ],
-            "description": "Converts course scope and time constraints into a sequenced weekly learning plan."
-        },
-        "output_ui": {
-            "component": "study_plan",
-            "description": "Renders session title, duration, and objective for each study block."
-        },
-        "sources": [
-            {
-                "type": "tool",
-                "name": "Study Plan AI",
-                "link": "https://studyplanai.com/ai-study-planner/",
-                "notes": "Validates capability feasibility for generation by demonstrating real-world AI study schedule creation from learner constraints."
-            },
-            {
-                "type": "platform",
-                "name": "Originality.ai Study Schedule Generator Overview",
-                "link": "https://originality.ai/blog/study-schedule-generator",
-                "notes": "Validates generation workflow quality by showing practical schedule-building patterns and expected structured outputs."
-            }
-        ]
+  {
+    "capability": "Weekly study plan generation",
+    "type": "Skill",
+    "persona": "student",
+    "category": "Knowledge",
+    "effort": "S",
+    "input": {
+      "fields": [
+        "syllabus_topics",
+        "exam_date",
+        "available_hours_per_week"
+      ],
+      "description": "Converts course scope and time constraints into a sequenced weekly learning plan."
     },
-    {
-        "capability": "Assignment rubric feedback drafting",
-        "type": "Skill",
-        "persona": "teacher",
-        "category": "Creation",
-        "effort": "M",
-        "input": {
-            "fields": [
-                "submission_text",
-                "rubric_criteria",
-                "grading_context"
-            ],
-            "description": "Generates criterion-level feedback aligned with rubric dimensions and teacher expectations."
-        },
-        "output_ui": {
-            "component": "text",
-            "description": "Displays concise, criterion-mapped feedback blocks for review and finalization."
-        },
-        "sources": [
-            {
-                "type": "tool",
-                "name": "CoGrader AI Rubric Generator",
-                "link": "https://cograder.com/ai-rubric-generator/",
-                "notes": "Validates generation for rubric-based feedback authoring and criterion-level scoring draft outputs."
-            },
-            {
-                "type": "tool",
-                "name": "MagicSchool Rubric Generator",
-                "link": "https://www.magicschool.ai/tools/rubric-generator",
-                "notes": "Validates classroom-ready generation of rubric structures and teacher-facing feedback composition."
-            },
-            {
-                "type": "platform",
-                "name": "AI for Education Rubrics Prompt Library",
-                "link": "https://www.aiforeducation.io/prompts/rubrics",
-                "notes": "Validates generation prompt patterns that improve consistency and instructional quality in rubric feedback drafts."
-            }
-        ]
+    "output_ui": {
+      "component": "study_plan",
+      "description": "Renders session title, duration, and objective for each study block."
     },
-    {
-        "capability": "Drive material to study package",
-        "type": "MCP",
-        "persona": "student",
-        "category": "Connection",
-        "effort": "M",
-        "input": {
-            "fields": [
-                "drive_file_id",
-                "content_scope",
-                "target_grade_level"
-            ],
-            "description": "Fetches source material from Drive and transforms it into a structured learning package."
-        },
-        "output_ui": {
-            "component": "table",
-            "description": "Presents summary plus generated flashcards, quiz items, and study plan sections."
-        },
-        "sources": [
-            {
-                "type": "official-doc",
-                "name": "Google Drive API: Download and Export Files",
-                "link": "https://developers.google.com/drive/api/guides/manage-downloads",
-                "notes": "Validates ingestion by defining the official retrieval flow for source files before package generation."
-            },
-            {
-                "type": "official-doc",
-                "name": "Claude Tool Use",
-                "link": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use",
-                "notes": "Validates ingestion orchestration by showing how tool calls can fetch external content into generation pipelines."
-            }
-        ]
+    "sources": [
+      {
+        "type": "tool",
+        "name": "Study Plan AI",
+        "link": "https://studyplanai.com/ai-study-planner/",
+        "notes": "Validates capability feasibility for generation by demonstrating real-world AI study schedule creation from learner constraints."
+      },
+      {
+        "type": "platform",
+        "name": "Originality.ai Study Schedule Generator Overview",
+        "link": "https://originality.ai/blog/study-schedule-generator",
+        "notes": "Validates generation workflow quality by showing practical schedule-building patterns and expected structured outputs."
+      }
+    ],
+    "output_json": {
+      "keys": [
+        "summary",
+        "study_plan"
+      ],
+      "description": "Defines the structured JSON fields expected before renderer mapping."
     },
-    {
-        "capability": "LMS lesson to study package",
-        "type": "MCP",
-        "persona": "teacher",
-        "category": "Connection",
-        "effort": "M",
-        "input": {
-            "fields": [
-                "canvas_course_id",
-                "canvas_lesson_id",
-                "module_context"
-            ],
-            "description": "Ingests LMS lesson data and converts it to structured study assets for learners."
-        },
-        "output_ui": {
-            "component": "table",
-            "description": "Shows generated summary, flashcards, quiz, and study plan derived from LMS lesson content."
-        },
-        "sources": [
-            {
-                "type": "official-doc",
-                "name": "Canvas LMS API Reference",
-                "link": "https://canvas.instructure.com/doc/api/index.html",
-                "notes": "Validates ingestion through official LMS endpoints, auth model, and lesson-content retrieval mechanics."
-            },
-            {
-                "type": "official-doc",
-                "name": "Claude Tool Use",
-                "link": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use",
-                "notes": "Validates ingestion-to-generation integration by documenting reliable external tool-call patterns."
-            }
-        ]
+    "risks": [
+      "generic pacing"
+    ],
+    "dependencies": [
+      "lessonToStudyPlan"
+    ]
+  },
+  {
+    "capability": "Assignment rubric feedback drafting",
+    "type": "Skill",
+    "persona": "teacher",
+    "category": "Creation",
+    "effort": "M",
+    "input": {
+      "fields": [
+        "submission_text",
+        "rubric_criteria",
+        "grading_context"
+      ],
+      "description": "Generates criterion-level feedback aligned with rubric dimensions and teacher expectations."
     },
-    {
-        "capability": "Lesson to flashcards",
-        "type": "Skill",
-        "persona": "student",
-        "category": "Creation",
-        "effort": "S",
-        "input": {
-            "fields": [
-                "lesson_text",
-                "topic_focus",
-                "difficulty_target"
-            ],
-            "description": "Extracts core concepts from lesson content and rewrites them as retrieval-oriented flashcards."
-        },
-        "output_ui": {
-            "component": "flashcards",
-            "description": "Renders question-answer card pairs optimized for active recall practice."
-        },
-        "sources": [
-            {
-                "type": "tool",
-                "name": "Quizlet AI Flashcard Generator",
-                "link": "https://quizlet.com/features/ai-flashcard-generator",
-                "notes": "Validates generation by demonstrating automated conversion of source content into flashcard question-answer pairs."
-            },
-            {
-                "type": "tool",
-                "name": "Limbiks",
-                "link": "https://www.limbiks.com/",
-                "notes": "Validates generation quality for educational flashcards with practical classroom and study workflow usage."
-            },
-            {
-                "type": "tool",
-                "name": "RemNote",
-                "link": "https://www.remnote.com/",
-                "notes": "Validates personalization in flashcard generation through spaced-repetition study systems tied to learner progress."
-            }
-        ]
+    "output_ui": {
+      "component": "text",
+      "description": "Displays concise, criterion-mapped feedback blocks for review and finalization."
     },
-    {
-        "capability": "Lesson to quiz",
-        "type": "Skill",
-        "persona": "student",
-        "category": "Creation",
-        "effort": "S",
-        "input": {
-            "fields": [
-                "lesson_text",
-                "question_count",
-                "difficulty_distribution"
-            ],
-            "description": "Generates multiple-choice assessments from lesson content with controlled distractor quality."
-        },
-        "output_ui": {
-            "component": "quiz",
-            "description": "Displays question stems, options, and expected correct answers in quiz format."
-        },
-        "sources": [
-            {
-                "type": "tool",
-                "name": "Questgen",
-                "link": "https://www.questgen.ai/",
-                "notes": "Validates generation of quiz items from educational content with practical MCQ transformation workflows."
-            },
-            {
-                "type": "tool",
-                "name": "Quizgecko",
-                "link": "https://quizgecko.com/",
-                "notes": "Validates generation speed and usability for creating assessment questions directly from lesson material."
-            },
-            {
-                "type": "tool",
-                "name": "Brisk Teaching Quiz Generator",
-                "link": "https://www.briskteaching.com/ai-tools/quiz-generator",
-                "notes": "Validates teacher-facing generation workflows for classroom-ready quizzes and formative checks."
-            }
-        ]
+    "sources": [
+      {
+        "type": "tool",
+        "name": "CoGrader AI Rubric Generator",
+        "link": "https://cograder.com/ai-rubric-generator/",
+        "notes": "Validates generation for rubric-based feedback authoring and criterion-level scoring draft outputs."
+      },
+      {
+        "type": "tool",
+        "name": "MagicSchool Rubric Generator",
+        "link": "https://www.magicschool.ai/tools/rubric-generator",
+        "notes": "Validates classroom-ready generation of rubric structures and teacher-facing feedback composition."
+      },
+      {
+        "type": "platform",
+        "name": "AI for Education Rubrics Prompt Library",
+        "link": "https://www.aiforeducation.io/prompts/rubrics",
+        "notes": "Validates generation prompt patterns that improve consistency and instructional quality in rubric feedback drafts."
+      }
+    ],
+    "output_json": {
+      "keys": [
+        "criterion_feedback",
+        "summary"
+      ],
+      "description": "Defines the structured JSON fields expected before renderer mapping."
     },
-    {
-        "capability": "At-risk learner digest",
-        "type": "Hybrid",
-        "persona": "admin",
-        "category": "Control",
-        "effort": "L",
-        "input": {
-            "fields": [
-                "attendance_history",
-                "grade_trends",
-                "engagement_signals"
-            ],
-            "description": "Combines analytics inputs with policy rules to identify learners requiring intervention."
-        },
-        "output_ui": {
-            "component": "table",
-            "description": "Presents risk flags with reasons and recommended intervention actions."
-        },
-        "sources": [
-            {
-                "type": "platform",
-                "name": "AI Early Warning Dashboards for At-Risk Students",
-                "link": "https://www.solvedconsulting.com/blog/ai-early-warning-dashboards-at-risk-students",
-                "notes": "Validates analytics implementation patterns for identifying intervention candidates from school performance signals."
-            },
-            {
-                "type": "research",
-                "name": "Predicting At-Risk Students in Higher Education (ScienceDirect)",
-                "link": "https://www.sciencedirect.com/science/article/pii/S1877050923021993",
-                "notes": "Validates analytics methodology and model features for at-risk prediction in educational settings."
-            },
-            {
-                "type": "research",
-                "name": "Machine Learning for Student Performance and Risk (MDPI)",
-                "link": "https://www.mdpi.com/2076-3417/10/13/4427",
-                "notes": "Validates analytics robustness and evaluation approaches for learner-risk detection pipelines."
-            }
-        ]
+    "risks": [
+      "tone mismatch"
+    ],
+    "dependencies": [
+      "rubric prompt templates"
+    ]
+  },
+  {
+    "capability": "Drive material to study package",
+    "type": "MCP",
+    "persona": "student",
+    "category": "Connection",
+    "effort": "M",
+    "input": {
+      "fields": [
+        "drive_file_id",
+        "content_scope",
+        "target_grade_level"
+      ],
+      "description": "Fetches source material from Drive and transforms it into a structured learning package."
     },
-    {
-        "capability": "Policy Q and A responder",
-        "type": "MCP",
-        "persona": "admin",
-        "category": "Control",
-        "effort": "M",
-        "input": {
-            "fields": [
-                "policy_question",
-                "policy_corpus",
-                "citation_requirement"
-            ],
-            "description": "Answers policy questions with evidence-backed responses and traceable citations."
-        },
-        "output_ui": {
-            "component": "text",
-            "description": "Renders final answer with citation links and confidence indicators."
-        },
-        "sources": [
-            {
-                "type": "official-doc",
-                "name": "Claude Tool Use",
-                "link": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use",
-                "notes": "Validates ingestion and generation by documenting tool-call patterns for retrieval-backed, citation-grounded responses."
-            }
-        ]
+    "output_ui": {
+      "component": "table",
+      "description": "Presents summary plus generated flashcards, quiz items, and study plan sections."
     },
-    {
-        "capability": "Parent communication draft",
-        "type": "Skill",
-        "persona": "teacher",
-        "category": "Connection",
-        "effort": "S",
-        "input": {
-            "fields": [
-                "student_progress_notes",
-                "tone_guidelines",
-                "language_preference"
-            ],
-            "description": "Drafts clear, actionable parent updates from classroom progress context."
-        },
-        "output_ui": {
-            "component": "text",
-            "description": "Displays editable communication drafts with concise subject/body structure."
-        },
-        "sources": [
-            {
-                "type": "tool",
-                "name": "OpenEducat Email Family Templates",
-                "link": "https://openeducat.org/ai/tools/email-family-templates/",
-                "notes": "Validates generation of parent-facing communication templates tailored to school context and tone."
-            },
-            {
-                "type": "tool",
-                "name": "Khanmigo for Teachers",
-                "link": "https://www.khanmigo.ai/teachers",
-                "notes": "Validates practical teacher workflow support for drafting classroom communication and follow-up messages."
-            },
-            {
-                "type": "platform",
-                "name": "Using ChatGPT for Teacher-Parent Communication",
-                "link": "https://www.esparklearning.com/blog/how-to-use-chatgpt-for-efficient-teacher-parent-communication/",
-                "notes": "Validates generation best practices for clarity, empathy, and communication efficiency in parent updates."
-            }
-        ]
+    "sources": [
+      {
+        "type": "official-doc",
+        "name": "Google Drive API: Download and Export Files",
+        "link": "https://developers.google.com/drive/api/guides/manage-downloads",
+        "notes": "Validates ingestion by defining the official retrieval flow for source files before package generation."
+      },
+      {
+        "type": "official-doc",
+        "name": "Claude Tool Use",
+        "link": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use",
+        "notes": "Validates ingestion orchestration by showing how tool calls can fetch external content into generation pipelines."
+      }
+    ],
+    "output_json": {
+      "keys": [
+        "id",
+        "title",
+        "content"
+      ],
+      "description": "Defines the structured JSON fields expected before renderer mapping."
     },
-    {
-        "capability": "Adaptive practice composer",
-        "type": "Hybrid",
-        "persona": "student",
-        "category": "Creation",
-        "effort": "M",
-        "input": {
-            "fields": [
-                "mastery_snapshot",
-                "topic",
-                "target_difficulty"
-            ],
-            "description": "Builds personalized practice sets by combining learner mastery signals with content-generation logic."
-        },
-        "output_ui": {
-            "component": "table",
-            "description": "Shows generated practice items with difficulty labels and topic coverage."
-        },
-        "sources": [
-            {
-                "type": "tool",
-                "name": "Squirrel AI",
-                "link": "https://squirrelai.com/",
-                "notes": "Validates personalization by demonstrating adaptive pathways and learner-specific practice sequencing."
-            },
-            {
-                "type": "tool",
-                "name": "Adaptemy",
-                "link": "https://www.adaptemy.com/",
-                "notes": "Validates personalization and analytics-driven recommendation loops for adaptive practice delivery."
-            },
-            {
-                "type": "research",
-                "name": "Adaptive Learning Systems Research (arXiv)",
-                "link": "https://arxiv.org/html/2402.14601v3",
-                "notes": "Validates research grounding for personalization algorithms and performance-aware adaptive content generation."
-            }
-        ]
-    }
+    "risks": [
+      "auth scope mismatch"
+    ],
+    "dependencies": [
+      "mockDriveClient"
+    ]
+  },
+  {
+    "capability": "LMS lesson to study package",
+    "type": "MCP",
+    "persona": "teacher",
+    "category": "Connection",
+    "effort": "M",
+    "input": {
+      "fields": [
+        "canvas_course_id",
+        "canvas_lesson_id",
+        "module_context"
+      ],
+      "description": "Ingests LMS lesson data and converts it to structured study assets for learners."
+    },
+    "output_ui": {
+      "component": "table",
+      "description": "Shows generated summary, flashcards, quiz, and study plan derived from LMS lesson content."
+    },
+    "sources": [
+      {
+        "type": "official-doc",
+        "name": "Canvas LMS API Reference",
+        "link": "https://canvas.instructure.com/doc/api/index.html",
+        "notes": "Validates ingestion through official LMS endpoints, auth model, and lesson-content retrieval mechanics."
+      },
+      {
+        "type": "official-doc",
+        "name": "Claude Tool Use",
+        "link": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use",
+        "notes": "Validates ingestion-to-generation integration by documenting reliable external tool-call patterns."
+      }
+    ],
+    "output_json": {
+      "keys": [
+        "id",
+        "course",
+        "lessonText"
+      ],
+      "description": "Defines the structured JSON fields expected before renderer mapping."
+    },
+    "risks": [
+      "rate limit spikes"
+    ],
+    "dependencies": [
+      "mockLmsClient"
+    ]
+  },
+  {
+    "capability": "Lesson to flashcards",
+    "type": "Skill",
+    "persona": "student",
+    "category": "Creation",
+    "effort": "S",
+    "input": {
+      "fields": [
+        "lesson_text",
+        "topic_focus",
+        "difficulty_target"
+      ],
+      "description": "Extracts core concepts from lesson content and rewrites them as retrieval-oriented flashcards."
+    },
+    "output_ui": {
+      "component": "flashcards",
+      "description": "Renders question-answer card pairs optimized for active recall practice."
+    },
+    "sources": [
+      {
+        "type": "tool",
+        "name": "Quizlet AI Flashcard Generator",
+        "link": "https://quizlet.com/features/ai-flashcard-generator",
+        "notes": "Validates generation by demonstrating automated conversion of source content into flashcard question-answer pairs."
+      },
+      {
+        "type": "tool",
+        "name": "Limbiks",
+        "link": "https://www.limbiks.com/",
+        "notes": "Validates generation quality for educational flashcards with practical classroom and study workflow usage."
+      },
+      {
+        "type": "tool",
+        "name": "RemNote",
+        "link": "https://www.remnote.com/",
+        "notes": "Validates personalization in flashcard generation through spaced-repetition study systems tied to learner progress."
+      }
+    ],
+    "output_json": {
+      "keys": [
+        "flashcards"
+      ],
+      "description": "Defines the structured JSON fields expected before renderer mapping."
+    },
+    "risks": [
+      "oversimplified cards"
+    ],
+    "dependencies": [
+      "lessonToFlashcards"
+    ]
+  },
+  {
+    "capability": "Lesson to quiz",
+    "type": "Skill",
+    "persona": "student",
+    "category": "Creation",
+    "effort": "S",
+    "input": {
+      "fields": [
+        "lesson_text",
+        "question_count",
+        "difficulty_distribution"
+      ],
+      "description": "Generates multiple-choice assessments from lesson content with controlled distractor quality."
+    },
+    "output_ui": {
+      "component": "quiz",
+      "description": "Displays question stems, options, and expected correct answers in quiz format."
+    },
+    "sources": [
+      {
+        "type": "tool",
+        "name": "Questgen",
+        "link": "https://www.questgen.ai/",
+        "notes": "Validates generation of quiz items from educational content with practical MCQ transformation workflows."
+      },
+      {
+        "type": "tool",
+        "name": "Quizgecko",
+        "link": "https://quizgecko.com/",
+        "notes": "Validates generation speed and usability for creating assessment questions directly from lesson material."
+      },
+      {
+        "type": "tool",
+        "name": "Brisk Teaching Quiz Generator",
+        "link": "https://www.briskteaching.com/ai-tools/quiz-generator",
+        "notes": "Validates teacher-facing generation workflows for classroom-ready quizzes and formative checks."
+      }
+    ],
+    "output_json": {
+      "keys": [
+        "quiz"
+      ],
+      "description": "Defines the structured JSON fields expected before renderer mapping."
+    },
+    "risks": [
+      "weak distractors"
+    ],
+    "dependencies": [
+      "lessonToQuiz"
+    ]
+  },
+  {
+    "capability": "At-risk learner digest",
+    "type": "Hybrid",
+    "persona": "admin",
+    "category": "Control",
+    "effort": "L",
+    "input": {
+      "fields": [
+        "attendance_history",
+        "grade_trends",
+        "engagement_signals"
+      ],
+      "description": "Combines analytics inputs with policy rules to identify learners requiring intervention."
+    },
+    "output_ui": {
+      "component": "table",
+      "description": "Presents risk flags with reasons and recommended intervention actions."
+    },
+    "sources": [
+      {
+        "type": "platform",
+        "name": "AI Early Warning Dashboards for At-Risk Students",
+        "link": "https://www.solvedconsulting.com/blog/ai-early-warning-dashboards-at-risk-students",
+        "notes": "Validates analytics implementation patterns for identifying intervention candidates from school performance signals."
+      },
+      {
+        "type": "research",
+        "name": "Predicting At-Risk Students in Higher Education (ScienceDirect)",
+        "link": "https://www.sciencedirect.com/science/article/pii/S1877050923021993",
+        "notes": "Validates analytics methodology and model features for at-risk prediction in educational settings."
+      },
+      {
+        "type": "research",
+        "name": "Machine Learning for Student Performance and Risk (MDPI)",
+        "link": "https://www.mdpi.com/2076-3417/10/13/4427",
+        "notes": "Validates analytics robustness and evaluation approaches for learner-risk detection pipelines."
+      }
+    ],
+    "output_json": {
+      "keys": [
+        "risk_flags",
+        "recommended_actions"
+      ],
+      "description": "Defines the structured JSON fields expected before renderer mapping."
+    },
+    "risks": [
+      "false positives"
+    ],
+    "dependencies": [
+      "attendance connector",
+      "intervention playbook"
+    ]
+  },
+  {
+    "capability": "Policy Q and A responder",
+    "type": "MCP",
+    "persona": "admin",
+    "category": "Control",
+    "effort": "M",
+    "input": {
+      "fields": [
+        "policy_question",
+        "policy_corpus",
+        "citation_requirement"
+      ],
+      "description": "Answers policy questions with evidence-backed responses and traceable citations."
+    },
+    "output_ui": {
+      "component": "text",
+      "description": "Renders final answer with citation links and confidence indicators."
+    },
+    "sources": [
+      {
+        "type": "official-doc",
+        "name": "Claude Tool Use",
+        "link": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use",
+        "notes": "Validates ingestion and generation by documenting tool-call patterns for retrieval-backed, citation-grounded responses."
+      }
+    ],
+    "output_json": {
+      "keys": [
+        "answer",
+        "citations",
+        "confidence"
+      ],
+      "description": "Defines the structured JSON fields expected before renderer mapping."
+    },
+    "risks": [
+      "citation mismatch"
+    ],
+    "dependencies": [
+      "policy index connector"
+    ]
+  },
+  {
+    "capability": "Parent communication draft",
+    "type": "Skill",
+    "persona": "teacher",
+    "category": "Connection",
+    "effort": "S",
+    "input": {
+      "fields": [
+        "student_progress_notes",
+        "tone_guidelines",
+        "language_preference"
+      ],
+      "description": "Drafts clear, actionable parent updates from classroom progress context."
+    },
+    "output_ui": {
+      "component": "text",
+      "description": "Displays editable communication drafts with concise subject/body structure."
+    },
+    "sources": [
+      {
+        "type": "tool",
+        "name": "OpenEducat Email Family Templates",
+        "link": "https://openeducat.org/ai/tools/email-family-templates/",
+        "notes": "Validates generation of parent-facing communication templates tailored to school context and tone."
+      },
+      {
+        "type": "tool",
+        "name": "Khanmigo for Teachers",
+        "link": "https://www.khanmigo.ai/teachers",
+        "notes": "Validates practical teacher workflow support for drafting classroom communication and follow-up messages."
+      },
+      {
+        "type": "platform",
+        "name": "Using ChatGPT for Teacher-Parent Communication",
+        "link": "https://www.esparklearning.com/blog/how-to-use-chatgpt-for-efficient-teacher-parent-communication/",
+        "notes": "Validates generation best practices for clarity, empathy, and communication efficiency in parent updates."
+      }
+    ],
+    "output_json": {
+      "keys": [
+        "drafts"
+      ],
+      "description": "Defines the structured JSON fields expected before renderer mapping."
+    },
+    "risks": [
+      "missing sensitivity context"
+    ],
+    "dependencies": [
+      "message templates"
+    ]
+  },
+  {
+    "capability": "Adaptive practice composer",
+    "type": "Hybrid",
+    "persona": "student",
+    "category": "Creation",
+    "effort": "M",
+    "input": {
+      "fields": [
+        "mastery_snapshot",
+        "topic",
+        "target_difficulty"
+      ],
+      "description": "Builds personalized practice sets by combining learner mastery signals with content-generation logic."
+    },
+    "output_ui": {
+      "component": "table",
+      "description": "Shows generated practice items with difficulty labels and topic coverage."
+    },
+    "sources": [
+      {
+        "type": "tool",
+        "name": "Squirrel AI",
+        "link": "https://squirrelai.com/",
+        "notes": "Validates personalization by demonstrating adaptive pathways and learner-specific practice sequencing."
+      },
+      {
+        "type": "tool",
+        "name": "Adaptemy",
+        "link": "https://www.adaptemy.com/",
+        "notes": "Validates personalization and analytics-driven recommendation loops for adaptive practice delivery."
+      },
+      {
+        "type": "research",
+        "name": "Adaptive Learning Systems Research (arXiv)",
+        "link": "https://arxiv.org/html/2402.14601v3",
+        "notes": "Validates research grounding for personalization algorithms and performance-aware adaptive content generation."
+      }
+    ],
+    "output_json": {
+      "keys": [
+        "practice_set",
+        "coverage"
+      ],
+      "description": "Defines the structured JSON fields expected before renderer mapping."
+    },
+    "risks": [
+      "difficulty drift"
+    ],
+    "dependencies": [
+      "mastery connector",
+      "playbook templates"
+    ]
+  }
 ]
