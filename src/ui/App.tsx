@@ -7,7 +7,9 @@ import { PrototypeRunner } from "./components/PrototypeRunner";
 
 export default function App() {
   return (
-    <main className="app-shell">
+    <>
+      <a className="skip-link" href="#main-content">Skip to main content</a>
+      <main className="app-shell" id="main-content">
       <div className="app-container">
         <section className="panel hero-panel">
           <h1 className="section-title">EDU Suite Capability Velocity Explorer</h1>
@@ -22,19 +24,20 @@ export default function App() {
         <section className="panel">
           <h3 className="section-title">Use Cases</h3>
           <div className="table-wrap">
-            <table className="data-table">
+            <table className="data-table usecase-table" aria-label="Use cases by persona and trigger">
+              <caption className="sr-only">Use cases with target persona, workflow trigger, and success criteria</caption>
               <thead>
                 <tr>
-                  <th>Use Case</th>
-                  <th>Target</th>
-                  <th>Trigger</th>
-                  <th>Success Criteria</th>
+                  <th scope="col">Use Case</th>
+                  <th scope="col">Target</th>
+                  <th scope="col">Trigger</th>
+                  <th scope="col">Success Criteria</th>
                 </tr>
               </thead>
               <tbody>
                 {useCases.map((item) => (
                   <tr key={item.use_case}>
-                    <td>{item.use_case}</td>
+                    <th scope="row">{item.use_case}</th>
                     <td>{item.target}</td>
                     <td>{item.trigger}</td>
                     <td>{item.success_criteria}</td>
@@ -65,6 +68,7 @@ export default function App() {
           <PrototypeRunner />
         </section>
       </div>
-    </main>
+      </main>
+    </>
   );
 }

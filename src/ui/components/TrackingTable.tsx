@@ -8,23 +8,24 @@ export function TrackingTable() {
     <section>
       <h3 className="section-title">Tracking Sheet</h3>
       <div className="table-wrap">
-        <table className="data-table">
+        <table className="data-table" aria-label="Tracking sheet for selected EDU capabilities">
+          <caption className="sr-only">Tracking details including inputs, output UI, and evidence sources</caption>
           <thead>
             <tr>
-              <th>Capability</th>
-              <th>Type</th>
-              <th>Persona</th>
-              <th>Category</th>
-              <th>Effort</th>
-              <th>Input</th>
-              <th>Output UI</th>
-              <th>Source</th>
+              <th scope="col">Capability</th>
+              <th scope="col">Type</th>
+              <th scope="col">Persona</th>
+              <th scope="col">Category</th>
+              <th scope="col">Effort</th>
+              <th scope="col">Input</th>
+              <th scope="col">Output UI</th>
+              <th scope="col">Source</th>
             </tr>
           </thead>
           <tbody>
             {rows.map((row) => (
               <tr key={row.capability}>
-                <td>{row.capability}</td>
+                <th scope="row">{row.capability}</th>
                 <td>{row.type}</td>
                 <td>{row.persona}</td>
                 <td>{row.category}</td>

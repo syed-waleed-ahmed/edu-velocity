@@ -62,26 +62,27 @@ export function CapabilityTable() {
       </div>
       <p className="metric-line">Showing {enriched.length} of {rows.length}</p>
       <div className="table-wrap">
-        <table className="data-table registry-table">
+        <table className="data-table registry-table" aria-label="Skills and MCP registry">
+          <caption className="sr-only">Capability registry with classification, scoring, dependencies, and setup requirements</caption>
           <thead>
             <tr>
-              <th>Skill/MCP</th>
-              <th>6C</th>
-              <th>Type</th>
-              <th>Persona</th>
-              <th>Use Cases Covered</th>
-              <th>Input -&gt; JSON -&gt; UI</th>
-              <th>Effort</th>
-              <th>Risks</th>
-              <th>Dependencies</th>
-              <th>Score (I/F/F)</th>
-              <th>Setup/Auth/Limits</th>
+              <th scope="col">Skill/MCP</th>
+              <th scope="col">6C</th>
+              <th scope="col">Type</th>
+              <th scope="col">Persona</th>
+              <th scope="col">Use Cases Covered</th>
+              <th scope="col">Input -&gt; JSON -&gt; UI</th>
+              <th scope="col">Effort</th>
+              <th scope="col">Risks</th>
+              <th scope="col">Dependencies</th>
+              <th scope="col">Score (I/F/F)</th>
+              <th scope="col">Setup/Auth/Limits</th>
             </tr>
           </thead>
           <tbody>
             {enriched.map((row) => (
               <tr key={row.capability_name}>
-                <td>{row.capability_name}</td>
+                <th scope="row">{row.capability_name}</th>
                 <td>{row.category}</td>
                 <td>{row.type}</td>
                 <td>{row.persona}</td>
