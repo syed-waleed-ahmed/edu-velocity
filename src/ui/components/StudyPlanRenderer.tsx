@@ -6,28 +6,21 @@ type StudyPlanRendererProps = {
 
 export function StudyPlanRenderer({ plan }: StudyPlanRendererProps) {
   return (
-    <div>
+    <section className="inspector">
       <h4 className="section-title">Study Plan</h4>
-      <div className="table-wrap">
-        <table className="data-table">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Duration</th>
-            <th>Objective</th>
-          </tr>
-        </thead>
-        <tbody>
-          {plan.map((item, index) => (
-            <tr key={`${item.title}-${index}`}>
-              <td>{item.title}</td>
-              <td>{item.duration}</td>
-              <td>{item.objective}</td>
-            </tr>
-          ))}
-        </tbody>
-        </table>
+      <p className="section-kicker">Vercel AI Chat-style study plan cards with clear session blocks.</p>
+      <div className="chat-thread" role="list" aria-label="Study plan sessions">
+        {plan.map((item, index) => (
+          <article className="chat-message chat-message-assistant" role="listitem" key={`${item.title}-${index}`}>
+            <span className="chat-role">session {index + 1}</span>
+            <div className="chat-part study-plan-part">
+              <h5>{item.title}</h5>
+              <p className="chat-text study-plan-meta">Duration: {item.duration}</p>
+              <p className="chat-text">{item.objective}</p>
+            </div>
+          </article>
+        ))}
       </div>
-    </div>
+    </section>
   );
 }

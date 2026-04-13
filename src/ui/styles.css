@@ -150,22 +150,7 @@ h4 {
 }
 
 .registry-table {
-  min-width: 1480px;
-}
-
-.registry-table th:first-child,
-.registry-table td:first-child {
-  position: sticky;
-  left: 0;
-  z-index: 1;
-}
-
-.registry-table th:first-child {
-  background: #f3f6f1;
-}
-
-.registry-table td:first-child {
-  background: #ffffff;
+  min-width: 1320px;
 }
 
 .data-table th {
@@ -213,10 +198,6 @@ h4 {
 
 .data-table tbody tr:hover {
   background: #f0f6ff;
-}
-
-.registry-table tbody tr:nth-child(even) td:first-child {
-  background: #fbfdf9;
 }
 
 .form-row {
@@ -401,6 +382,16 @@ select:focus-visible {
   font-size: 0.86rem;
 }
 
+.study-plan-part {
+  display: grid;
+  gap: 6px;
+}
+
+.study-plan-meta {
+  font-weight: 600;
+  color: #204339;
+}
+
 .chat-text {
   margin: 0;
   line-height: 1.4;
@@ -458,7 +449,7 @@ select:focus-visible {
   }
 
   .registry-table {
-    min-width: 1080px;
+    min-width: 1040px;
   }
 
   .data-table {
@@ -520,6 +511,6 @@ select:focus-visible {
   }
 
   .registry-table {
-    min-width: 980px;
+    min-width: 920px;
   }
 }
