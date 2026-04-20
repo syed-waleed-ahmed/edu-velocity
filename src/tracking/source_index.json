@@ -1,32 +1,50 @@
 [
-    {
-        "source_type":  "Claude Skill example/template",
-        "source_link":  "https://docs.anthropic.com/en/docs/claude-code/skills",
-        "capabilities":  [
-                             "Weekly study plan generation",
-                             "Parent communication draft",
-                             "Classroom discussion prompt builder",
-                             "Homework hint generator"
-                         ]
-    },
-    {
-        "source_type":  "MCP server/library entry",
-        "source_link":  "https://modelcontextprotocol.io/introduction",
-        "capabilities":  [
-                             "Drive material to study package",
-                             "LMS lesson to study package",
-                             "Policy Q and A responder",
-                             "Attendance anomaly monitor"
-                         ]
-    },
-    {
-        "source_type":  "internally-derived playbook idea",
-        "source_link":  "https://www.atlassian.com/team-playbook",
-        "capabilities":  [
-                             "Lesson to flashcards",
-                             "Lesson to quiz",
-                             "Adaptive practice composer",
-                             "At-risk learner digest"
-                         ]
-    }
+  {
+    "source_type": "Claude Skill example/template",
+    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
+    "capabilities": [
+      "Exam prep session builder",
+      "Homework problem walkthrough",
+      "Assignment kickstarter",
+      "Self-assessment checkpoint",
+      "Reading-to-notes converter",
+      "Group project planner",
+      "Essay feedback coach",
+      "Formula and concept quick-ref",
+      "Lab report assistant",
+      "Presentation builder",
+      "Study group session prep",
+      "Vocabulary and terminology builder",
+      "Past exam pattern analyzer",
+      "Batch feedback generator",
+      "Lesson plan optimizer",
+      "Quiz and assessment creator",
+      "Differentiated resource builder",
+      "Meeting and IEP note drafter",
+      "Campus communication optimizer"
+    ]
+  },
+  {
+    "source_type": "MCP server/library entry",
+    "source_link": "https://modelcontextprotocol.io/introduction",
+    "capabilities": [
+      "Citation and source finder",
+      "Deadline and workload dashboard",
+      "Course material search",
+      "Class engagement analyzer",
+      "Standards alignment mapper",
+      "Policy Q and A with audit trail",
+      "Enrollment and retention dashboard feed"
+    ]
+  },
+  {
+    "source_type": "internally-derived playbook idea",
+    "source_link": "https://www.atlassian.com/team-playbook",
+    "capabilities": [
+      "Missed lecture catch-up pack",
+      "Weekly knowledge digest",
+      "Parent progress reporter",
+      "Student risk early-warning digest"
+    ]
+  }
 ]

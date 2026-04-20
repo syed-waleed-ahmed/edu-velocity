@@ -1,9 +1,9 @@
 [
   {
-    "capability_name": "Homework hint generator",
+    "capability_name": "Exam prep session builder",
     "sample_input": {
       "lesson_content": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
-      "capability_name": "Homework hint generator"
+      "capability_name": "Exam prep session builder"
     },
     "sample_output": {
       "summary": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
@@ -75,16 +75,16 @@
     "response_time_ms": 140,
     "issues_found": [],
     "evaluation_result": {
-      "capability_name": "Homework hint generator",
+      "capability_name": "Exam prep session builder",
       "criteria_passed": true,
       "notes": "All defined success criteria passed with no issues."
     }
   },
   {
-    "capability_name": "Weekly study plan generation",
+    "capability_name": "Homework problem walkthrough",
     "sample_input": {
       "lesson_content": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
-      "capability_name": "Weekly study plan generation"
+      "capability_name": "Homework problem walkthrough"
     },
     "sample_output": {
       "summary": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
@@ -156,16 +156,16 @@
     "response_time_ms": 157,
     "issues_found": [],
     "evaluation_result": {
-      "capability_name": "Weekly study plan generation",
+      "capability_name": "Homework problem walkthrough",
       "criteria_passed": true,
       "notes": "All defined success criteria passed with no issues."
     }
   },
   {
-    "capability_name": "Lesson to flashcards",
+    "capability_name": "Assignment kickstarter",
     "sample_input": {
       "lesson_content": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
-      "capability_name": "Lesson to flashcards"
+      "capability_name": "Assignment kickstarter"
     },
     "sample_output": {
       "summary": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
@@ -237,16 +237,16 @@
     "response_time_ms": 174,
     "issues_found": [],
     "evaluation_result": {
-      "capability_name": "Lesson to flashcards",
+      "capability_name": "Assignment kickstarter",
       "criteria_passed": true,
       "notes": "All defined success criteria passed with no issues."
     }
   },
   {
-    "capability_name": "Lesson to quiz",
+    "capability_name": "Formula and concept quick-ref",
     "sample_input": {
       "lesson_content": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
-      "capability_name": "Lesson to quiz"
+      "capability_name": "Formula and concept quick-ref"
     },
     "sample_output": {
       "summary": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
@@ -318,36 +318,31 @@
     "response_time_ms": 191,
     "issues_found": [],
     "evaluation_result": {
-      "capability_name": "Lesson to quiz",
+      "capability_name": "Formula and concept quick-ref",
       "criteria_passed": true,
       "notes": "All defined success criteria passed with no issues."
     }
   },
   {
-    "capability_name": "Multi-language parent update translator",
+    "capability_name": "Missed lecture catch-up pack",
     "sample_input": {
-      "source_identifier": "drive-math-101",
-      "provider": "drive",
-      "capability_name": "Multi-language parent update translator"
+      "lesson_content": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
+      "capability_name": "Missed lecture catch-up pack"
     },
     "sample_output": {
-      "summary": "Imported from DRIVE: Variables represent unknown quantities. Equations balance two expressions. Functions map one input to one output. Practice with substitution...",
+      "summary": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
       "flashcards": [
         {
           "question": "What is the key idea behind variables?",
-          "answer": "Variables represent unknown quantities"
+          "answer": "Variables represent unknown values"
         },
         {
           "question": "What is the key idea behind equations?",
           "answer": "Equations balance two expressions"
         },
         {
-          "question": "What is the key idea behind functions?",
-          "answer": "Functions map one input to one output"
-        },
-        {
-          "question": "What is the key idea behind practice?",
-          "answer": "Practice with substitution and graph interpretation improves retention"
+          "question": "What is the key idea behind guided?",
+          "answer": "Guided practice with examples improves student confidence"
         }
       ],
       "quiz": [
@@ -382,38 +377,38 @@
           "correct": "The lesson links unknown to measurable learning outcomes."
         },
         {
-          "question": "Which statement best matches the lesson treatment of quantities?",
+          "question": "Which statement best matches the lesson treatment of values?",
           "options": [
-            "The lesson links quantities to measurable learning outcomes.",
-            "The lesson states quantities should be ignored after instruction starts.",
-            "The lesson describes quantities as unrelated to student progress.",
-            "The lesson claims quantities only matters at final exams."
+            "The lesson links values to measurable learning outcomes.",
+            "The lesson states values should be ignored after instruction starts.",
+            "The lesson describes values as unrelated to student progress.",
+            "The lesson claims values only matters at final exams."
           ],
-          "correct": "The lesson links quantities to measurable learning outcomes."
+          "correct": "The lesson links values to measurable learning outcomes."
         }
       ],
       "study_plan": [
         {
           "title": "Session 1",
           "duration": "30 minutes",
-          "objective": "Variables represent unknown quantities. Equations balance two expressions. Functions ma..."
+          "objective": "Variables represent unknown values. Equations balance two expressions. Guided practice ..."
         }
       ]
     },
     "status": "pass",
-    "response_time_ms": 248,
+    "response_time_ms": 208,
     "issues_found": [],
     "evaluation_result": {
-      "capability_name": "Multi-language parent update translator",
+      "capability_name": "Missed lecture catch-up pack",
       "criteria_passed": true,
       "notes": "All defined success criteria passed with no issues."
     }
   },
   {
-    "capability_name": "Parent communication draft",
+    "capability_name": "Reading-to-notes converter",
     "sample_input": {
       "lesson_content": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
-      "capability_name": "Parent communication draft"
+      "capability_name": "Reading-to-notes converter"
     },
     "sample_output": {
       "summary": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
@@ -485,16 +480,16 @@
     "response_time_ms": 225,
     "issues_found": [],
     "evaluation_result": {
-      "capability_name": "Parent communication draft",
+      "capability_name": "Reading-to-notes converter",
       "criteria_passed": true,
       "notes": "All defined success criteria passed with no issues."
     }
   },
   {
-    "capability_name": "Adaptive practice composer",
+    "capability_name": "Self-assessment checkpoint",
     "sample_input": {
       "lesson_content": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
-      "capability_name": "Adaptive practice composer"
+      "capability_name": "Self-assessment checkpoint"
     },
     "sample_output": {
       "summary": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
@@ -566,16 +561,16 @@
     "response_time_ms": 242,
     "issues_found": [],
     "evaluation_result": {
-      "capability_name": "Adaptive practice composer",
+      "capability_name": "Self-assessment checkpoint",
       "criteria_passed": true,
       "notes": "All defined success criteria passed with no issues."
     }
   },
   {
-    "capability_name": "Assignment rubric feedback drafting",
+    "capability_name": "Batch feedback generator",
     "sample_input": {
       "lesson_content": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
-      "capability_name": "Assignment rubric feedback drafting"
+      "capability_name": "Batch feedback generator"
     },
     "sample_output": {
       "summary": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
@@ -647,16 +642,16 @@
     "response_time_ms": 259,
     "issues_found": [],
     "evaluation_result": {
-      "capability_name": "Assignment rubric feedback drafting",
+      "capability_name": "Batch feedback generator",
       "criteria_passed": true,
       "notes": "All defined success criteria passed with no issues."
     }
   },
   {
-    "capability_name": "Classroom discussion prompt builder",
+    "capability_name": "Essay feedback coach",
     "sample_input": {
       "lesson_content": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
-      "capability_name": "Classroom discussion prompt builder"
+      "capability_name": "Essay feedback coach"
     },
     "sample_output": {
       "summary": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
@@ -728,16 +723,16 @@
     "response_time_ms": 276,
     "issues_found": [],
     "evaluation_result": {
-      "capability_name": "Classroom discussion prompt builder",
+      "capability_name": "Essay feedback coach",
       "criteria_passed": true,
       "notes": "All defined success criteria passed with no issues."
     }
   },
   {
-    "capability_name": "Exam revision checklist builder",
+    "capability_name": "Lesson plan optimizer",
     "sample_input": {
       "lesson_content": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
-      "capability_name": "Exam revision checklist builder"
+      "capability_name": "Lesson plan optimizer"
     },
     "sample_output": {
       "summary": "Variables represent unknown values. Equations balance two expressions. Guided practice with examples improves student confidence.",
@@ -809,7 +804,7 @@
     "response_time_ms": 293,
     "issues_found": [],
     "evaluation_result": {
-      "capability_name": "Exam revision checklist builder",
+      "capability_name": "Lesson plan optimizer",
       "criteria_passed": true,
       "notes": "All defined success criteria passed with no issues."
     }

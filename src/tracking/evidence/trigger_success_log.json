@@ -1,62 +1,62 @@
 [
   {
-    "capability_name": "Homework hint generator",
+    "capability_name": "Exam prep session builder",
     "trigger_matched": true,
     "criteria_passed": true,
-    "recorded_at": "2026-04-13T13:41:42.615Z"
+    "recorded_at": "2026-04-20T15:01:00.502Z"
   },
   {
-    "capability_name": "Weekly study plan generation",
+    "capability_name": "Homework problem walkthrough",
     "trigger_matched": true,
     "criteria_passed": true,
-    "recorded_at": "2026-04-13T13:41:42.615Z"
+    "recorded_at": "2026-04-20T15:01:00.502Z"
   },
   {
-    "capability_name": "Lesson to flashcards",
+    "capability_name": "Assignment kickstarter",
     "trigger_matched": true,
     "criteria_passed": true,
-    "recorded_at": "2026-04-13T13:41:42.615Z"
+    "recorded_at": "2026-04-20T15:01:00.502Z"
   },
   {
-    "capability_name": "Lesson to quiz",
+    "capability_name": "Formula and concept quick-ref",
     "trigger_matched": true,
     "criteria_passed": true,
-    "recorded_at": "2026-04-13T13:41:42.615Z"
+    "recorded_at": "2026-04-20T15:01:00.502Z"
   },
   {
-    "capability_name": "Multi-language parent update translator",
+    "capability_name": "Missed lecture catch-up pack",
     "trigger_matched": true,
     "criteria_passed": true,
-    "recorded_at": "2026-04-13T13:41:42.615Z"
+    "recorded_at": "2026-04-20T15:01:00.502Z"
   },
   {
-    "capability_name": "Parent communication draft",
+    "capability_name": "Reading-to-notes converter",
     "trigger_matched": true,
     "criteria_passed": true,
-    "recorded_at": "2026-04-13T13:41:42.615Z"
+    "recorded_at": "2026-04-20T15:01:00.502Z"
   },
   {
-    "capability_name": "Adaptive practice composer",
+    "capability_name": "Self-assessment checkpoint",
     "trigger_matched": true,
     "criteria_passed": true,
-    "recorded_at": "2026-04-13T13:41:42.615Z"
+    "recorded_at": "2026-04-20T15:01:00.502Z"
   },
   {
-    "capability_name": "Assignment rubric feedback drafting",
+    "capability_name": "Batch feedback generator",
     "trigger_matched": true,
     "criteria_passed": true,
-    "recorded_at": "2026-04-13T13:41:42.615Z"
+    "recorded_at": "2026-04-20T15:01:00.502Z"
   },
   {
-    "capability_name": "Classroom discussion prompt builder",
+    "capability_name": "Essay feedback coach",
     "trigger_matched": true,
     "criteria_passed": true,
-    "recorded_at": "2026-04-13T13:41:42.615Z"
+    "recorded_at": "2026-04-20T15:01:00.502Z"
   },
   {
-    "capability_name": "Exam revision checklist builder",
+    "capability_name": "Lesson plan optimizer",
     "trigger_matched": true,
     "criteria_passed": true,
-    "recorded_at": "2026-04-13T13:41:42.615Z"
+    "recorded_at": "2026-04-20T15:01:00.502Z"
   }
 ]

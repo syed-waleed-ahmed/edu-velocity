@@ -1,12 +1,33 @@
 [
   {
-    "capability_name": "Weekly study plan generation",
+    "capability_name": "Exam prep session builder",
     "category": "Knowledge",
     "type": "Skill",
     "persona": "student",
-    "input": "syllabus and available hours",
+    "input": "syllabus topics, exam date, and available study hours",
     "output": {
-      "summary": "string",
+      "topic_checklist": [
+        {
+          "topic": "string",
+          "priority": "string",
+          "weight": "string"
+        }
+      ],
+      "flashcards": [
+        {
+          "question": "string",
+          "answer": "string"
+        }
+      ],
+      "quiz": [
+        {
+          "question": "string",
+          "options": [
+            "string"
+          ],
+          "correct": "string"
+        }
+      ],
       "study_plan": [
         {
           "title": "string",
@@ -15,93 +36,179 @@
         }
       ]
     },
-    "effort": "S",
+    "effort": "M",
     "risks": [
-      "generic pacing"
+      "oversimplified prioritization",
+      "generic pacing for diverse learning speeds"
     ],
     "dependencies": [
+      "lessonToFlashcards",
+      "lessonToQuiz",
       "lessonToStudyPlan"
     ],
     "source": "Claude Skill example/template",
     "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
-    "replicate_as_playbook": "Use lesson chunks to produce 4-session fixed template plan.",
+    "replicate_as_playbook": "Compose topic ranking, flashcard generation, quiz creation, and schedule building into a single exam prep pipeline.",
     "impact": 5,
     "frequency": 5,
     "feasibility": 5,
     "use_cases": [
-      "A student wants a realistic weekly study schedule before exams."
+      "Exam sprint planner and revision tracker"
     ]
   },
   {
-    "capability_name": "Homework hint generator",
-    "category": "Knowledge",
+    "capability_name": "Homework problem walkthrough",
+    "category": "Engagement",
     "type": "Skill",
     "persona": "student",
-    "input": "problem statement and attempted steps",
+    "input": "problem statement and student's attempted work",
     "output": {
-      "hint_levels": [
-        "string"
+      "hints": [
+        {
+          "level": "string",
+          "content": "string"
+        }
       ],
+      "misconception": "string",
       "common_mistakes": [
         "string"
-      ]
+      ],
+      "practice_problem": "string"
     },
     "effort": "S",
     "risks": [
-      "too much answer leakage"
+      "too much answer leakage",
+      "hints too vague to be useful"
     ],
     "dependencies": [
-      "hint prompts"
+      "hint prompt templates",
+      "misconception patterns"
     ],
     "source": "Claude Skill example/template",
     "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
-    "replicate_as_playbook": "Generate three hint depths before revealing full explanation.",
+    "replicate_as_playbook": "Generate three graduated hint levels then identify the specific misconception pattern.",
     "impact": 5,
     "frequency": 5,
     "feasibility": 5,
     "use_cases": [
-      "A student wants lesson material transformed into practice assets quickly."
+      "Daily lesson-to-practice learning loop"
     ]
   },
   {
-    "capability_name": "Lesson to flashcards",
-    "category": "Creation",
-    "type": "Skill",
+    "capability_name": "Missed lecture catch-up pack",
+    "category": "Knowledge",
+    "type": "Hybrid",
     "persona": "student",
-    "input": "lesson text",
+    "input": "course identifier and missed lecture date",
     "output": {
-      "flashcards": [
+      "summary": "string",
+      "key_takeaways": [
+        "string"
+      ],
+      "vocabulary": [
+        {
+          "term": "string",
+          "definition": "string"
+        }
+      ],
+      "comprehension_cards": [
         {
           "question": "string",
           "answer": "string"
+        }
+      ],
+      "action_items": [
+        "string"
+      ]
+    },
+    "effort": "M",
+    "risks": [
+      "incomplete source material",
+      "transcript noise from auto-captions"
+    ],
+    "dependencies": [
+      "mockLmsClient",
+      "mockDriveClient",
+      "lessonToFlashcards"
+    ],
+    "source": "internally-derived playbook idea",
+    "source_link": "https://www.atlassian.com/team-playbook",
+    "setup_complexity": "Medium",
+    "auth_model": "OAuth",
+    "limits": "LMS API rate limits per minute",
+    "replicate_as_playbook": "Pull content from LMS then compose summary, vocabulary extraction, and Q&A card generation.",
+    "impact": 5,
+    "frequency": 4,
+    "feasibility": 5,
+    "use_cases": [
+      "Daily lesson-to-practice learning loop"
+    ]
+  },
+  {
+    "capability_name": "Assignment kickstarter",
+    "category": "Creation",
+    "type": "Skill",
+    "persona": "student",
+    "input": "assignment brief and rubric",
+    "output": {
+      "outline": [
+        {
+          "section": "string",
+          "guidance": "string"
+        }
+      ],
+      "research_questions": [
+        "string"
+      ],
+      "draft_skeleton": "string",
+      "rubric_selfcheck": [
+        {
+          "criterion": "string",
+          "checkpoint": "string"
         }
       ]
     },
     "effort": "S",
     "risks": [
-      "oversimplified cards"
+      "outline too generic for niche topics",
+      "rubric misinterpretation"
     ],
     "dependencies": [
-      "lessonToFlashcards"
+      "outline prompt templates",
+      "rubric parsing"
     ],
     "source": "Claude Skill example/template",
     "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
-    "replicate_as_playbook": "Map sentence keywords to Q/A pairs deterministically.",
+    "replicate_as_playbook": "Parse rubric criteria into outline sections and generate one self-check per criterion.",
     "impact": 5,
     "frequency": 4,
     "feasibility": 5,
     "use_cases": [
-      "A student wants lesson material transformed into practice assets quickly."
+      "Assignment execution and submission copilot"
     ]
   },
   {
-    "capability_name": "Lesson to quiz",
-    "category": "Creation",
-    "type": "Skill",
+    "capability_name": "Weekly knowledge digest",
+    "category": "Knowledge",
+    "type": "Hybrid",
     "persona": "student",
-    "input": "lesson text",
+    "input": "enrolled course list and current week range",
     "output": {
-      "quiz": [
+      "course_summaries": [
+        {
+          "course": "string",
+          "must_know": [
+            "string"
+          ],
+          "nice_to_know": [
+            "string"
+          ]
+        }
+      ],
+      "cross_topic_links": [
+        "string"
+      ],
+      "retention_quiz": [
         {
           "question": "string",
           "options": [
@@ -111,828 +218,386 @@
         }
       ]
     },
-    "effort": "S",
+    "effort": "M",
     "risks": [
-      "weak distractors"
+      "information overload in heavy course loads",
+      "missed materials from unsupported sources"
     ],
     "dependencies": [
+      "mockLmsClient",
+      "mockDriveClient",
       "lessonToQuiz"
     ],
-    "source": "Claude Skill example/template",
-    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
-    "replicate_as_playbook": "Extract keywords and use fixed multiple-choice templates.",
+    "source": "internally-derived playbook idea",
+    "source_link": "https://www.atlassian.com/team-playbook",
+    "setup_complexity": "Medium",
+    "auth_model": "OAuth",
+    "limits": "Aggregation limited to connected course sources",
+    "replicate_as_playbook": "Aggregate weekly materials per course, rank by importance, and generate a cross-course retention quiz.",
     "impact": 5,
     "frequency": 4,
-    "feasibility": 5,
-    "use_cases": [
-      "A student wants lesson material transformed into practice assets quickly."
-    ]
-  },
-  {
-    "capability_name": "Lab report summarizer",
-    "category": "Creation",
-    "type": "Skill",
-    "persona": "student",
-    "input": "lab notes",
-    "output": {
-      "summary": "string",
-      "findings": [
-        "string"
-      ],
-      "limitations": [
-        "string"
-      ]
-    },
-    "effort": "S",
-    "risks": [
-      "loss of detail"
-    ],
-    "dependencies": [
-      "summary prompt"
-    ],
-    "source": "Claude Skill example/template",
-    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
-    "replicate_as_playbook": "Segment notes into findings, evidence, and limitations blocks.",
-    "impact": 4,
-    "frequency": 4,
-    "feasibility": 5,
-    "use_cases": [
-      "A student wants lesson material transformed into practice assets quickly."
-    ]
-  },
-  {
-    "capability_name": "Assignment rubric feedback drafting",
-    "category": "Creation",
-    "type": "Skill",
-    "persona": "teacher",
-    "input": "submission and rubric",
-    "output": {
-      "criterion_feedback": [
-        {
-          "criterion": "string",
-          "comment": "string"
-        }
-      ],
-      "summary": "string"
-    },
-    "effort": "M",
-    "risks": [
-      "tone mismatch"
-    ],
-    "dependencies": [
-      "rubric prompt templates"
-    ],
-    "source": "Claude Skill example/template",
-    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
-    "replicate_as_playbook": "Generate one feedback object per rubric criterion.",
-    "impact": 5,
-    "frequency": 5,
     "feasibility": 4,
     "use_cases": [
-      "A teacher wants rubric-aligned feedback ready in less time."
+      "Daily lesson-to-practice learning loop"
     ]
   },
   {
-    "capability_name": "Classroom discussion prompt builder",
+    "capability_name": "Self-assessment checkpoint",
     "category": "Engagement",
     "type": "Skill",
-    "persona": "teacher",
-    "input": "lesson objective and reading",
+    "persona": "student",
+    "input": "topic name and optional course context",
     "output": {
-      "prompts": [
-        "string"
+      "diagnostic_quiz": [
+        {
+          "question": "string",
+          "bloom_level": "string",
+          "options": [
+            "string"
+          ],
+          "correct": "string"
+        }
       ],
-      "follow_ups": [
-        "string"
-      ]
-    },
-    "effort": "S",
-    "risks": [
-      "repetitive prompts"
-    ],
-    "dependencies": [
-      "discussion prompt bank"
-    ],
-    "source": "Claude Skill example/template",
-    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
-    "replicate_as_playbook": "Use objective taxonomy to emit starter and follow-up prompts.",
-    "impact": 4,
-    "frequency": 4,
-    "feasibility": 5,
-    "use_cases": [
-      "A teacher wants rubric-aligned feedback ready in less time."
-    ]
-  },
-  {
-    "capability_name": "Parent communication draft",
-    "category": "Connection",
-    "type": "Skill",
-    "persona": "teacher",
-    "input": "progress notes",
-    "output": {
-      "drafts": [
+      "score_breakdown": {
+        "recall": 0,
+        "application": 0,
+        "analysis": 0
+      },
+      "gap_analysis": [
         {
-          "subject": "string",
-          "body": "string"
-        }
-      ]
-    },
-    "effort": "S",
-    "risks": [
-      "missing sensitivity context"
-    ],
-    "dependencies": [
-      "message templates"
-    ],
-    "source": "Claude Skill example/template",
-    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
-    "replicate_as_playbook": "Create supportive, neutral, and action-focused variants.",
-    "impact": 5,
-    "frequency": 4,
-    "feasibility": 5,
-    "use_cases": [
-      "A teacher wants multilingual parent updates for class progress."
-    ]
-  },
-  {
-    "capability_name": "Learning objective to activity mapper",
-    "category": "Creation",
-    "type": "Skill",
-    "persona": "teacher",
-    "input": "learning objectives",
-    "output": {
-      "activities": [
-        {
-          "objective": "string",
-          "activity": "string",
-          "duration_minutes": 0
-        }
-      ]
-    },
-    "effort": "S",
-    "risks": [
-      "objective mismatch"
-    ],
-    "dependencies": [
-      "pedagogy prompts"
-    ],
-    "source": "Claude Skill example/template",
-    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
-    "replicate_as_playbook": "Map each objective to one activity and one evidence check.",
-    "impact": 4,
-    "frequency": 4,
-    "feasibility": 5,
-    "use_cases": [
-      "A teacher wants rubric-aligned feedback ready in less time."
-    ]
-  },
-  {
-    "capability_name": "Announcement clarity checker",
-    "category": "Connection",
-    "type": "Skill",
-    "persona": "admin",
-    "input": "announcement draft",
-    "output": {
-      "clarity_score": 0,
-      "rewrite_suggestions": [
-        "string"
-      ]
-    },
-    "effort": "S",
-    "risks": [
-      "style over-correction"
-    ],
-    "dependencies": [
-      "clarity rubric"
-    ],
-    "source": "Claude Skill example/template",
-    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
-    "replicate_as_playbook": "Check reading level, action clarity, and deadline visibility.",
-    "impact": 3,
-    "frequency": 4,
-    "feasibility": 5,
-    "use_cases": [
-      "An admin wants policy answers with auditable citations."
-    ]
-  },
-  {
-    "capability_name": "Drive material import",
-    "category": "Connection",
-    "type": "MCP",
-    "persona": "student",
-    "input": "drive source id",
-    "output": {
-      "id": "string",
-      "title": "string",
-      "content": "string"
-    },
-    "effort": "M",
-    "risks": [
-      "auth scope mismatch"
-    ],
-    "dependencies": [
-      "mockDriveClient"
-    ],
-    "source": "MCP server/library entry",
-    "source_link": "https://modelcontextprotocol.io/introduction",
-    "setup_complexity": "Medium",
-    "auth_model": "OAuth",
-    "limits": "Document fetch quotas",
-    "impact": 4,
-    "frequency": 4,
-    "feasibility": 4,
-    "use_cases": [
-      "A student wants lesson material transformed into practice assets quickly."
-    ]
-  },
-  {
-    "capability_name": "LMS lesson import",
-    "category": "Connection",
-    "type": "MCP",
-    "persona": "teacher",
-    "input": "lms lesson id",
-    "output": {
-      "id": "string",
-      "course": "string",
-      "lessonText": "string"
-    },
-    "effort": "M",
-    "risks": [
-      "rate limit spikes"
-    ],
-    "dependencies": [
-      "mockLmsClient"
-    ],
-    "source": "MCP server/library entry",
-    "source_link": "https://modelcontextprotocol.io/introduction",
-    "setup_complexity": "Medium",
-    "auth_model": "OAuth",
-    "limits": "API request limits per minute",
-    "impact": 4,
-    "frequency": 4,
-    "feasibility": 4,
-    "use_cases": [
-      "A student wants lesson material transformed into practice assets quickly."
-    ]
-  },
-  {
-    "capability_name": "Policy Q and A responder",
-    "category": "Control",
-    "type": "MCP",
-    "persona": "admin",
-    "input": "policy question",
-    "output": {
-      "answer": "string",
-      "citations": [
-        "string"
-      ],
-      "confidence": 0
-    },
-    "effort": "M",
-    "risks": [
-      "citation mismatch"
-    ],
-    "dependencies": [
-      "policy index connector"
-    ],
-    "source": "MCP server/library entry",
-    "source_link": "https://modelcontextprotocol.io/introduction",
-    "setup_complexity": "Medium",
-    "auth_model": "API key",
-    "limits": "Index freshness constraints",
-    "impact": 5,
-    "frequency": 4,
-    "feasibility": 4,
-    "use_cases": [
-      "An admin wants policy answers with auditable citations."
-    ]
-  },
-  {
-    "capability_name": "Attendance anomaly monitor",
-    "category": "Control",
-    "type": "MCP",
-    "persona": "teacher",
-    "input": "attendance feed",
-    "output": {
-      "anomalies": [
-        {
-          "student_id": "string",
-          "pattern": "string",
-          "severity": "string"
-        }
-      ]
-    },
-    "effort": "M",
-    "risks": [
-      "missing windows"
-    ],
-    "dependencies": [
-      "attendance connector"
-    ],
-    "source": "MCP server/library entry",
-    "source_link": "https://modelcontextprotocol.io/introduction",
-    "setup_complexity": "Low",
-    "auth_model": "OAuth",
-    "limits": "Hourly sync delay",
-    "impact": 5,
-    "frequency": 4,
-    "feasibility": 4,
-    "use_cases": [
-      "An admin wants early warnings for disengagement risk."
-    ]
-  },
-  {
-    "capability_name": "Scholarship eligibility matcher",
-    "category": "Conversion",
-    "type": "MCP",
-    "persona": "student",
-    "input": "student profile",
-    "output": {
-      "eligible_programs": [
-        {
-          "name": "string",
-          "deadline": "string",
-          "fit_reason": "string"
-        }
-      ]
-    },
-    "effort": "M",
-    "risks": [
-      "stale rules"
-    ],
-    "dependencies": [
-      "scholarship connector"
-    ],
-    "source": "MCP server/library entry",
-    "source_link": "https://modelcontextprotocol.io/introduction",
-    "setup_complexity": "Medium",
-    "auth_model": "API key",
-    "limits": "Daily fetch quota",
-    "impact": 4,
-    "frequency": 3,
-    "feasibility": 4,
-    "use_cases": [
-      "A student wants a realistic weekly study schedule before exams."
-    ]
-  },
-  {
-    "capability_name": "Transcript key-point extractor",
-    "category": "Knowledge",
-    "type": "MCP",
-    "persona": "student",
-    "input": "lecture transcript",
-    "output": {
-      "key_points": [
-        "string"
-      ],
-      "glossary": [
-        "string"
-      ]
-    },
-    "effort": "M",
-    "risks": [
-      "transcript noise"
-    ],
-    "dependencies": [
-      "speech connector"
-    ],
-    "source": "MCP server/library entry",
-    "source_link": "https://modelcontextprotocol.io/introduction",
-    "setup_complexity": "High",
-    "auth_model": "API key",
-    "limits": "Audio duration caps",
-    "impact": 4,
-    "frequency": 4,
-    "feasibility": 3,
-    "use_cases": [
-      "A student wants lesson material transformed into practice assets quickly."
-    ]
-  },
-  {
-    "capability_name": "Campus event personalization",
-    "category": "Engagement",
-    "type": "MCP",
-    "persona": "student",
-    "input": "student interests",
-    "output": {
-      "recommended_events": [
-        {
-          "event_id": "string",
-          "reason": "string"
-        }
-      ]
-    },
-    "effort": "M",
-    "risks": [
-      "cold-start relevance"
-    ],
-    "dependencies": [
-      "events connector"
-    ],
-    "source": "MCP server/library entry",
-    "source_link": "https://modelcontextprotocol.io/introduction",
-    "setup_complexity": "Low",
-    "auth_model": "none",
-    "limits": "Event feed freshness",
-    "impact": 3,
-    "frequency": 3,
-    "feasibility": 4,
-    "use_cases": [
-      "A student wants a realistic weekly study schedule before exams."
-    ]
-  },
-  {
-    "capability_name": "Multi-language parent update translator",
-    "category": "Connection",
-    "type": "MCP",
-    "persona": "teacher",
-    "input": "message and target language",
-    "output": {
-      "translated_message": "string",
-      "quality_notes": [
-        "string"
-      ]
-    },
-    "effort": "S",
-    "risks": [
-      "nuance loss"
-    ],
-    "dependencies": [
-      "translation connector"
-    ],
-    "source": "MCP server/library entry",
-    "source_link": "https://modelcontextprotocol.io/introduction",
-    "setup_complexity": "Low",
-    "auth_model": "API key",
-    "limits": "Character limits",
-    "impact": 5,
-    "frequency": 4,
-    "feasibility": 5,
-    "use_cases": [
-      "A teacher wants multilingual parent updates for class progress."
-    ]
-  },
-  {
-    "capability_name": "Course prerequisite advisor",
-    "category": "Knowledge",
-    "type": "MCP",
-    "persona": "student",
-    "input": "transcript and target course",
-    "output": {
-      "eligibility": [
-        {
-          "course": "string",
+          "area": "string",
           "status": "string",
-          "missing": [
+          "recommendation": "string"
+        }
+      ]
+    },
+    "effort": "S",
+    "risks": [
+      "limited question diversity for niche topics",
+      "false confidence from easy questions"
+    ],
+    "dependencies": [
+      "lessonToQuiz",
+      "bloom taxonomy templates"
+    ],
+    "source": "Claude Skill example/template",
+    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
+    "replicate_as_playbook": "Generate questions across Bloom levels, score instantly, and produce gap analysis with recommendations.",
+    "impact": 5,
+    "frequency": 4,
+    "feasibility": 5,
+    "use_cases": [
+      "Exam sprint planner and revision tracker"
+    ]
+  },
+  {
+    "capability_name": "Reading-to-notes converter",
+    "category": "Creation",
+    "type": "Skill",
+    "persona": "student",
+    "input": "article or textbook chapter text",
+    "output": {
+      "cornell_notes": {
+        "key_concepts": [
+          "string"
+        ],
+        "details": [
+          "string"
+        ],
+        "summary": "string"
+      },
+      "self_test_questions": [
+        {
+          "question": "string",
+          "answer": "string"
+        }
+      ]
+    },
+    "effort": "S",
+    "risks": [
+      "loss of nuance in dense academic text",
+      "oversimplification"
+    ],
+    "dependencies": [
+      "text parsing",
+      "cornell note templates"
+    ],
+    "source": "Claude Skill example/template",
+    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
+    "replicate_as_playbook": "Extract key concepts and supporting details into Cornell format, then generate self-test questions.",
+    "impact": 4,
+    "frequency": 5,
+    "feasibility": 5,
+    "use_cases": [
+      "Daily lesson-to-practice learning loop"
+    ]
+  },
+  {
+    "capability_name": "Group project planner",
+    "category": "Creation",
+    "type": "Skill",
+    "persona": "student",
+    "input": "project brief and team size",
+    "output": {
+      "task_breakdown": [
+        {
+          "task": "string",
+          "owner_role": "string",
+          "deadline": "string"
+        }
+      ],
+      "timeline": [
+        {
+          "milestone": "string",
+          "date": "string",
+          "dependencies": [
+            "string"
+          ]
+        }
+      ],
+      "role_assignments": [
+        {
+          "role": "string",
+          "responsibilities": [
             "string"
           ]
         }
       ]
     },
-    "effort": "M",
+    "effort": "S",
     "risks": [
-      "catalog mismatch"
+      "unbalanced task distribution",
+      "unrealistic timeline estimates"
     ],
     "dependencies": [
-      "catalog connector",
-      "transcript connector"
+      "project planning templates"
     ],
-    "source": "MCP server/library entry",
-    "source_link": "https://modelcontextprotocol.io/introduction",
-    "setup_complexity": "High",
-    "auth_model": "OAuth",
-    "limits": "Catalog sync lag",
-    "impact": 5,
-    "frequency": 4,
-    "feasibility": 3,
-    "use_cases": [
-      "A student wants a realistic weekly study schedule before exams."
-    ]
-  },
-  {
-    "capability_name": "Resource utilization feed",
-    "category": "Control",
-    "type": "MCP",
-    "persona": "admin",
-    "input": "room and device usage logs",
-    "output": {
-      "utilization": [
-        {
-          "resource": "string",
-          "usage_rate": 0
-        }
-      ]
-    },
-    "effort": "M",
-    "risks": [
-      "telemetry gaps"
-    ],
-    "dependencies": [
-      "facilities connector"
-    ],
-    "source": "MCP server/library entry",
-    "source_link": "https://modelcontextprotocol.io/introduction",
-    "setup_complexity": "High",
-    "auth_model": "API key",
-    "limits": "Daily export delays",
+    "source": "Claude Skill example/template",
+    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
+    "replicate_as_playbook": "Break project into tasks, assign to roles by complexity, and generate milestone timeline with dependencies.",
     "impact": 4,
     "frequency": 3,
-    "feasibility": 3,
+    "feasibility": 5,
     "use_cases": [
-      "An admin wants early warnings for disengagement risk."
+      "Assignment execution and submission copilot"
     ]
   },
   {
-    "capability_name": "Adaptive practice composer",
-    "category": "Creation",
-    "type": "Hybrid",
-    "persona": "student",
-    "input": "topic and mastery level",
-    "output": {
-      "practice_set": [
-        {
-          "item": "string",
-          "difficulty": "string"
-        }
-      ],
-      "coverage": [
-        "string"
-      ]
-    },
-    "effort": "M",
-    "risks": [
-      "difficulty drift"
-    ],
-    "dependencies": [
-      "mastery connector",
-      "playbook templates"
-    ],
-    "source": "internally-derived playbook idea",
-    "source_link": "https://www.atlassian.com/team-playbook",
-    "setup_complexity": "Medium",
-    "auth_model": "OAuth",
-    "limits": "Mastery snapshots refresh every 12 hours",
-    "replicate_as_playbook": "Blend external mastery scores with local deterministic templates.",
-    "impact": 5,
-    "frequency": 5,
-    "feasibility": 4,
-    "use_cases": [
-      "A student wants lesson material transformed into practice assets quickly."
-    ]
-  },
-  {
-    "capability_name": "At-risk learner digest",
-    "category": "Control",
-    "type": "Hybrid",
-    "persona": "admin",
-    "input": "attendance and grade trends",
-    "output": {
-      "risk_flags": [
-        {
-          "student_id": "string",
-          "risk_level": "string",
-          "reason": "string"
-        }
-      ],
-      "recommended_actions": [
-        "string"
-      ]
-    },
-    "effort": "L",
-    "risks": [
-      "false positives"
-    ],
-    "dependencies": [
-      "attendance connector",
-      "intervention playbook"
-    ],
-    "source": "internally-derived playbook idea",
-    "source_link": "https://www.atlassian.com/team-playbook",
-    "setup_complexity": "High",
-    "auth_model": "OAuth",
-    "limits": "Weekly risk feed batch processing window",
-    "replicate_as_playbook": "Apply fixed risk thresholds and recommendation rules.",
-    "impact": 5,
-    "frequency": 4,
-    "feasibility": 3,
-    "use_cases": [
-      "An admin wants early warnings for disengagement risk."
-    ]
-  },
-  {
-    "capability_name": "Exam revision checklist builder",
+    "capability_name": "Citation and source finder",
     "category": "Knowledge",
-    "type": "Skill",
-    "persona": "student",
-    "input": "syllabus topics and exam pattern",
-    "output": {
-      "revision_checklist": [
-        {
-          "topic": "string",
-          "priority": "string",
-          "checkpoint": "string"
-        }
-      ]
-    },
-    "effort": "S",
-    "risks": [
-      "over-prioritization of recent topics"
-    ],
-    "dependencies": [
-      "study checklist prompt templates"
-    ],
-    "source": "Claude Skill example/template",
-    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
-    "replicate_as_playbook": "Rank topics by exam weight and emit one checkpoint per topic.",
-    "impact": 4,
-    "frequency": 4,
-    "feasibility": 5,
-    "use_cases": [
-      "A student wants a realistic weekly study schedule before exams."
-    ]
-  },
-  {
-    "capability_name": "IEP accommodation draft assistant",
-    "category": "Control",
-    "type": "Skill",
-    "persona": "teacher",
-    "input": "student learning profile and accommodation notes",
-    "output": {
-      "accommodation_draft": [
-        {
-          "need": "string",
-          "accommodation": "string",
-          "evidence": "string"
-        }
-      ]
-    },
-    "effort": "M",
-    "risks": [
-      "sensitivity and compliance wording errors"
-    ],
-    "dependencies": [
-      "inclusive language templates"
-    ],
-    "source": "Claude Skill example/template",
-    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
-    "replicate_as_playbook": "Map each documented need to one accommodation and justification note.",
-    "impact": 5,
-    "frequency": 3,
-    "feasibility": 4,
-    "use_cases": [
-      "A teacher wants rubric-aligned feedback ready in less time."
-    ]
-  },
-  {
-    "capability_name": "Standards alignment checker",
-    "category": "Control",
-    "type": "Skill",
-    "persona": "teacher",
-    "input": "lesson plan and curriculum standards",
-    "output": {
-      "alignment_report": [
-        {
-          "standard": "string",
-          "coverage": "string",
-          "gap": "string"
-        }
-      ]
-    },
-    "effort": "M",
-    "risks": [
-      "false confidence on weak standard matches"
-    ],
-    "dependencies": [
-      "standards mapping prompt"
-    ],
-    "source": "Claude Skill example/template",
-    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
-    "replicate_as_playbook": "Compare lesson objective verbs against standard expectations with explicit gap notes.",
-    "impact": 4,
-    "frequency": 4,
-    "feasibility": 4,
-    "use_cases": [
-      "A teacher wants rubric-aligned feedback ready in less time."
-    ]
-  },
-  {
-    "capability_name": "Intervention follow-up note generator",
-    "category": "Control",
-    "type": "Skill",
-    "persona": "teacher",
-    "input": "intervention outcome logs",
-    "output": {
-      "follow_up_notes": [
-        {
-          "student_id": "string",
-          "progress_summary": "string",
-          "next_action": "string"
-        }
-      ]
-    },
-    "effort": "S",
-    "risks": [
-      "over-generalized next-step recommendations"
-    ],
-    "dependencies": [
-      "intervention note template"
-    ],
-    "source": "Claude Skill example/template",
-    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
-    "replicate_as_playbook": "Summarize progress and always attach one actionable follow-up item.",
-    "impact": 4,
-    "frequency": 4,
-    "feasibility": 5,
-    "use_cases": [
-      "An admin wants early warnings for disengagement risk."
-    ]
-  },
-  {
-    "capability_name": "SIS enrollment snapshot sync",
-    "category": "Connection",
-    "type": "MCP",
-    "persona": "admin",
-    "input": "term identifier",
-    "output": {
-      "enrollment_snapshot": [
-        {
-          "program": "string",
-          "count": 0,
-          "change_weekly": 0
-        }
-      ]
-    },
-    "effort": "M",
-    "risks": [
-      "delayed sync causing stale reporting"
-    ],
-    "dependencies": [
-      "sis connector"
-    ],
-    "source": "MCP server/library entry",
-    "source_link": "https://modelcontextprotocol.io/introduction",
-    "setup_complexity": "Medium",
-    "auth_model": "OAuth",
-    "limits": "Nightly sync windows",
-    "impact": 4,
-    "frequency": 4,
-    "feasibility": 4,
-    "use_cases": [
-      "An admin wants early warnings for disengagement risk."
-    ]
-  },
-  {
-    "capability_name": "Library reading list sync",
-    "category": "Connection",
     "type": "MCP",
     "persona": "student",
-    "input": "course code",
+    "input": "research topic and citation format preference",
     "output": {
-      "reading_list": [
+      "sources": [
         {
           "title": "string",
-          "availability": "string",
-          "link": "string"
+          "authors": "string",
+          "year": "string",
+          "relevance": "string"
         }
+      ],
+      "formatted_citations": [
+        "string"
+      ],
+      "abstracts": [
+        "string"
       ]
     },
     "effort": "M",
     "risks": [
-      "broken catalog links"
+      "stale database results",
+      "citation format errors"
     ],
     "dependencies": [
-      "library catalog connector"
+      "academic search connector"
     ],
     "source": "MCP server/library entry",
     "source_link": "https://modelcontextprotocol.io/introduction",
-    "setup_complexity": "Low",
-    "auth_model": "none",
-    "limits": "Catalog refresh interval",
-    "impact": 3,
+    "setup_complexity": "Medium",
+    "auth_model": "API key",
+    "limits": "Search API rate limits and result caps",
+    "impact": 4,
     "frequency": 4,
     "feasibility": 4,
     "use_cases": [
-      "A student wants lesson material transformed into practice assets quickly."
+      "Assignment execution and submission copilot"
     ]
   },
   {
-    "capability_name": "Assignment deadline calendar aggregator",
-    "category": "Connection",
-    "type": "MCP",
+    "capability_name": "Essay feedback coach",
+    "category": "Engagement",
+    "type": "Skill",
     "persona": "student",
-    "input": "course enrollment list",
+    "input": "draft essay text and assignment rubric",
     "output": {
-      "deadline_calendar": [
+      "structure_feedback": "string",
+      "argument_strength": "string",
+      "evidence_quality": "string",
+      "clarity_score": 0,
+      "improvements": [
         {
-          "course": "string",
-          "deadline": "string",
+          "area": "string",
+          "suggestion": "string",
           "priority": "string"
         }
       ]
     },
+    "effort": "S",
+    "risks": [
+      "tone mismatch",
+      "over-prescriptive suggestions limiting creativity"
+    ],
+    "dependencies": [
+      "rubric parsing",
+      "feedback prompt templates"
+    ],
+    "source": "Claude Skill example/template",
+    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
+    "replicate_as_playbook": "Evaluate draft against rubric dimensions and generate prioritized improvement suggestions.",
+    "impact": 4,
+    "frequency": 4,
+    "feasibility": 5,
+    "use_cases": [
+      "Assignment execution and submission copilot"
+    ]
+  },
+  {
+    "capability_name": "Formula and concept quick-ref",
+    "category": "Knowledge",
+    "type": "Skill",
+    "persona": "student",
+    "input": "concept or formula name and subject area",
+    "output": {
+      "explanation": "string",
+      "formulas": [
+        "string"
+      ],
+      "worked_example": "string",
+      "common_pitfalls": [
+        "string"
+      ]
+    },
+    "effort": "S",
+    "risks": [
+      "context-free explanations may confuse",
+      "formula notation rendering issues"
+    ],
+    "dependencies": [
+      "concept reference bank"
+    ],
+    "source": "Claude Skill example/template",
+    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
+    "replicate_as_playbook": "Look up concept, produce explanation with formulas, one worked example, and common pitfalls list.",
+    "impact": 4,
+    "frequency": 5,
+    "feasibility": 5,
+    "use_cases": [
+      "Daily lesson-to-practice learning loop"
+    ]
+  },
+  {
+    "capability_name": "Lab report assistant",
+    "category": "Creation",
+    "type": "Skill",
+    "persona": "student",
+    "input": "raw lab data and experiment observations",
+    "output": {
+      "hypothesis": "string",
+      "data_tables": [
+        {
+          "label": "string",
+          "rows": [
+            "string"
+          ]
+        }
+      ],
+      "analysis": "string",
+      "conclusion": "string",
+      "error_discussion": "string"
+    },
     "effort": "M",
     "risks": [
-      "missed updates from disconnected course tools"
+      "loss of experimental detail",
+      "over-generalized conclusions"
+    ],
+    "dependencies": [
+      "lab report templates"
+    ],
+    "source": "Claude Skill example/template",
+    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
+    "replicate_as_playbook": "Structure raw observations into hypothesis, data tables, analysis, conclusion, and error discussion sections.",
+    "impact": 4,
+    "frequency": 3,
+    "feasibility": 5,
+    "use_cases": [
+      "Assignment execution and submission copilot"
+    ]
+  },
+  {
+    "capability_name": "Presentation builder",
+    "category": "Creation",
+    "type": "Skill",
+    "persona": "student",
+    "input": "topic and presentation time limit",
+    "output": {
+      "slide_outline": [
+        {
+          "slide_title": "string",
+          "talking_points": [
+            "string"
+          ],
+          "visual_suggestion": "string"
+        }
+      ],
+      "speaker_notes": [
+        "string"
+      ]
+    },
+    "effort": "S",
+    "risks": [
+      "generic slide structures",
+      "visual suggestions may not match available tools"
+    ],
+    "dependencies": [
+      "presentation templates"
+    ],
+    "source": "Claude Skill example/template",
+    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
+    "replicate_as_playbook": "Divide topic into slides by time allocation, generate talking points and visual aid suggestions per slide.",
+    "impact": 4,
+    "frequency": 3,
+    "feasibility": 5,
+    "use_cases": [
+      "Assignment execution and submission copilot"
+    ]
+  },
+  {
+    "capability_name": "Deadline and workload dashboard",
+    "category": "Connection",
+    "type": "MCP",
+    "persona": "student",
+    "input": "enrolled course list",
+    "output": {
+      "deadlines": [
+        {
+          "course": "string",
+          "assignment": "string",
+          "due_date": "string",
+          "estimated_hours": 0
+        }
+      ],
+      "overloaded_days": [
+        "string"
+      ],
+      "rebalance_suggestions": [
+        "string"
+      ]
+    },
+    "effort": "M",
+    "risks": [
+      "missed updates from disconnected course tools",
+      "inaccurate time estimates"
     ],
     "dependencies": [
       "calendar connector",
@@ -942,49 +607,719 @@
     "source_link": "https://modelcontextprotocol.io/introduction",
     "setup_complexity": "Medium",
     "auth_model": "OAuth",
-    "limits": "API burst limits",
+    "limits": "API burst limits on calendar and LMS endpoints",
     "impact": 5,
     "frequency": 4,
     "feasibility": 4,
     "use_cases": [
-      "A student wants a realistic weekly study schedule before exams."
+      "Course, schedule, and opportunity navigator"
     ]
   },
   {
-    "capability_name": "Program retention action planner",
+    "capability_name": "Study group session prep",
+    "category": "Engagement",
+    "type": "Skill",
+    "persona": "student",
+    "input": "shared study topic and group size",
+    "output": {
+      "discussion_questions": [
+        "string"
+      ],
+      "debate_prompts": [
+        "string"
+      ],
+      "collaborative_exercises": [
+        {
+          "activity": "string",
+          "duration_minutes": 0
+        }
+      ],
+      "split_guide": [
+        {
+          "section": "string",
+          "assigned_to": "string"
+        }
+      ]
+    },
+    "effort": "S",
+    "risks": [
+      "questions too basic for advanced groups",
+      "uneven task splitting"
+    ],
+    "dependencies": [
+      "discussion prompt templates"
+    ],
+    "source": "Claude Skill example/template",
+    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
+    "replicate_as_playbook": "Generate discussion questions, debate prompts, and split study guide sections by group size.",
+    "impact": 3,
+    "frequency": 3,
+    "feasibility": 5,
+    "use_cases": [
+      "Daily lesson-to-practice learning loop"
+    ]
+  },
+  {
+    "capability_name": "Vocabulary and terminology builder",
+    "category": "Knowledge",
+    "type": "Skill",
+    "persona": "student",
+    "input": "course material text",
+    "output": {
+      "terms": [
+        {
+          "term": "string",
+          "definition": "string",
+          "context_example": "string"
+        }
+      ],
+      "flashcard_deck": [
+        {
+          "question": "string",
+          "answer": "string"
+        }
+      ]
+    },
+    "effort": "S",
+    "risks": [
+      "missing domain-specific jargon",
+      "definitions too textbook-like"
+    ],
+    "dependencies": [
+      "term extraction",
+      "lessonToFlashcards"
+    ],
+    "source": "Claude Skill example/template",
+    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
+    "replicate_as_playbook": "Extract domain terms, generate plain-language definitions with context, and build a spaced-repetition deck.",
+    "impact": 4,
+    "frequency": 4,
+    "feasibility": 5,
+    "use_cases": [
+      "Daily lesson-to-practice learning loop"
+    ]
+  },
+  {
+    "capability_name": "Past exam pattern analyzer",
+    "category": "Knowledge",
+    "type": "Skill",
+    "persona": "student",
+    "input": "previous exam papers or question bank",
+    "output": {
+      "topic_frequency": [
+        {
+          "topic": "string",
+          "frequency": "string",
+          "recent_trend": "string"
+        }
+      ],
+      "question_styles": [
+        "string"
+      ],
+      "targeted_practice": [
+        {
+          "question": "string",
+          "options": [
+            "string"
+          ],
+          "correct": "string"
+        }
+      ]
+    },
+    "effort": "M",
+    "risks": [
+      "pattern over-fitting to small sample",
+      "curriculum changes invalidating old patterns"
+    ],
+    "dependencies": [
+      "exam parsing templates"
+    ],
+    "source": "Claude Skill example/template",
+    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
+    "replicate_as_playbook": "Parse past papers, count topic frequency, classify question types, and generate practice for high-frequency areas.",
+    "impact": 4,
+    "frequency": 3,
+    "feasibility": 4,
+    "use_cases": [
+      "Exam sprint planner and revision tracker"
+    ]
+  },
+  {
+    "capability_name": "Course material search",
+    "category": "Connection",
+    "type": "MCP",
+    "persona": "student",
+    "input": "search query and enrolled course list",
+    "output": {
+      "results": [
+        {
+          "source": "string",
+          "title": "string",
+          "snippet": "string",
+          "relevance_score": 0
+        }
+      ]
+    },
+    "effort": "M",
+    "risks": [
+      "incomplete indexing of all course sources",
+      "stale cached content"
+    ],
+    "dependencies": [
+      "mockDriveClient",
+      "mockLmsClient"
+    ],
+    "source": "MCP server/library entry",
+    "source_link": "https://modelcontextprotocol.io/introduction",
+    "setup_complexity": "Medium",
+    "auth_model": "OAuth",
+    "limits": "Search limited to connected and indexed sources",
+    "impact": 4,
+    "frequency": 4,
+    "feasibility": 3,
+    "use_cases": [
+      "Course, schedule, and opportunity navigator"
+    ]
+  },
+  {
+    "capability_name": "Batch feedback generator",
+    "category": "Creation",
+    "type": "Skill",
+    "persona": "teacher",
+    "input": "rubric and batch of student submissions",
+    "output": {
+      "individual_feedback": [
+        {
+          "student_id": "string",
+          "criterion_feedback": [
+            {
+              "criterion": "string",
+              "comment": "string"
+            }
+          ],
+          "summary": "string"
+        }
+      ],
+      "class_patterns": {
+        "common_strengths": [
+          "string"
+        ],
+        "common_gaps": [
+          "string"
+        ]
+      }
+    },
+    "effort": "M",
+    "risks": [
+      "tone inconsistency across batch",
+      "privacy concerns with student data"
+    ],
+    "dependencies": [
+      "rubric prompt templates",
+      "feedback generation"
+    ],
+    "source": "Claude Skill example/template",
+    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
+    "replicate_as_playbook": "Iterate rubric criteria per submission, generate personalized comments, then aggregate class-level patterns.",
+    "impact": 5,
+    "frequency": 5,
+    "feasibility": 4,
+    "use_cases": [
+      "Feedback and family communication loop"
+    ]
+  },
+  {
+    "capability_name": "Lesson plan optimizer",
+    "category": "Creation",
+    "type": "Skill",
+    "persona": "teacher",
+    "input": "learning objectives and time constraint",
+    "output": {
+      "activity_sequence": [
+        {
+          "activity": "string",
+          "duration_minutes": 0,
+          "engagement_hook": "string",
+          "check_for_understanding": "string"
+        }
+      ],
+      "differentiation_notes": [
+        "string"
+      ]
+    },
+    "effort": "S",
+    "risks": [
+      "activities may not suit all classroom contexts",
+      "time estimates may vary"
+    ],
+    "dependencies": [
+      "pedagogy templates",
+      "bloom taxonomy mapping"
+    ],
+    "source": "Claude Skill example/template",
+    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
+    "replicate_as_playbook": "Map objectives to activities using Bloom taxonomy, add engagement hooks and understanding checks per activity.",
+    "impact": 4,
+    "frequency": 4,
+    "feasibility": 5,
+    "use_cases": [
+      "Classroom planning and delivery copilot"
+    ]
+  },
+  {
+    "capability_name": "Parent progress reporter",
+    "category": "Connection",
+    "type": "Hybrid",
+    "persona": "teacher",
+    "input": "student performance data and parent language preference",
+    "output": {
+      "progress_reports": [
+        {
+          "student_name": "string",
+          "strengths": [
+            "string"
+          ],
+          "growth_areas": [
+            "string"
+          ],
+          "action_items": [
+            "string"
+          ]
+        }
+      ],
+      "parent_emails": [
+        {
+          "subject": "string",
+          "body": "string",
+          "language": "string"
+        }
+      ]
+    },
+    "effort": "M",
+    "risks": [
+      "missing sensitivity context",
+      "translation nuance loss"
+    ],
+    "dependencies": [
+      "message templates",
+      "translation connector"
+    ],
+    "source": "internally-derived playbook idea",
+    "source_link": "https://www.atlassian.com/team-playbook",
+    "setup_complexity": "Medium",
+    "auth_model": "API key",
+    "limits": "Translation character limits per request",
+    "replicate_as_playbook": "Generate progress summaries per student, draft emails, and translate to family language preference.",
+    "impact": 5,
+    "frequency": 4,
+    "feasibility": 4,
+    "use_cases": [
+      "Feedback and family communication loop"
+    ]
+  },
+  {
+    "capability_name": "Quiz and assessment creator",
+    "category": "Creation",
+    "type": "Skill",
+    "persona": "teacher",
+    "input": "learning objectives and Bloom's taxonomy level",
+    "output": {
+      "assessment": {
+        "mcq": [
+          {
+            "question": "string",
+            "options": [
+              "string"
+            ],
+            "correct": "string"
+          }
+        ],
+        "short_answer": [
+          {
+            "question": "string",
+            "rubric": "string"
+          }
+        ],
+        "application": [
+          {
+            "scenario": "string",
+            "question": "string"
+          }
+        ]
+      },
+      "answer_key": "string"
+    },
+    "effort": "S",
+    "risks": [
+      "weak distractors in MCQs",
+      "question difficulty mismatch"
+    ],
+    "dependencies": [
+      "lessonToQuiz",
+      "bloom taxonomy templates"
+    ],
+    "source": "Claude Skill example/template",
+    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
+    "replicate_as_playbook": "Generate balanced MCQ, short-answer, and application questions mapped to specified Bloom levels.",
+    "impact": 4,
+    "frequency": 4,
+    "feasibility": 5,
+    "use_cases": [
+      "Classroom planning and delivery copilot"
+    ]
+  },
+  {
+    "capability_name": "Class engagement analyzer",
+    "category": "Control",
+    "type": "MCP",
+    "persona": "teacher",
+    "input": "course identifier and date range",
+    "output": {
+      "engagement_trends": [
+        {
+          "metric": "string",
+          "trend": "string",
+          "change": "string"
+        }
+      ],
+      "disengaged_clusters": [
+        {
+          "student_ids": [
+            "string"
+          ],
+          "pattern": "string"
+        }
+      ],
+      "re_engagement_tactics": [
+        "string"
+      ]
+    },
+    "effort": "M",
+    "risks": [
+      "incomplete participation data",
+      "false pattern detection"
+    ],
+    "dependencies": [
+      "lms analytics connector"
+    ],
+    "source": "MCP server/library entry",
+    "source_link": "https://modelcontextprotocol.io/introduction",
+    "setup_complexity": "Medium",
+    "auth_model": "OAuth",
+    "limits": "Analytics data refreshed daily",
+    "impact": 4,
+    "frequency": 4,
+    "feasibility": 3,
+    "use_cases": [
+      "Student success risk and intervention command center"
+    ]
+  },
+  {
+    "capability_name": "Differentiated resource builder",
+    "category": "Creation",
+    "type": "Skill",
+    "persona": "teacher",
+    "input": "lesson content",
+    "output": {
+      "simplified": {
+        "content": "string",
+        "scaffolding": [
+          "string"
+        ]
+      },
+      "standard": {
+        "content": "string"
+      },
+      "extended": {
+        "content": "string",
+        "challenge_tasks": [
+          "string"
+        ]
+      }
+    },
+    "effort": "M",
+    "risks": [
+      "oversimplification losing core concepts",
+      "extended version too ambitious"
+    ],
+    "dependencies": [
+      "differentiation templates"
+    ],
+    "source": "Claude Skill example/template",
+    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
+    "replicate_as_playbook": "Generate three lesson variants: simplified with scaffolding, standard, and extended with challenge tasks.",
+    "impact": 4,
+    "frequency": 3,
+    "feasibility": 4,
+    "use_cases": [
+      "Inclusive instruction and standards compliance builder"
+    ]
+  },
+  {
+    "capability_name": "Meeting and IEP note drafter",
+    "category": "Control",
+    "type": "Skill",
+    "persona": "teacher",
+    "input": "meeting notes or audio transcript bullets",
+    "output": {
+      "structured_minutes": {
+        "attendees": [
+          "string"
+        ],
+        "decisions": [
+          "string"
+        ],
+        "action_items": [
+          {
+            "owner": "string",
+            "task": "string",
+            "deadline": "string"
+          }
+        ]
+      },
+      "iep_draft": [
+        {
+          "need": "string",
+          "accommodation": "string",
+          "evidence": "string"
+        }
+      ]
+    },
+    "effort": "M",
+    "risks": [
+      "compliance wording errors",
+      "missing context from abbreviated notes"
+    ],
+    "dependencies": [
+      "meeting minutes templates",
+      "inclusive language templates"
+    ],
+    "source": "Claude Skill example/template",
+    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
+    "replicate_as_playbook": "Parse meeting bullets into structured minutes and map documented needs to accommodations with justifications.",
+    "impact": 4,
+    "frequency": 3,
+    "feasibility": 4,
+    "use_cases": [
+      "Inclusive instruction and standards compliance builder"
+    ]
+  },
+  {
+    "capability_name": "Standards alignment mapper",
+    "category": "Control",
+    "type": "MCP",
+    "persona": "teacher",
+    "input": "curriculum plan and target standards framework",
+    "output": {
+      "alignment_map": [
+        {
+          "unit": "string",
+          "standard": "string",
+          "coverage": "string"
+        }
+      ],
+      "gaps": [
+        {
+          "standard": "string",
+          "gap_description": "string",
+          "suggested_activity": "string"
+        }
+      ]
+    },
+    "effort": "M",
+    "risks": [
+      "false confidence on weak matches",
+      "standards database lag"
+    ],
+    "dependencies": [
+      "standards database connector"
+    ],
+    "source": "MCP server/library entry",
+    "source_link": "https://modelcontextprotocol.io/introduction",
+    "setup_complexity": "Medium",
+    "auth_model": "API key",
+    "limits": "Standards database refreshed quarterly",
+    "impact": 4,
+    "frequency": 3,
+    "feasibility": 3,
+    "use_cases": [
+      "Inclusive instruction and standards compliance builder"
+    ]
+  },
+  {
+    "capability_name": "Student risk early-warning digest",
     "category": "Control",
     "type": "Hybrid",
     "persona": "admin",
-    "input": "retention trend data and intervention inventory",
+    "input": "attendance records, grade trends, and engagement signals",
     "output": {
-      "retention_actions": [
+      "risk_tiers": [
         {
-          "risk_segment": "string",
+          "student_id": "string",
+          "tier": "string",
+          "risk_factors": [
+            "string"
+          ],
+          "trend": "string"
+        }
+      ],
+      "recommended_interventions": [
+        {
+          "student_id": "string",
           "action": "string",
-          "owner": "string"
+          "owner": "string",
+          "deadline": "string"
         }
       ],
       "summary": "string"
     },
     "effort": "L",
     "risks": [
-      "actions may be mis-prioritized without fresh data"
+      "false positives stigmatizing students",
+      "delayed data causing stale assessments"
     ],
     "dependencies": [
-      "retention analytics connector",
+      "attendance connector",
+      "grade connector",
       "intervention playbook"
     ],
     "source": "internally-derived playbook idea",
     "source_link": "https://www.atlassian.com/team-playbook",
     "setup_complexity": "High",
-    "auth_model": "API key",
-    "limits": "Retention model recomputation limited to once per day",
-    "replicate_as_playbook": "Blend retention segments from connector data with fixed intervention mapping rules.",
+    "auth_model": "OAuth",
+    "limits": "Risk model recomputed weekly",
+    "replicate_as_playbook": "Apply tiered risk thresholds to attendance and grade data, then map to intervention recommendations.",
     "impact": 5,
+    "frequency": 4,
+    "feasibility": 3,
+    "use_cases": [
+      "Student success risk and intervention command center"
+    ]
+  },
+  {
+    "capability_name": "Policy Q and A with audit trail",
+    "category": "Control",
+    "type": "MCP",
+    "persona": "admin",
+    "input": "natural language policy question",
+    "output": {
+      "answer": "string",
+      "citations": [
+        {
+          "section": "string",
+          "text": "string",
+          "page": "string"
+        }
+      ],
+      "confidence": 0,
+      "audit_trail": {
+        "query": "string",
+        "sources_searched": [
+          "string"
+        ],
+        "timestamp": "string"
+      }
+    },
+    "effort": "M",
+    "risks": [
+      "citation mismatch",
+      "outdated policy versions"
+    ],
+    "dependencies": [
+      "policy index connector"
+    ],
+    "source": "MCP server/library entry",
+    "source_link": "https://modelcontextprotocol.io/introduction",
+    "setup_complexity": "Medium",
+    "auth_model": "API key",
+    "limits": "Policy index freshness depends on upload cadence",
+    "impact": 5,
+    "frequency": 4,
+    "feasibility": 4,
+    "use_cases": [
+      "Policy and announcement operations copilot"
+    ]
+  },
+  {
+    "capability_name": "Enrollment and retention dashboard feed",
+    "category": "Conversion",
+    "type": "MCP",
+    "persona": "admin",
+    "input": "term identifier and program filter",
+    "output": {
+      "enrollment_trends": [
+        {
+          "program": "string",
+          "enrolled": 0,
+          "change_weekly": 0
+        }
+      ],
+      "retention_rates": [
+        {
+          "cohort": "string",
+          "rate": 0,
+          "risk_flag": "string"
+        }
+      ],
+      "action_recommendations": [
+        "string"
+      ]
+    },
+    "effort": "M",
+    "risks": [
+      "delayed SIS sync causing stale data",
+      "misinterpreted retention signals"
+    ],
+    "dependencies": [
+      "sis connector"
+    ],
+    "source": "MCP server/library entry",
+    "source_link": "https://modelcontextprotocol.io/introduction",
+    "setup_complexity": "High",
+    "auth_model": "OAuth",
+    "limits": "SIS data synced nightly",
+    "impact": 4,
     "frequency": 3,
     "feasibility": 3,
     "use_cases": [
-      "An admin wants early warnings for disengagement risk."
+      "Enrollment, retention, and resource operations desk"
+    ]
+  },
+  {
+    "capability_name": "Campus communication optimizer",
+    "category": "Connection",
+    "type": "Skill",
+    "persona": "admin",
+    "input": "announcement draft text",
+    "output": {
+      "clarity_score": 0,
+      "rewrite": "string",
+      "reading_level": "string",
+      "action_visibility": "string",
+      "translations": [
+        {
+          "language": "string",
+          "text": "string"
+        }
+      ]
+    },
+    "effort": "S",
+    "risks": [
+      "style over-correction",
+      "translation nuance loss"
+    ],
+    "dependencies": [
+      "clarity rubric",
+      "translation connector"
+    ],
+    "source": "Claude Skill example/template",
+    "source_link": "https://docs.anthropic.com/en/docs/claude-code/skills",
+    "replicate_as_playbook": "Score clarity, rewrite for reading level, check action visibility, and generate translated versions.",
+    "impact": 3,
+    "frequency": 4,
+    "feasibility": 5,
+    "use_cases": [
+      "Policy and announcement operations copilot"
     ]
   }
 ]

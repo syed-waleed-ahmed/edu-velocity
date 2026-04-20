@@ -1,86 +1,152 @@
 [
-  {
-    "use_case": "A student wants a realistic weekly study schedule before exams.",
-    "target": "student",
-    "trigger": "Student provides syllabus and available hours.",
-    "steps": [
-      "Parse syllabus topics, exam date, and time constraints.",
-      "Transform topics into weekly study blocks with durations.",
-      "Generate study_plan JSON and checkpoint summary fields.",
-      "Review load balance and adjust overbooked weeks.",
-      "Save approved plan payload for prototype rendering."
-    ],
-    "result": "Structured plan JSON is produced with summary and study_plan arrays mapped to weekly sessions.",
-    "success_criteria": "100% of required plan fields are present and student accepts plan with no more than one manual adjustment."
-  },
-  {
-    "use_case": "A teacher wants rubric-aligned feedback ready in less time.",
-    "target": "teacher",
-    "trigger": "Teacher opens assignment submissions.",
-    "steps": [
-      "Parse rubric criteria and submission evidence snippets.",
-      "Transform rubric rows into criterion_feedback objects.",
-      "Generate summary and per-criterion JSON comments.",
-      "Teacher reviews and edits only flagged criteria.",
-      "Publish approved feedback payload."
-    ],
-    "result": "Structured feedback JSON is produced with criterion_feedback array and summary fields for each submission.",
-    "success_criteria": "Feedback generation time is reduced by at least 30% while 100% rubric criteria are covered."
-  },
-  {
-    "use_case": "An admin wants early warnings for disengagement risk.",
-    "target": "admin",
-    "trigger": "Weekly retention review begins.",
-    "steps": [
-      "Parse attendance and grade trend inputs by learner.",
-      "Transform risk indicators into tiered severity buckets.",
-      "Generate risk_flags and recommended_actions JSON.",
-      "Assign intervention owners from the generated list.",
-      "Log intervention outcomes for next review cycle."
-    ],
-    "result": "Structured risk digest JSON is produced with risk_flags and recommended_actions arrays for admin review.",
-    "success_criteria": "At least 95% of high-risk learners are assigned interventions within the defined SLA window."
-  },
-  {
-    "use_case": "A student wants lesson material transformed into practice assets quickly.",
-    "target": "student",
-    "trigger": "Student uploads lesson or picks source doc.",
-    "steps": [
-      "Parse lesson text from uploaded or selected source.",
-      "Transform content into topic chunks for reuse.",
-      "Generate flashcards, quiz, and study_plan JSON blocks.",
-      "Inspect rendered outputs for structure completeness.",
-      "Save selected learning package output."
-    ],
-    "result": "Structured learning package JSON is produced with summary, flashcards, quiz, and study_plan sections.",
-    "success_criteria": "All four required sections are present and each section contains at least one valid item."
-  },
-  {
-    "use_case": "A teacher wants multilingual parent updates for class progress.",
-    "target": "teacher",
-    "trigger": "Teacher starts communication workflow.",
-    "steps": [
-      "Parse progress notes into key points and action items.",
-      "Transform message into selected target language.",
-      "Generate translated_message and quality_notes JSON.",
-      "Validate tone and readability against checklist.",
-      "Send finalized parent update."
-    ],
-    "result": "Structured translation JSON is produced with translated_message text and quality_notes annotations.",
-    "success_criteria": "Teacher sends message with no more than one manual correction in 90% of runs."
-  },
-  {
-    "use_case": "An admin wants policy answers with auditable citations.",
-    "target": "admin",
-    "trigger": "A policy interpretation question is raised.",
-    "steps": [
-      "Parse natural language query into policy retrieval intent.",
-      "Transform retrieved passages into citation candidates.",
-      "Generate answer, citations, and confidence JSON fields.",
-      "Review confidence threshold and cited evidence.",
-      "Record approved interpretation with trace references."
-    ],
-    "result": "Structured policy response JSON is produced with answer text, citation list, and confidence score.",
-    "success_criteria": "Median response time stays under 2 minutes and citation validity is at least 95% in spot checks."
-  }
+    {
+        "trigger":  "Student opens a lesson and asks for an actionable study session.",
+        "workflow_id":  "wf_student_daily_learning_loop",
+        "use_case":  "Daily lesson-to-practice learning loop",
+        "success_criteria":  "Student completes a full study cycle in one flow and uses at least two generated assets in the same session.",
+        "result":  "Student receives one consolidated practice package for today instead of separate tools.",
+        "steps":  [
+                      "Ingest lesson content from LMS, Drive, or pasted notes.",
+                      "Generate a bundled micro-session with flashcards, quiz, adaptive hints, and summary.",
+                      "Prioritize practice items based on weak areas and available time.",
+                      "Run a quick self-check and recommend immediate next action.",
+                      "Save session output for same-day revision."
+                  ],
+        "target":  "student"
+    },
+    {
+        "trigger":  "Student is within 1-2 weeks of an exam and needs a realistic revision path.",
+        "workflow_id":  "wf_student_exam_sprint",
+        "use_case":  "Exam sprint planner and revision tracker",
+        "success_criteria":  "Student keeps plan adherence above 80 percent and sees all critical topics scheduled before exam day.",
+        "result":  "Student gets a dynamic revision plan that updates with progress and constraints.",
+        "steps":  [
+                      "Build an exam countdown plan from syllabus scope and available hours.",
+                      "Generate revision checklist and prerequisite gap alerts.",
+                      "Rebalance daily sessions when deadlines or workload change.",
+                      "Track completed revision blocks and unresolved gaps.",
+                      "Surface the highest-impact next session automatically."
+                  ],
+        "target":  "student"
+    },
+    {
+        "trigger":  "Student is selecting courses and wants schedule fit plus opportunity guidance.",
+        "workflow_id":  "wf_student_course_navigation",
+        "use_case":  "Course, schedule, and opportunity navigator",
+        "success_criteria":  "Student can choose a course path in one session without needing multiple disconnected checks.",
+        "result":  "Student receives one decision package for enrollment, support options, and scheduling.",
+        "steps":  [
+                      "Analyze transcript signals and prerequisite readiness.",
+                      "Check candidate courses and timing conflicts.",
+                      "Evaluate scholarship or support eligibility where relevant.",
+                      "Recommend aligned campus opportunities and study resources.",
+                      "Publish a ranked plan with rationale and next actions."
+                  ],
+        "target":  "student"
+    },
+    {
+        "trigger":  "Student starts an assignment and needs help from understanding to final submission quality check.",
+        "workflow_id":  "wf_student_assignment_execution",
+        "use_case":  "Assignment execution and submission copilot",
+        "success_criteria":  "Student reaches submission-ready state in one flow with no missing required sections.",
+        "result":  "Student completes assignment work through a single guided workflow.",
+        "steps":  [
+                      "Extract assignment intent, milestones, and due-date constraints.",
+                      "Generate structured draft aids including summaries and key points.",
+                      "Offer hint progression for blocked problem-solving steps.",
+                      "Check completeness against rubric-style criteria before submission.",
+                      "Produce final submission checklist with time-to-submit warning."
+                  ],
+        "target":  "student"
+    },
+    {
+        "trigger":  "Teacher prepares upcoming lesson blocks and classroom activities.",
+        "workflow_id":  "wf_teacher_classroom_planning",
+        "use_case":  "Classroom planning and delivery copilot",
+        "success_criteria":  "Teacher can run the full class session using one generated plan without manual restructuring.",
+        "result":  "Teacher gets one consolidated teaching plan for preparation and delivery.",
+        "steps":  [
+                      "Import lesson scope and learning objectives.",
+                      "Generate activity sequence, discussion prompts, and timing plan.",
+                      "Map activities to class constraints and engagement goals.",
+                      "Prepare reusable delivery notes for in-class execution.",
+                      "Output session plan for immediate classroom use."
+                  ],
+        "target":  "teacher"
+    },
+    {
+        "trigger":  "Teacher finishes assessment review and needs aligned student feedback plus family updates.",
+        "workflow_id":  "wf_teacher_feedback_family_loop",
+        "use_case":  "Feedback and family communication loop",
+        "success_criteria":  "Teacher publishes rubric feedback and family updates with minimal edits in the same workflow run.",
+        "result":  "Teacher completes grading-to-parent communication in one connected workflow.",
+        "steps":  [
+                      "Generate rubric-aligned feedback for each student submission.",
+                      "Summarize actionable strengths, gaps, and next steps.",
+                      "Draft parent communication with tone and clarity controls.",
+                      "Translate communication where multilingual delivery is needed.",
+                      "Finalize and send with traceable feedback context."
+                  ],
+        "target":  "teacher"
+    },
+    {
+        "trigger":  "Teacher needs to ensure lesson plans are inclusive and standards-aligned before delivery.",
+        "workflow_id":  "wf_teacher_inclusive_compliance",
+        "use_case":  "Inclusive instruction and standards compliance builder",
+        "success_criteria":  "Lesson package passes standards and accessibility checks before classroom delivery.",
+        "result":  "Teacher gets one standards-and-accommodations validated lesson package.",
+        "steps":  [
+                      "Check lesson artifacts against standards expectations.",
+                      "Generate accommodation suggestions for diverse learner needs.",
+                      "Flag compliance risks and required instructional adjustments.",
+                      "Produce revised lesson variant with accessibility considerations.",
+                      "Output compliance-ready teaching package."
+                  ],
+        "target":  "teacher"
+    },
+    {
+        "trigger":  "Admin receives policy questions or needs to publish high-clarity institutional communication.",
+        "workflow_id":  "wf_admin_policy_operations",
+        "use_case":  "Policy and announcement operations copilot",
+        "success_criteria":  "Policy response and announcement drafts are approved in one pass with valid citations.",
+        "result":  "Admin resolves policy Q and communication needs in one auditable workflow.",
+        "steps":  [
+                      "Retrieve relevant policy sources and generate citation-backed answers.",
+                      "Draft operational announcements with clarity scoring.",
+                      "Validate wording for compliance and audience fit.",
+                      "Attach source references for audit traceability.",
+                      "Publish approved responses and communications."
+                  ],
+        "target":  "admin"
+    },
+    {
+        "trigger":  "Admin runs weekly student success review to identify and act on risk signals.",
+        "workflow_id":  "wf_admin_student_success_command",
+        "use_case":  "Student success risk and intervention command center",
+        "success_criteria":  "High-risk students receive assigned interventions within the target service window.",
+        "result":  "Admin executes the full detect-to-intervene loop in one dashboard workflow.",
+        "steps":  [
+                      "Aggregate attendance, performance, and intervention history signals.",
+                      "Generate tiered risk segmentation and priority interventions.",
+                      "Assign owners and follow-up actions by severity.",
+                      "Track intervention completion and status updates.",
+                      "Produce leadership-ready risk summary with next-cycle actions."
+                  ],
+        "target":  "admin"
+    },
+    {
+        "trigger":  "Admin monitors enrollment health and resource utilization to plan retention actions.",
+        "workflow_id":  "wf_admin_enrollment_resource_ops",
+        "use_case":  "Enrollment, retention, and resource operations desk",
+        "success_criteria":  "Operations team receives one weekly prioritized plan with measurable follow-up actions.",
+        "result":  "Admin gets a consolidated operations plan for enrollment, retention, and resources.",
+        "steps":  [
+                      "Sync SIS enrollment and progression snapshots.",
+                      "Analyze resource utilization and bottleneck signals.",
+                      "Generate retention action plan for at-risk cohorts.",
+                      "Prioritize operational actions by expected impact.",
+                      "Publish weekly operations brief for execution teams."
+                  ],
+        "target":  "admin"
+    }
 ]

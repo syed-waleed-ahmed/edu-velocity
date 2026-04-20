@@ -1,6 +1,6 @@
 [
   {
-    "capability_name": "Homework hint generator",
+    "capability_name": "Exam prep session builder",
     "type": "Skill",
     "category": "Knowledge",
     "persona": "student",
@@ -12,94 +12,94 @@
     "requires_ui": false
   },
   {
-    "capability_name": "Weekly study plan generation",
-    "type": "Skill",
-    "category": "Knowledge",
-    "persona": "student",
-    "impact": 5,
-    "frequency": 5,
-    "feasibility": 5,
-    "score": 15,
-    "rationale": "High-value capability with strong adoption potential and feasible implementation path.",
-    "requires_ui": false
-  },
-  {
-    "capability_name": "Lesson to flashcards",
-    "type": "Skill",
-    "category": "Creation",
-    "persona": "student",
-    "impact": 5,
-    "frequency": 4,
-    "feasibility": 5,
-    "score": 14,
-    "rationale": "High-value capability with strong adoption potential and feasible implementation path.",
-    "requires_ui": true
-  },
-  {
-    "capability_name": "Lesson to quiz",
-    "type": "Skill",
-    "category": "Creation",
-    "persona": "student",
-    "impact": 5,
-    "frequency": 4,
-    "feasibility": 5,
-    "score": 14,
-    "rationale": "High-value capability with strong adoption potential and feasible implementation path.",
-    "requires_ui": true
-  },
-  {
-    "capability_name": "Multi-language parent update translator",
-    "type": "MCP",
-    "category": "Connection",
-    "persona": "teacher",
-    "impact": 5,
-    "frequency": 4,
-    "feasibility": 5,
-    "score": 14,
-    "rationale": "High-value capability with strong adoption potential and feasible implementation path.",
-    "requires_ui": true
-  },
-  {
-    "capability_name": "Parent communication draft",
-    "type": "Skill",
-    "category": "Connection",
-    "persona": "teacher",
-    "impact": 5,
-    "frequency": 4,
-    "feasibility": 5,
-    "score": 14,
-    "rationale": "High-value capability with strong adoption potential and feasible implementation path.",
-    "requires_ui": true
-  },
-  {
-    "capability_name": "Adaptive practice composer",
-    "type": "Hybrid",
-    "category": "Creation",
-    "persona": "student",
-    "impact": 5,
-    "frequency": 5,
-    "feasibility": 4,
-    "score": 14,
-    "rationale": "High-value capability with strong adoption potential and feasible implementation path.",
-    "requires_ui": true
-  },
-  {
-    "capability_name": "Assignment rubric feedback drafting",
-    "type": "Skill",
-    "category": "Creation",
-    "persona": "teacher",
-    "impact": 5,
-    "frequency": 5,
-    "feasibility": 4,
-    "score": 14,
-    "rationale": "High-value capability with strong adoption potential and feasible implementation path.",
-    "requires_ui": true
-  },
-  {
-    "capability_name": "Classroom discussion prompt builder",
+    "capability_name": "Homework problem walkthrough",
     "type": "Skill",
     "category": "Engagement",
+    "persona": "student",
+    "impact": 5,
+    "frequency": 5,
+    "feasibility": 5,
+    "score": 15,
+    "rationale": "High-value capability with strong adoption potential and feasible implementation path.",
+    "requires_ui": true
+  },
+  {
+    "capability_name": "Assignment kickstarter",
+    "type": "Skill",
+    "category": "Creation",
+    "persona": "student",
+    "impact": 5,
+    "frequency": 4,
+    "feasibility": 5,
+    "score": 14,
+    "rationale": "High-value capability with strong adoption potential and feasible implementation path.",
+    "requires_ui": true
+  },
+  {
+    "capability_name": "Formula and concept quick-ref",
+    "type": "Skill",
+    "category": "Knowledge",
+    "persona": "student",
+    "impact": 4,
+    "frequency": 5,
+    "feasibility": 5,
+    "score": 14,
+    "rationale": "High-value capability with strong adoption potential and feasible implementation path.",
+    "requires_ui": false
+  },
+  {
+    "capability_name": "Missed lecture catch-up pack",
+    "type": "Hybrid",
+    "category": "Knowledge",
+    "persona": "student",
+    "impact": 5,
+    "frequency": 4,
+    "feasibility": 5,
+    "score": 14,
+    "rationale": "High-value capability with strong adoption potential and feasible implementation path.",
+    "requires_ui": false
+  },
+  {
+    "capability_name": "Reading-to-notes converter",
+    "type": "Skill",
+    "category": "Creation",
+    "persona": "student",
+    "impact": 4,
+    "frequency": 5,
+    "feasibility": 5,
+    "score": 14,
+    "rationale": "High-value capability with strong adoption potential and feasible implementation path.",
+    "requires_ui": true
+  },
+  {
+    "capability_name": "Self-assessment checkpoint",
+    "type": "Skill",
+    "category": "Engagement",
+    "persona": "student",
+    "impact": 5,
+    "frequency": 4,
+    "feasibility": 5,
+    "score": 14,
+    "rationale": "High-value capability with strong adoption potential and feasible implementation path.",
+    "requires_ui": true
+  },
+  {
+    "capability_name": "Batch feedback generator",
+    "type": "Skill",
+    "category": "Creation",
     "persona": "teacher",
+    "impact": 5,
+    "frequency": 5,
+    "feasibility": 4,
+    "score": 14,
+    "rationale": "High-value capability with strong adoption potential and feasible implementation path.",
+    "requires_ui": true
+  },
+  {
+    "capability_name": "Essay feedback coach",
+    "type": "Skill",
+    "category": "Engagement",
+    "persona": "student",
     "impact": 4,
     "frequency": 4,
     "feasibility": 5,
@@ -108,15 +108,15 @@
     "requires_ui": true
   },
   {
-    "capability_name": "Exam revision checklist builder",
+    "capability_name": "Lesson plan optimizer",
     "type": "Skill",
-    "category": "Knowledge",
-    "persona": "student",
+    "category": "Creation",
+    "persona": "teacher",
     "impact": 4,
     "frequency": 4,
     "feasibility": 5,
     "score": 13,
     "rationale": "Balanced capability for near-term experimentation and reusable module design.",
-    "requires_ui": false
+    "requires_ui": true
   }
 ]

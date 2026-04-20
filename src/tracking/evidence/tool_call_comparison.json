@@ -1,6 +1,6 @@
 [
   {
-    "capability_name": "Homework hint generator",
+    "capability_name": "Exam prep session builder",
     "with_tool_calls": false,
     "with_tool_response_ms": 140,
     "without_tool_response_ms": 128,
@@ -13,7 +13,7 @@
     "qualitative_observation": "Prompt-only mode remained deterministic across repeat runs."
   },
   {
-    "capability_name": "Weekly study plan generation",
+    "capability_name": "Homework problem walkthrough",
     "with_tool_calls": false,
     "with_tool_response_ms": 157,
     "without_tool_response_ms": 145,
@@ -26,7 +26,7 @@
     "qualitative_observation": "Prompt-only mode remained deterministic across repeat runs."
   },
   {
-    "capability_name": "Lesson to flashcards",
+    "capability_name": "Assignment kickstarter",
     "with_tool_calls": false,
     "with_tool_response_ms": 174,
     "without_tool_response_ms": 162,
@@ -39,7 +39,7 @@
     "qualitative_observation": "Prompt-only mode remained deterministic across repeat runs."
   },
   {
-    "capability_name": "Lesson to quiz",
+    "capability_name": "Formula and concept quick-ref",
     "with_tool_calls": false,
     "with_tool_response_ms": 191,
     "without_tool_response_ms": 179,
@@ -52,10 +52,10 @@
     "qualitative_observation": "Prompt-only mode remained deterministic across repeat runs."
   },
   {
-    "capability_name": "Multi-language parent update translator",
+    "capability_name": "Missed lecture catch-up pack",
     "with_tool_calls": true,
-    "with_tool_response_ms": 248,
-    "without_tool_response_ms": 216,
+    "with_tool_response_ms": 208,
+    "without_tool_response_ms": 176,
     "structured_output_keys": [
       "summary",
       "flashcards",
@@ -65,7 +65,7 @@
     "qualitative_observation": "Tool-enabled mode preserved structure while maintaining acceptable latency."
   },
   {
-    "capability_name": "Parent communication draft",
+    "capability_name": "Reading-to-notes converter",
     "with_tool_calls": false,
     "with_tool_response_ms": 225,
     "without_tool_response_ms": 213,
@@ -78,20 +78,20 @@
     "qualitative_observation": "Prompt-only mode remained deterministic across repeat runs."
   },
   {
-    "capability_name": "Adaptive practice composer",
-    "with_tool_calls": true,
+    "capability_name": "Self-assessment checkpoint",
+    "with_tool_calls": false,
     "with_tool_response_ms": 242,
-    "without_tool_response_ms": 210,
+    "without_tool_response_ms": 230,
     "structured_output_keys": [
       "summary",
       "flashcards",
       "quiz",
       "study_plan"
     ],
-    "qualitative_observation": "Tool-enabled mode preserved structure while maintaining acceptable latency."
+    "qualitative_observation": "Prompt-only mode remained deterministic across repeat runs."
   },
   {
-    "capability_name": "Assignment rubric feedback drafting",
+    "capability_name": "Batch feedback generator",
     "with_tool_calls": false,
     "with_tool_response_ms": 259,
     "without_tool_response_ms": 247,
@@ -104,7 +104,7 @@
     "qualitative_observation": "Prompt-only mode remained deterministic across repeat runs."
   },
   {
-    "capability_name": "Classroom discussion prompt builder",
+    "capability_name": "Essay feedback coach",
     "with_tool_calls": false,
     "with_tool_response_ms": 276,
     "without_tool_response_ms": 264,
@@ -117,7 +117,7 @@
     "qualitative_observation": "Prompt-only mode remained deterministic across repeat runs."
   },
   {
-    "capability_name": "Exam revision checklist builder",
+    "capability_name": "Lesson plan optimizer",
     "with_tool_calls": false,
     "with_tool_response_ms": 293,
     "without_tool_response_ms": 281,
