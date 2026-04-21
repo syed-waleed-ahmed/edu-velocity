@@ -10,7 +10,10 @@
     "test": "vitest run",
     "score": "tsx src/tracking/shortlist.ts",
     "evaluate": "tsx src/lib/evaluation/helloWorldTests.ts",
-    "validate:registry": "tsx src/tracking/validateRegistry.ts"
+    "validate:registry": "tsx src/tracking/validateRegistry.ts",
+    "graphify:help": "python -m graphify --help",
+    "graphify:install:vscode": "python -m graphify vscode install",
+    "graphify:build": "python -m graphify update . --no-viz"
   },
   "devDependencies": {
     "@types/node": "^24.3.0",

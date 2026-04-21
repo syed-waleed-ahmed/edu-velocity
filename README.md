@@ -53,6 +53,37 @@ capability -> reusable module -> structured JSON output -> focused renderer
 - `npm run evaluate` -> regenerate hello-world results, issues, and run history
 - `npm run validate:registry` -> strict validation of capability registry completeness and quality
 - `npm run verify:pages` -> verify `dist/index.html` references compiled Pages assets (not `/src/*`)
+- `npm run graphify:help` -> show Graphify CLI help
+- `npm run graphify:install:vscode` -> install Graphify instructions for VS Code Copilot Chat
+- `npm run graphify:build` -> build/update local knowledge graph in `graphify-out/`
+
+## Graphify Setup (Repo-Scoped)
+
+This repository is configured to use Graphify through Python module execution to avoid Windows PATH issues.
+
+Prerequisites:
+
+- Python 3.10+
+- Graphify package installed: `pip install graphifyy`
+
+Install VS Code Copilot Chat integration (writes `.github/copilot-instructions.md`):
+
+`npm run graphify:install:vscode`
+
+Generate or refresh the graph:
+
+`npm run graphify:build`
+
+Expected outputs:
+
+- `graphify-out/GRAPH_REPORT.md`
+- `graphify-out/graph.json`
+- `graphify-out/graph.html`
+
+Notes:
+
+- Package name is `graphifyy` on PyPI, but the CLI module is `graphify`.
+- If `graphify` is not on PATH on Windows, continue using `python -m graphify ...` (already handled by the npm scripts).
 
 ## GitHub Pages Deployment
 

@@ -1,0 +1,10 @@
+# Keep extraction focused on source content.
+node_modules/
+dist/
+coverage/
+
+# Keep graph cache out of processing and diffs.
+graphify-out/cache/
+
+# Cleanup in case an earlier run generated output under src.
+src/graphify-out/

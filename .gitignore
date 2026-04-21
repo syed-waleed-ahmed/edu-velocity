@@ -27,5 +27,9 @@ coverage/
 # cache
 *.tsbuildinfo
 
+# graphify
+graphify-out/cache/
+src/graphify-out/
+
 #Presentation
 EDU-Suite-Capability-Velocity-Explorer.pptx
