@@ -28,7 +28,8 @@ coverage/
 *.tsbuildinfo
 
 # graphify
-graphify-out/cache/
+graphify-out/*
+!graphify-out/GRAPH_REPORT.md
 src/graphify-out/
 
 #Presentation
